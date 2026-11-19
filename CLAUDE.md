@@ -38,3 +38,11 @@ There's no cart yet. Buttons send shoppers to an Instagram DM or a pre-filled em
 
 ## Deploy
 Vercel builds every push. A branch or PR gets a preview link, and `main` is the live site.
+
+## How to work with the owner (always follow)
+- **Plain English only.** No technical words in replies (no "branch", "commit", "merge", "build", "deploy", file names or code) unless the owner uses them first. Talk like a friendly person, not a developer.
+- **Keep replies small and simple.** A few short sentences or a short list.
+- **Every change gets a preview.** After each change: check it, save it, send it to GitHub, wait for Vercel to finish, then give the owner the preview link for that exact change (the Vercel link for that commit, not the live site link). Check the link opens before sharing it.
+- **Never put changes live on your own.** Changes collect on the `updates` branch. Once the owner is happy, ask in plain words, e.g. "Shall I put this live on the website now, or wait and put it live together with your next changes?" Only after a clear yes, bring `updates` into `main`.
+- **Simple branch names.** Use short, plain names that say what they are (`updates` for changes waiting to go live). Never long or random names.
+
