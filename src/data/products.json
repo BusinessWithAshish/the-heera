@@ -1,0 +1,800 @@
+[
+  {
+    "slug": "trophy-wife",
+    "name": "Trophy Wife",
+    "category": "heels",
+    "price": 2299,
+    "compareAtPrice": 2699,
+    "inStock": true,
+    "summary": "Wired strap wrap heels studded with crystals fits on ankle like a dream.",
+    "details": [
+      {
+        "label": "Upper",
+        "value": "Studded straps"
+      },
+      {
+        "label": "Padding",
+        "value": "cushioned"
+      },
+      {
+        "label": "Material",
+        "value": "faux leather"
+      },
+      {
+        "label": "Shoe type",
+        "value": "pencil heels"
+      },
+      {
+        "label": "Colour",
+        "value": "black"
+      },
+      {
+        "label": "Heel height",
+        "value": "3 inches"
+      }
+    ],
+    "images": [
+      "/images/products/trophy-wife-1.webp",
+      "/images/products/trophy-wife-2.webp",
+      "/images/products/trophy-wife-3.webp"
+    ]
+  },
+  {
+    "slug": "unicorn-sea",
+    "name": "Unicorn Sea",
+    "category": "heels",
+    "price": 2299,
+    "compareAtPrice": 2699,
+    "inStock": true,
+    "summary": "Silver embellished crystals on top and multi colour leather base",
+    "details": [
+      {
+        "label": "Upper",
+        "value": "silver ebellishments"
+      },
+      {
+        "label": "Padding",
+        "value": "cushioned"
+      },
+      {
+        "label": "Material",
+        "value": "faux leather"
+      },
+      {
+        "label": "Shoe type",
+        "value": "heels"
+      },
+      {
+        "label": "Colour",
+        "value": "multi"
+      },
+      {
+        "label": "Heel height",
+        "value": "3 inches"
+      }
+    ],
+    "images": [
+      "/images/products/unicorn-sea-1.webp",
+      "/images/products/unicorn-sea-2.webp"
+    ]
+  },
+  {
+    "slug": "studded-black-flats",
+    "name": "Studded Black Flats",
+    "category": "flats",
+    "price": 799,
+    "compareAtPrice": 999,
+    "inStock": true,
+    "summary": "Stud detailing, delicate straps on a pretty bold black color",
+    "details": [],
+    "images": [
+      "/images/products/studded-black-flats-1.webp",
+      "/images/products/studded-black-flats-2.webp",
+      "/images/products/studded-black-flats-3.webp",
+      "/images/products/studded-black-flats-4.webp",
+      "/images/products/studded-black-flats-5.webp"
+    ]
+  },
+  {
+    "slug": "tropical-paradise-flats",
+    "name": "Tropical tribe flats",
+    "category": "flats",
+    "price": 1200,
+    "compareAtPrice": 1500,
+    "inStock": true,
+    "summary": "Experience the tropical vibes in our newly added flats. It’s delicate handwork create a brezzy look to your outfits. With a focus on both style and comfort, these flats feature a cushioned insole and flexible sole for all-day wear. A Summer/Vacation must have! Styling Tips: Whether paired with a summer dress, shorts, or even beachwear, these sandals effortlessly blend style and functionality, making them a must-have addition to your wardrobe.",
+    "details": [],
+    "images": [
+      "/images/products/tropical-paradise-flats-1.webp",
+      "/images/products/tropical-paradise-flats-2.webp",
+      "/images/products/tropical-paradise-flats-3.webp"
+    ]
+  },
+  {
+    "slug": "pearl-me-up-flap-bag",
+    "name": "Pearl Me Up Bag",
+    "category": "bags",
+    "price": 2200,
+    "compareAtPrice": null,
+    "inStock": true,
+    "summary": "This luxurious handbag features handcrafted tassels adorned with lustrous pearls on each side & a handle draped in pearls. This bag is spacious & can hold your phone, wallet, lipsticks, airpods, cash, keys and other items.",
+    "details": [
+      {
+        "label": "Dimensions",
+        "value": "19x12 (cms)"
+      },
+      {
+        "label": "Closure mechanism",
+        "value": "Flap bag with magnet buttons"
+      },
+      {
+        "label": "Material",
+        "value": "Handcrafted Pearl detailing all over bag on premium silk white base."
+      },
+      {
+        "label": "How to carry",
+        "value": "You can carry this bag with/without detachable handle provided."
+      }
+    ],
+    "images": [
+      "/images/products/pearl-me-up-flap-bag-1.webp",
+      "/images/products/pearl-me-up-flap-bag-2.webp",
+      "/images/products/pearl-me-up-flap-bag-3.webp"
+    ]
+  },
+  {
+    "slug": "dew-drop",
+    "name": "Dew-Drop",
+    "category": "heels",
+    "price": 2200,
+    "compareAtPrice": 2700,
+    "inStock": true,
+    "summary": "The most comfortable pair with open toe front embraced with rhinestone hanging strap on top.",
+    "details": [
+      {
+        "label": "Upper",
+        "value": "Rhinestone strap"
+      },
+      {
+        "label": "Heel type",
+        "value": "block"
+      },
+      {
+        "label": "Padding",
+        "value": "cushioned"
+      },
+      {
+        "label": "Material",
+        "value": "faux leather"
+      },
+      {
+        "label": "Shoe type",
+        "value": "heels"
+      },
+      {
+        "label": "Colour",
+        "value": "black"
+      },
+      {
+        "label": "Heel height",
+        "value": "3 inches"
+      }
+    ],
+    "images": [
+      "/images/products/dew-drop-1.webp",
+      "/images/products/dew-drop-2.webp",
+      "/images/products/dew-drop-3.webp",
+      "/images/products/dew-drop-4.webp",
+      "/images/products/dew-drop-5.webp"
+    ]
+  },
+  {
+    "slug": "crystal-clear",
+    "name": "Crystal Clear",
+    "category": "heels",
+    "price": 2299,
+    "compareAtPrice": 2799,
+    "inStock": true,
+    "summary": "The most versatile pair with clear broad strap with embellished heels.",
+    "details": [
+      {
+        "label": "Upper",
+        "value": "Transparent strap"
+      },
+      {
+        "label": "Heel",
+        "value": "silver ebellishments"
+      },
+      {
+        "label": "Padding",
+        "value": "cushioned"
+      },
+      {
+        "label": "Material",
+        "value": "velvet finish"
+      },
+      {
+        "label": "Shoe type",
+        "value": "block heels"
+      },
+      {
+        "label": "Colour",
+        "value": "black"
+      },
+      {
+        "label": "Heel height",
+        "value": "4 inches"
+      }
+    ],
+    "images": [
+      "/images/products/crystal-clear-1.webp",
+      "/images/products/crystal-clear-2.webp",
+      "/images/products/crystal-clear-3.webp",
+      "/images/products/crystal-clear-4.webp"
+    ]
+  },
+  {
+    "slug": "dazzle-silver-bag",
+    "name": "Dazzle Silver Bag",
+    "category": "bags",
+    "price": 2090,
+    "compareAtPrice": 2500,
+    "inStock": true,
+    "summary": "Adorned with crystal tassels on handle that shimmer and dance with every move. Handmade with white and silver rhinestones.This bag doesn't just hold your essentials; it's a showstopper in its own right. This bag is spacious and can hold your phone, lipsticks, airpods, cash, keys and other items.",
+    "details": [
+      {
+        "label": "Dimensions",
+        "value": "18x12 (cms)"
+      },
+      {
+        "label": "Closure mechanism",
+        "value": "Flap bag with magnet buttons"
+      },
+      {
+        "label": "Material",
+        "value": "Rhodium Polished Rhinestones hand embroidered on premium silver silk satin."
+      },
+      {
+        "label": "How to carry",
+        "value": "You can carry this bag with/without detachable handle provided."
+      }
+    ],
+    "images": [
+      "/images/products/dazzle-silver-bag-1.webp",
+      "/images/products/dazzle-silver-bag-2.webp",
+      "/images/products/dazzle-silver-bag-3.webp"
+    ]
+  },
+  {
+    "slug": "goldmine",
+    "name": "Goldmine",
+    "category": "heels",
+    "price": 2299,
+    "compareAtPrice": 2799,
+    "inStock": true,
+    "summary": "Gems Studded on transparent strap with clear high heels perfect to style any occasion.",
+    "details": [
+      {
+        "label": "Upper",
+        "value": "gems ebellishments"
+      },
+      {
+        "label": "Heel",
+        "value": "clear glass"
+      },
+      {
+        "label": "Padding",
+        "value": "cushioned"
+      },
+      {
+        "label": "Material",
+        "value": "faux leather"
+      },
+      {
+        "label": "Shoe type",
+        "value": "block heels"
+      },
+      {
+        "label": "Colour",
+        "value": "Beige & silver"
+      },
+      {
+        "label": "Heel height",
+        "value": "5 inches"
+      }
+    ],
+    "images": [
+      "/images/products/goldmine-1.webp",
+      "/images/products/goldmine-2.webp",
+      "/images/products/goldmine-3.webp",
+      "/images/products/goldmine-4.webp",
+      "/images/products/goldmine-5.webp"
+    ]
+  },
+  {
+    "slug": "peach-pink-starliner-platform",
+    "name": "Starliner platform – Dusty rose",
+    "category": "platforms",
+    "price": 1399,
+    "compareAtPrice": 1599,
+    "inStock": true,
+    "summary": "Chunky heel platform sandals in peach pink. Rhinestones front straps with soft cloud cushioning footbed. Heel height 2.5-3 inch",
+    "details": [],
+    "images": [
+      "/images/products/peach-pink-starliner-platform-1.webp",
+      "/images/products/peach-pink-starliner-platform-2.webp"
+    ]
+  },
+  {
+    "slug": "crystal-ocean-flats",
+    "name": "Crystal Ocean Flats",
+    "category": "flats",
+    "price": 799,
+    "compareAtPrice": 999,
+    "inStock": false,
+    "summary": "Stunning V-strap style and dazzling multi colour jewel embellishments.",
+    "details": [],
+    "images": [
+      "/images/products/crystal-ocean-flats-1.webp"
+    ]
+  },
+  {
+    "slug": "all-pearl-bag",
+    "name": "All Pearl Bag",
+    "category": "bags",
+    "price": 999,
+    "compareAtPrice": 1999,
+    "inStock": true,
+    "summary": "This luxurious handbag adorned with lustrous pearls on each side & a handle draped in big pearls. This bag is spacious & can hold your phone, wallet, lipsticks, airpods, cash, keys and other items.",
+    "details": [],
+    "images": [
+      "/images/products/all-pearl-bag-1.webp"
+    ]
+  },
+  {
+    "slug": "stardust-mini-bag",
+    "name": "Stardust Mini Bag",
+    "category": "bags",
+    "price": 1999,
+    "compareAtPrice": 2400,
+    "inStock": true,
+    "summary": "Stardust is a tiny treasure featuring starry studded crystals on a dusty beige satin base with dazzling detachable handle. This bag can hold your lipsticks, airpods, cash, keys and other small items.",
+    "details": [
+      {
+        "label": "Dimensions",
+        "value": "14x12 (cms)"
+      },
+      {
+        "label": "Closure mechanism",
+        "value": "Flap bag with magnet buttons."
+      },
+      {
+        "label": "Material",
+        "value": "Rhodium Polished Rhinestones hand embroidered on premium silk satin base."
+      },
+      {
+        "label": "How to carry",
+        "value": "You can carry this bag with/without detachable handle provided."
+      }
+    ],
+    "images": [
+      "/images/products/stardust-mini-bag-1.webp",
+      "/images/products/stardust-mini-bag-2.webp"
+    ]
+  },
+  {
+    "slug": "tokyo-mini-bucket-bag-silver",
+    "name": "Tokyo Mini bucket bag – Silver",
+    "category": "bags",
+    "price": 999,
+    "compareAtPrice": null,
+    "inStock": true,
+    "summary": "Pretty in the day, classy by night. This bag blends a wallet-like functionality with the space of a regular sling bag. Open it up and you'll find Integrated card slots, a zip compartment and another space for all your essentials, like a phone to lipstick and more.",
+    "details": [],
+    "images": [
+      "/images/products/tokyo-mini-bucket-bag-silver-1.webp"
+    ]
+  },
+  {
+    "slug": "into-the-night",
+    "name": "Into the Night",
+    "category": "heels",
+    "price": 2299,
+    "compareAtPrice": 2699,
+    "inStock": true,
+    "summary": "Topped with silver broach on velvet finish strap.",
+    "details": [
+      {
+        "label": "Upper",
+        "value": "silver broach"
+      },
+      {
+        "label": "Heel type",
+        "value": "pencil"
+      },
+      {
+        "label": "Padding",
+        "value": "cushioned"
+      },
+      {
+        "label": "Material",
+        "value": "velvet finish"
+      },
+      {
+        "label": "Shoe type",
+        "value": "heels"
+      },
+      {
+        "label": "Colour",
+        "value": "black"
+      },
+      {
+        "label": "Heel height",
+        "value": "3 inches"
+      }
+    ],
+    "images": [
+      "/images/products/into-the-night-1.webp",
+      "/images/products/into-the-night-2.webp",
+      "/images/products/into-the-night-3.webp",
+      "/images/products/into-the-night-4.webp"
+    ]
+  },
+  {
+    "slug": "cluster-of-pearls-flats",
+    "name": "Cluster of Pearls flats – Nude",
+    "category": "flats",
+    "price": 1200,
+    "compareAtPrice": 1500,
+    "inStock": true,
+    "summary": "Discover refined elegance with the Cluster of Pearls Flats. Perfect blend of style & comfort. Intricately handcrafted pearls & embellishments, multi-sized pearls for an opulent design, cushioned insole for comfort, premium artisanal sole & broad strap for secure grip. You can pull it off with Jeans as well. It will make your whole outfit stand out For a more contemporary look, opt for a lehenga with a shorter length.The pearl flats will add a touch of sophistication to the overall.",
+    "details": [
+      {
+        "label": "Styling tip",
+        "value": "Pair these flats with a long, flowy kurta or a palazzo set for a modern ethnic look. The pearls will add a touch of luxury to your outfit."
+      }
+    ],
+    "images": [
+      "/images/products/cluster-of-pearls-flats-1.webp",
+      "/images/products/cluster-of-pearls-flats-2.webp"
+    ]
+  },
+  {
+    "slug": "valentina-silver",
+    "name": "Valentina Mini Bag – Gold",
+    "category": "bags",
+    "price": 1899,
+    "compareAtPrice": 2400,
+    "inStock": true,
+    "summary": "Here to win your hearts with its bejewelled body, we present the Valentina gold heart bag. The bag features a chain handle studded with rhinestones. Make every outfit sparkle with this heart-stopper ! This is a mini bag which cannot fit your phone.",
+    "details": [
+      {
+        "label": "Material",
+        "value": "Rhodium Polished Rhinestones."
+      },
+      {
+        "label": "Dimensions",
+        "value": "17x17 (cms)"
+      },
+      {
+        "label": "How to carry",
+        "value": "You can carry this bag with/without detachable handle provided."
+      }
+    ],
+    "images": [
+      "/images/products/valentina-silver-1.webp",
+      "/images/products/valentina-silver-2.webp"
+    ]
+  },
+  {
+    "slug": "precious-pearls",
+    "name": "Precious pearls",
+    "category": "heels",
+    "price": 2299,
+    "compareAtPrice": 2799,
+    "inStock": true,
+    "summary": "Pointed toe white heels with pearls & rhinestone embroidered on top.",
+    "details": [
+      {
+        "label": "Upper",
+        "value": "pearls studded"
+      },
+      {
+        "label": "Heel type",
+        "value": "pencil"
+      },
+      {
+        "label": "Padding",
+        "value": "cushioned"
+      },
+      {
+        "label": "Shoe type",
+        "value": "heels"
+      },
+      {
+        "label": "Colour",
+        "value": "white"
+      },
+      {
+        "label": "Heel height",
+        "value": "2 inches"
+      }
+    ],
+    "images": [
+      "/images/products/precious-pearls-1.webp",
+      "/images/products/precious-pearls-2.webp"
+    ]
+  },
+  {
+    "slug": "studded-bucket-bag-silver",
+    "name": "Tokyo mini bucket bag – studded silver",
+    "category": "bags",
+    "price": 999,
+    "compareAtPrice": null,
+    "inStock": true,
+    "summary": "A statement accessory finished with a sleek drawstring chain that cinches the bucket shape. Designed with chain strap. This definitive style is crafted from crystal-embellished satin and is complemented by antique silver-tone hardware. Specifications: Satin Hotfix crystals Drawstring closure Antique silver-tone hardware Made in India",
+    "details": [],
+    "images": [
+      "/images/products/studded-bucket-bag-silver-1.webp",
+      "/images/products/studded-bucket-bag-silver-2.webp",
+      "/images/products/studded-bucket-bag-silver-3.webp",
+      "/images/products/studded-bucket-bag-silver-4.webp",
+      "/images/products/studded-bucket-bag-silver-5.webp",
+      "/images/products/studded-bucket-bag-silver-6.webp"
+    ]
+  },
+  {
+    "slug": "crescent-moon-silver-bag",
+    "name": "Crescent Moon Silver Bag",
+    "category": "bags",
+    "price": 1990,
+    "compareAtPrice": 2400,
+    "inStock": true,
+    "summary": "Crescent Moon Bag is ready to capture the spotlight with its half moon shaped shimmering body and handle with pearl detailing on back. This bag is spacious and can hold your phone, wallet,lipsticks, airpods, cash, keys and other items.",
+    "details": [
+      {
+        "label": "Dimensions",
+        "value": "20x13 (cms)"
+      },
+      {
+        "label": "Closure mechanism",
+        "value": "Flap bag with magnet button."
+      },
+      {
+        "label": "Material",
+        "value": "Rhodium Polished Silver Rhinestones and pearls hand embroidered on premium silk satin."
+      },
+      {
+        "label": "How to carry",
+        "value": "You can carry this bag with/without detachable handle provided."
+      }
+    ],
+    "images": [
+      "/images/products/crescent-moon-silver-bag-1.webp",
+      "/images/products/crescent-moon-silver-bag-2.webp",
+      "/images/products/crescent-moon-silver-bag-3.webp",
+      "/images/products/crescent-moon-silver-bag-4.webp",
+      "/images/products/crescent-moon-silver-bag-5.webp"
+    ]
+  },
+  {
+    "slug": "dazzel-pink-bag",
+    "name": "Dazzel Pink Bag",
+    "category": "bags",
+    "price": 1990,
+    "compareAtPrice": 2400,
+    "inStock": true,
+    "summary": "Adorned with crystal tassels on handle that shimmer and dance with every move. Handmade with pink and silver rhinestones This bag doesn't just hold your essentials; it's a showstopper in its own right. This bag is spacious and can hold your phone, lipsticks, airpods, cash, keys and other items.",
+    "details": [
+      {
+        "label": "Dimensions",
+        "value": "18x12 (cms)"
+      },
+      {
+        "label": "Closure mechanism",
+        "value": "Flap bag with magnet buttons"
+      },
+      {
+        "label": "Material",
+        "value": "Rhodium Polished Rhinestones hand embroidered on premium pink silk satin base."
+      },
+      {
+        "label": "How to carry",
+        "value": "You can carry this bag with/without detachable handle provided."
+      }
+    ],
+    "images": [
+      "/images/products/dazzel-pink-bag-1.webp",
+      "/images/products/dazzel-pink-bag-2.webp",
+      "/images/products/dazzel-pink-bag-3.webp",
+      "/images/products/dazzel-pink-bag-4.webp",
+      "/images/products/dazzel-pink-bag-5.webp",
+      "/images/products/dazzel-pink-bag-6.webp",
+      "/images/products/dazzel-pink-bag-7.webp",
+      "/images/products/dazzel-pink-bag-8.webp",
+      "/images/products/dazzel-pink-bag-9.webp"
+    ]
+  },
+  {
+    "slug": "call-me-princess",
+    "name": "Call me Princess",
+    "category": "heels",
+    "price": 2300,
+    "compareAtPrice": 2900,
+    "inStock": true,
+    "summary": "Rhinestone straps with clear glass heeled sandal for minimalist look.",
+    "details": [
+      {
+        "label": "Upper",
+        "value": "Crystals strap"
+      },
+      {
+        "label": "Heel",
+        "value": "Clear glass"
+      },
+      {
+        "label": "Padding",
+        "value": "cushioned"
+      },
+      {
+        "label": "Material",
+        "value": "faux leather"
+      },
+      {
+        "label": "Shoe type",
+        "value": "block heels"
+      },
+      {
+        "label": "Colour",
+        "value": "white"
+      },
+      {
+        "label": "Heel height",
+        "value": "3 inches"
+      }
+    ],
+    "images": [
+      "/images/products/call-me-princess-1.webp",
+      "/images/products/call-me-princess-2.webp",
+      "/images/products/call-me-princess-3.webp"
+    ]
+  },
+  {
+    "slug": "studded-peach-flats",
+    "name": "Studded Peach Flats",
+    "category": "flats",
+    "price": 799,
+    "compareAtPrice": 999,
+    "inStock": true,
+    "summary": "Stud detailing, delicate straps and a pretty neutral peach color",
+    "details": [],
+    "images": [
+      "/images/products/studded-peach-flats-1.webp",
+      "/images/products/studded-peach-flats-2.webp",
+      "/images/products/studded-peach-flats-3.webp",
+      "/images/products/studded-peach-flats-4.webp",
+      "/images/products/studded-peach-flats-5.webp"
+    ]
+  },
+  {
+    "slug": "valentina-mini-bag-silver",
+    "name": "Valentina Mini Bag – Silver",
+    "category": "bags",
+    "price": 1899,
+    "compareAtPrice": 2400,
+    "inStock": true,
+    "summary": "Here to win your hearts with its bejewelled body, we present the Valentina silver heart bag. The bag features a chain handle studded with rhinestones. Make every outfit sparkle with this heart-stopper ! This is a mini bag which cannot fit your phone.",
+    "details": [
+      {
+        "label": "Material",
+        "value": "Rhodium Polished Rhinestones."
+      },
+      {
+        "label": "Dimensions",
+        "value": "17x17 (cms)"
+      },
+      {
+        "label": "How to carry",
+        "value": "You can carry this bag with/without detachable handle provided."
+      }
+    ],
+    "images": [
+      "/images/products/valentina-mini-bag-silver-1.webp",
+      "/images/products/valentina-mini-bag-silver-2.webp"
+    ]
+  },
+  {
+    "slug": "sahara-double-strap-flats-nude",
+    "name": "Sahara double strap flats – Nude",
+    "category": "flats",
+    "price": 1200,
+    "compareAtPrice": 1500,
+    "inStock": true,
+    "summary": "Experience our Sahara Nude Flats—a festive twist on our iconic Two Strap Embellished design. Crafted with our signature cushioned sole, these flats come alive with a unique design of stones set on a strap. Two straps, lavishly studded with diamonds, meet a comfortable backstrap, ensuring both style and ease. Styling Tip: These flats seamlessly transition from day to night. Pair with summer dress/Jeans or elevate a traditional kurta set for a touch of glam. This is so versatile to pull it off with any outfit",
+    "details": [],
+    "images": [
+      "/images/products/sahara-double-strap-flats-nude-1.webp",
+      "/images/products/sahara-double-strap-flats-nude-2.webp",
+      "/images/products/sahara-double-strap-flats-nude-3.webp",
+      "/images/products/sahara-double-strap-flats-nude-4.webp",
+      "/images/products/sahara-double-strap-flats-nude-5.webp"
+    ]
+  },
+  {
+    "slug": "studded-bucket-bag-black",
+    "name": "Tokyo mini bucket bag – studded black",
+    "category": "bags",
+    "price": 999,
+    "compareAtPrice": null,
+    "inStock": true,
+    "summary": "A statement accessory finished with a sleek drawstring chain that cinches the bucket shape. Designed with chain strap This definitive style is crafted from crystal-embellished satin and is complemented by antique silver-tone hardware. Specifications: Crossbody style Satin Hotfix crystals Drawstring closure Antique silver-tone hardware Made in India Tokyo mini bucket bag- studded black",
+    "details": [],
+    "images": [
+      "/images/products/studded-bucket-bag-black-1.webp",
+      "/images/products/studded-bucket-bag-black-2.webp",
+      "/images/products/studded-bucket-bag-black-3.webp",
+      "/images/products/studded-bucket-bag-black-4.webp",
+      "/images/products/studded-bucket-bag-black-5.webp",
+      "/images/products/studded-bucket-bag-black-6.webp"
+    ]
+  },
+  {
+    "slug": "black-starliner-platform",
+    "name": "Starliner platform – Black",
+    "category": "platforms",
+    "price": 1399,
+    "compareAtPrice": 1599,
+    "inStock": true,
+    "summary": "Chunky heel platform sandals in black. Rhinestones front straps with cloud cushioning footbed. Heel height 2.5-3 inch",
+    "details": [],
+    "images": [
+      "/images/products/black-starliner-platform-1.webp",
+      "/images/products/black-starliner-platform-2.webp",
+      "/images/products/black-starliner-platform-3.webp",
+      "/images/products/black-starliner-platform-4.webp"
+    ]
+  },
+  {
+    "slug": "denim-starliner-platforms",
+    "name": "Denim starliner platforms",
+    "category": "platforms",
+    "price": 1399,
+    "compareAtPrice": 1599,
+    "inStock": true,
+    "summary": "Chunky heel platform sandals in denim fabric. Rhinestones front straps with cloud cushioning footbed. Heel height 2.5-3 inch",
+    "details": [],
+    "images": [
+      "/images/products/denim-starliner-platforms-1.webp",
+      "/images/products/denim-starliner-platforms-2.webp"
+    ]
+  },
+  {
+    "slug": "bejewelled-tan-flats",
+    "name": "Bejewelled Tan Flats",
+    "category": "flats",
+    "price": 799,
+    "compareAtPrice": 999,
+    "inStock": false,
+    "summary": "Straps with Silver Embellishments on a Tan colour Flats. You can style them under traditional as well as your regular jeans and they will surely stand out.",
+    "details": [],
+    "images": [
+      "/images/products/bejewelled-tan-flats-1.webp",
+      "/images/products/bejewelled-tan-flats-2.webp",
+      "/images/products/bejewelled-tan-flats-3.webp"
+    ]
+  },
+  {
+    "slug": "big-bejewelled-double-strap-flats",
+    "name": "Big bejewelled double strap flats",
+    "category": "flats",
+    "price": 1200,
+    "compareAtPrice": 1500,
+    "inStock": true,
+    "summary": "Step up your style game with the big bejewelled sliders, featuring bold, thick double straps embellished with sparkling rhinestones. These eye-catching sliders offer both comfort and glamour, making them the perfect statement piece for any occasion. Whether you're dressing up for a festive event or adding a touch of luxury to your casual wear, the sliders will keep you looking effortlessly stylish.",
+    "details": [],
+    "images": [
+      "/images/products/big-bejewelled-double-strap-flats-1.webp",
+      "/images/products/big-bejewelled-double-strap-flats-2.webp"
+    ]
+  }
+]

@@ -1,9 +1,23 @@
 @AGENTS.md
 
-# Heera Luxe website
+# The Heera website
 
-Marketing site for Heera Luxe (luxury women's heels and bags, India). It will replace https://www.theheera.in.
+Shop site for The Heera (hand-embellished women's heels, flats, platforms and bags, made in India). It will replace the Wix site at https://www.theheera.in.
 The person editing this is not a developer. They ask in plain words ("make the banner pink", "add a new bag"). Make the change, check it, and explain what changed in one or two plain sentences. No jargon.
+
+## Where things live
+- **Products:** `src/data/products.json`, one entry per product (slug, name, category, price, compareAtPrice, inStock, summary, details, images). Adding, editing, repricing or marking sold out happens only here.
+  - `category` must be `heels`, `flats`, `platforms` or `bags`.
+  - `compareAtPrice` is the old struck-through price, or `null`. Only set it when the owner gives one.
+- **Product photos:** `public/images/products/<slug>-<n>.webp`. The first photo is the main one. A new photo the owner shares must be saved here and listed in that product's `images`.
+- **Category names, blurbs and the home page picks:** `src/lib/catalog.ts` (`categories`, `featuredSlugs`, `eveningSlugs`).
+- **Brand facts, shipping days, exchange days, Instagram and email:** `src/config/site.ts`.
+- **Pages:** `src/app/` (home `page.tsx`, `shop/`, `products/[slug]/`, `faq/`, `shipping-returns/`, `contact/`).
+- **Look and feel:** colours in `src/app/globals.css` (ivory, espresso, `gold`, `blush`; `class="dark"` gives a dark band). The fonts are Cormorant Garamond for headings and Jost for text, set in `src/app/layout.tsx`.
+- **Old site snapshot:** `reference/current-site/`. It's source material only.
+
+## Ordering
+There's no cart yet. Buttons send shoppers to an Instagram DM or a pre-filled email. Don't add a cart or payments unless the owner asks for one, since that's a separate decision.
 
 ## Stack (do not swap any of these)
 - Next.js 16 App Router, TypeScript, `src/` layout. Read `node_modules/next/dist/docs/` before using a Next API you're unsure of.

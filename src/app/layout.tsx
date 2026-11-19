@@ -1,17 +1,26 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Cormorant_Garamond, Geist_Mono, Jost } from "next/font/google";
 
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 import { Toaster } from "@/components/ui/toast";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { site } from "@/config/site";
 import "./globals.css";
 
-const geistSans = Geist({
+const display = Cormorant_Garamond({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+});
+
+const sans = Jost({
   variable: "--font-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+const mono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
@@ -30,18 +39,27 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "en_IN",
     type: "website",
+    images: ["/images/brand/bestseller.webp"],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#faf7f2",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${display.variable} ${sans.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <Toaster>
-          <TooltipProvider>{children}</TooltipProvider>
+          <TooltipProvider>
+            <SiteHeader />
+            <main className="flex-1">{children}</main>
+            <SiteFooter />
+          </TooltipProvider>
         </Toaster>
       </body>
     </html>
