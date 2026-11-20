@@ -3,7 +3,7 @@ import { MailIcon } from "lucide-react";
 
 import { ContactForm } from "@/components/contact-form";
 import { Eyebrow } from "@/components/section-heading";
-import { InstagramIcon } from "@/components/site-footer";
+import { InstagramIcon } from "@/components/instagram-icon";
 import { site } from "@/config/site";
 
 export const metadata: Metadata = {

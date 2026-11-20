@@ -30,6 +30,23 @@ export const nav = [
   { label: "Bags", href: "/shop/bags" },
 ] as const;
 
+// The top menu on big screens. "Footwear" opens a small list.
+export const mainNav = [
+  { label: "New in", href: "/#new-in" },
+  { label: "Bags", href: "/shop/bags" },
+  {
+    label: "Footwear",
+    href: "/shop",
+    children: [
+      { label: "Heels", href: "/shop/heels" },
+      { label: "Flats", href: "/shop/flats" },
+      { label: "Platforms", href: "/shop/platforms" },
+      { label: "Shop all", href: "/shop" },
+    ],
+  },
+  { label: "Bestsellers", href: "/#bestsellers" },
+] as const;
+
 export const helpNav = [
   { label: "Shipping & exchanges", href: "/shipping-returns" },
   { label: "FAQ", href: "/faq" },

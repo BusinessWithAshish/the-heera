@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Geist_Mono, Jost } from "next/font/google";
+import { Allura, Cormorant_Garamond, Geist_Mono, Jost } from "next/font/google";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -11,13 +11,20 @@ import "./globals.css";
 const display = Cormorant_Garamond({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
 });
 
 const sans = Jost({
   variable: "--font-sans",
   subsets: ["latin"],
+});
+
+// Handwritten script, used sparingly (the "Soon" in the home banner).
+const script = Allura({
+  variable: "--font-script",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 const mono = Geist_Mono({
@@ -44,14 +51,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#faf7f2",
+  themeColor: "#0b0a09",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${display.variable} ${sans.variable} ${mono.variable} h-full antialiased`}
+      className={`${display.variable} ${sans.variable} ${script.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <Toaster>

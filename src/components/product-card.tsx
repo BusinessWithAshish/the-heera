@@ -35,18 +35,18 @@ export function ProductCard({ product, priority, className }: { product: Product
           />
         )}
         {!product.inStock ? (
-          <Badge variant="secondary" className="absolute top-3 left-3 rounded-none uppercase tracking-wider">
+          <Badge variant="secondary" className="absolute top-2 left-2 h-5 rounded-none px-2 text-[9px] tracking-[0.16em] uppercase">
             Sold out
           </Badge>
         ) : product.compareAtPrice ? (
-          <Badge className="absolute top-3 left-3 rounded-none bg-background text-foreground uppercase tracking-wider">
+          <Badge className="absolute top-2 left-2 h-5 rounded-none bg-gold px-2 text-[9px] tracking-[0.16em] text-white uppercase">
             Sale
           </Badge>
         ) : null}
       </div>
       <div className="space-y-1 pt-3">
-        <h3 className="font-heading text-lg leading-snug sm:text-xl">{product.name}</h3>
-        <PriceTag product={product} className="text-sm" />
+        <h3 className="font-sans text-xs leading-snug tracking-[0.14em] uppercase sm:text-[13px]">{product.name}</h3>
+        <PriceTag product={product} className="text-[13px]" />
       </div>
     </Link>
   );

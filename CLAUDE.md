@@ -9,11 +9,13 @@ The person editing this is not a developer. They ask in plain words ("make the b
 - **Products:** `src/data/products.json`, one entry per product (slug, name, category, price, compareAtPrice, inStock, summary, details, images). Adding, editing, repricing or marking sold out happens only here.
   - `category` must be `heels`, `flats`, `platforms` or `bags`.
   - `compareAtPrice` is the old struck-through price, or `null`. Only set it when the owner gives one.
+- **Home page photos and words** (banner strips, promises, "Everyday glamour" panel, top announcement): `src/config/home.ts`, photos in `public/images/home/`. To swap a photo, replace the file with the same name.
+- **Logo:** `public/images/brand/heera-luxe-logo.webp` (header/footer) and `heera-luxe-logo-full.webp`. Both are light on a see-through background, so use them on dark bands only.
 - **Product photos:** `public/images/products/<slug>-<n>.webp`. The first photo is the main one. A new photo the owner shares must be saved here and listed in that product's `images`.
-- **Category names, blurbs and the home page picks:** `src/lib/catalog.ts` (`categories`, `featuredSlugs`, `eveningSlugs`).
+- **Category names, blurbs and the home page picks:** `src/lib/catalog.ts` (`categories`, `newInSlugs`, `bestsellerSlugs`).
 - **Brand facts, shipping days, exchange days, Instagram and email:** `src/config/site.ts`.
 - **Pages:** `src/app/` (home `page.tsx`, `shop/`, `products/[slug]/`, `faq/`, `shipping-returns/`, `contact/`).
-- **Look and feel:** colours in `src/app/globals.css` (ivory, espresso, `gold`, `blush`; `class="dark"` gives a dark band). The fonts are Cormorant Garamond for headings and Jost for text, set in `src/app/layout.tsx`.
+- **Look and feel:** colours in `src/app/globals.css` (ivory, near-black, rose-`gold`, `espresso`, `blush`; `class="dark"` gives a dark band). The fonts are Cormorant Garamond for headings, Jost for text and Allura (`font-script`) for the odd handwritten word, set in `src/app/layout.tsx`.
 - **Old site snapshot:** `reference/current-site/`. It's source material only.
 
 ## Ordering

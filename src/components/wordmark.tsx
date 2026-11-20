@@ -1,16 +1,19 @@
+import Image from "next/image";
+
+import { site } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-// The Heera wordmark: a small faceted diamond and the name set in the display serif.
-export function Wordmark({ className }: { className?: string }) {
+// The Heera Luxe logo (rose-gold lettering on a see-through background).
+// It's light, so only use it on dark bands. Set the height with className, e.g. "h-10".
+export function Wordmark({ className, priority }: { className?: string; priority?: boolean }) {
   return (
-    <span className={cn("inline-flex items-center gap-2 text-foreground", className)}>
-      <svg viewBox="0 0 24 20" aria-hidden className="h-[0.9em] w-auto text-gold" fill="none" stroke="currentColor" strokeWidth="1.2">
-        <path d="M5 1h14l4 6-11 12L1 7z" />
-        <path d="M1 7h22M9 1 7 7l5 12 5-12-2-6" />
-      </svg>
-      <span className="font-heading text-[1.35em] leading-none font-medium tracking-[0.28em] uppercase">
-        Heera
-      </span>
-    </span>
+    <Image
+      src="/images/brand/heera-luxe-logo.webp"
+      alt={site.name}
+      width={698}
+      height={232}
+      priority={priority}
+      className={cn("h-10 w-auto", className)}
+    />
   );
 }

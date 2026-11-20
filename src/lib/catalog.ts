@@ -60,19 +60,18 @@ export function related(product: Product, count = 4) {
     .slice(0, count);
 }
 
-// Hand-picked for the home page. Edit the slugs to change what's featured.
-export const featuredSlugs = [
+// Hand-picked for the home page. Edit the slugs to change what's shown.
+// OWNER TO CONFIRM: these lists are a first guess, not real sales or arrival data.
+export const newInSlugs = ["pearl-me-up-flap-bag", "stardust-mini-bag", "crescent-moon-silver-bag", "valentina-silver"];
+
+export const bestsellerSlugs = [
   "trophy-wife",
   "dazzel-pink-bag",
   "black-starliner-platform",
   "cluster-of-pearls-flats",
   "goldmine",
-  "valentina-silver",
   "precious-pearls",
-  "crescent-moon-silver-bag",
 ];
-
-export const eveningSlugs = ["dew-drop", "into-the-night", "stardust-mini-bag", "call-me-princess"];
 
 export function pick(slugs: string[]) {
   return slugs.map(getProduct).filter((p): p is Product => Boolean(p));

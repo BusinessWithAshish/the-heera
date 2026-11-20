@@ -1,17 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
-import { GemIcon, RefreshCwIcon, TruckIcon } from "lucide-react";
+import { GemIcon, ShoppingBagIcon, SparklesIcon, TruckIcon } from "lucide-react";
 
-import { InstagramIcon } from "@/components/site-footer";
-import { PriceTag } from "@/components/price-tag";
+import { InstagramIcon } from "@/components/instagram-icon";
 import { ProductCard } from "@/components/product-card";
-import { Eyebrow, SectionHeading } from "@/components/section-heading";
+import { Ornament, SectionHeading } from "@/components/section-heading";
 import { buttonVariants } from "@/components/ui/button";
+import { home } from "@/config/home";
 import { site } from "@/config/site";
-import { byCategory, categories, categoryKeys, eveningSlugs, featuredSlugs, getProduct, pick } from "@/lib/catalog";
+import { bestsellerSlugs, byCategory, categories, categoryKeys, newInSlugs, pick } from "@/lib/catalog";
 import { cn } from "@/lib/utils";
 
-const ctaClass = "h-12 rounded-none px-8 text-xs tracking-[0.18em] uppercase";
+const outlineCta =
+  "inline-flex h-11 items-center justify-center border border-current px-7 text-[11px] tracking-[0.22em] uppercase transition-colors hover:bg-foreground hover:text-background";
+
+const promiseIcons = { gem: GemIcon, sparkles: SparklesIcon, bag: ShoppingBagIcon, truck: TruckIcon } as const;
 
 // Which product photo fronts each category tile.
 const tileImage: Record<string, string> = {
@@ -22,68 +25,121 @@ const tileImage: Record<string, string> = {
 };
 
 export default function Home() {
-  const featured = pick(featuredSlugs);
-  const evening = pick(eveningSlugs);
-  const heroPick = getProduct("trophy-wife");
+  const newIn = pick(newInSlugs);
+  const bestsellers = pick(bestsellerSlugs);
+  const { hero, glamour } = home;
 
   return (
     <>
-      {/* Hero */}
-      <section className="mx-auto grid max-w-7xl items-center gap-10 px-4 pt-8 pb-16 sm:px-6 md:grid-cols-[1fr_1.05fr] md:gap-16 md:pt-14 md:pb-24">
-        <div className="order-2 space-y-7 md:order-1">
-          <Eyebrow>Hand-embellished in India</Eyebrow>
-          <h1 className="text-5xl leading-[1.02] sm:text-6xl lg:text-7xl">
-            Made to be <em className="text-gold">noticed.</em>
+      {/* Banner: six photo strips with the title over them */}
+      <section className="dark relative isolate overflow-hidden bg-background text-foreground">
+        <div className="grid h-[460px] grid-cols-3 sm:h-[500px] md:grid-cols-6 lg:h-[520px]">
+          {hero.images.map((img, i) => (
+            <div key={img.src} className={cn("relative", i > 2 && "hidden md:block")}>
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                priority={i < 3}
+                sizes="(min-width: 768px) 17vw, 34vw"
+                className="object-cover"
+              />
+            </div>
+          ))}
+        </div>
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgb(0_0_0/0.55),transparent_70%)]" />
+
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+          <h1 className="text-[3.4rem] leading-none font-light tracking-[0.2em] text-gold uppercase sm:text-7xl lg:text-8xl">
+            {hero.title}
           </h1>
-          <p className="max-w-md text-base text-muted-foreground sm:text-lg">
-            Crystal-wrapped heels, pearl-studded flats and bags that catch every light. Each piece is finished by hand
-            by our artisans, for weddings, nights out and everything in between.
+          <p className="-mt-2 font-script text-[5.5rem] leading-[0.9] text-gold sm:-mt-3 sm:text-[8rem] lg:text-[9.5rem]">
+            {hero.script}
           </p>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/shop/heels" className={cn(buttonVariants(), ctaClass)}>
-              Shop heels
-            </Link>
-            <Link href="/shop/bags" className={cn(buttonVariants({ variant: "outline" }), ctaClass, "bg-transparent")}>
-              Shop bags
-            </Link>
+          <Ornament className="mt-4" />
+          <p className="mt-5 text-[11px] tracking-[0.32em] text-foreground/90 uppercase sm:text-sm">{hero.subtitle}</p>
+          <Link href={hero.button.href} className={cn(outlineCta, "mt-8 text-gold hover:border-gold hover:bg-gold")}>
+            {hero.button.label}
+          </Link>
+        </div>
+      </section>
+
+      {/* Four promises */}
+      <section className="border-b bg-secondary">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-y-6 px-4 py-6 sm:px-6 lg:grid-cols-4 lg:py-5">
+          {home.promises.map(({ icon, title, body }, i) => {
+            const Icon = promiseIcons[icon];
+            return (
+              <div
+                key={title}
+                className={cn(
+                  "flex items-center gap-3 px-2 sm:gap-4 lg:justify-center lg:px-6",
+                  i > 0 && "lg:border-l lg:border-foreground/15",
+                )}
+              >
+                <Icon className="size-6 shrink-0 text-foreground/80" strokeWidth={1.1} />
+                <div>
+                  <p className="text-[10px] tracking-[0.18em] uppercase sm:text-[11px]">{title}</p>
+                  <p className="text-[11px] text-muted-foreground sm:text-xs">{body}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* New in, with the "everyday glamour" panel beside it */}
+      <section id="new-in" className="mx-auto grid max-w-7xl scroll-mt-28 gap-10 px-4 pt-14 pb-14 sm:px-6 lg:grid-cols-[1fr_minmax(0,0.55fr)] lg:pt-16">
+        <div>
+          <SectionHeading title="New in" link={{ href: "/shop", label: "View all" }} />
+          <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-4 sm:gap-x-4">
+            {newIn.map((p) => (
+              <ProductCard key={p.slug} product={p} />
+            ))}
           </div>
-          <p className="text-xs tracking-[0.14em] text-muted-foreground uppercase">
-            {byCategory().length} styles · Free shipping across India
-          </p>
         </div>
 
-        <div className="relative order-1 md:order-2">
-          <div className="relative aspect-[4/5] overflow-hidden bg-muted">
+        <Link
+          href={glamour.button.href}
+          className="dark group relative isolate flex min-h-[420px] overflow-hidden bg-espresso text-foreground lg:min-h-0"
+        >
+          <div className="absolute inset-0 -z-10 sm:left-[38%]">
             <Image
-              src="/images/brand/bestseller.webp"
-              alt="Crystal wrap heels being fastened at the ankle"
+              src={glamour.image.src}
+              alt={glamour.image.alt}
               fill
-              priority
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover object-[50%_70%]"
+              sizes="(min-width: 1024px) 25vw, (min-width: 640px) 60vw, 100vw"
+              className="object-cover object-top transition duration-700 group-hover:scale-[1.03]"
             />
           </div>
-          {heroPick && (
-            <Link
-              href={`/products/${heroPick.slug}`}
-              className="absolute -bottom-6 left-4 flex w-60 items-center gap-3 border bg-background/95 p-3 shadow-sm backdrop-blur transition hover:shadow-md sm:left-auto sm:-left-8"
-            >
-              <div className="relative size-14 shrink-0 overflow-hidden bg-muted">
-                <Image src={heroPick.images[0]} alt="" fill sizes="56px" className="object-cover" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-[10px] tracking-[0.18em] text-gold uppercase">Bestseller</p>
-                <p className="truncate font-heading text-lg leading-tight">{heroPick.name}</p>
-                <PriceTag product={heroPick} className="text-xs" />
-              </div>
-            </Link>
-          )}
+          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-espresso via-espresso/50 to-transparent sm:bg-gradient-to-r sm:from-espresso sm:from-35% sm:via-espresso/70 sm:via-50% sm:to-transparent" />
+          <div className="mt-auto max-w-[15rem] space-y-5 p-7 sm:my-auto sm:p-9">
+            <h2 className="text-4xl leading-[1.1] font-light tracking-[0.12em] uppercase">{glamour.title}</h2>
+            <Ornament className="justify-start" />
+            <p className="text-sm leading-relaxed text-foreground/85">{glamour.body}</p>
+            <span className={cn(outlineCta, "group-hover:bg-foreground group-hover:text-background")}>
+              {glamour.button.label}
+            </span>
+          </div>
+        </Link>
+      </section>
+
+      {/* Bestsellers */}
+      <section id="bestsellers" className="mx-auto max-w-7xl scroll-mt-28 px-4 pb-20 sm:px-6">
+        <div className="border-t pt-12">
+          <SectionHeading title="Bestsellers" link={{ href: "/shop", label: "View all" }} />
+          <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-3 sm:gap-x-4 lg:grid-cols-6">
+            {bestsellers.map((p) => (
+              <ProductCard key={p.slug} product={p} />
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Categories */}
       <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6">
-        <SectionHeading eyebrow="Shop by type" title="Find your sparkle" />
+        <SectionHeading title="Shop by type" />
         <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
           {categoryKeys.map((key) => (
             <Link key={key} href={`/shop/${key}`} className="group relative aspect-[3/4] overflow-hidden bg-muted">
@@ -94,10 +150,10 @@ export default function Home() {
                 sizes="(min-width: 1024px) 25vw, 50vw"
                 className="object-cover transition duration-700 group-hover:scale-[1.04]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-4 text-white sm:p-5">
-                <p className="font-heading text-2xl sm:text-3xl">{categories[key].label}</p>
-                <p className="text-[11px] tracking-[0.18em] uppercase opacity-80">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-4 text-center text-white sm:p-6">
+                <p className="font-heading text-2xl tracking-[0.16em] uppercase sm:text-3xl">{categories[key].label}</p>
+                <p className="mt-1 text-[10px] tracking-[0.22em] uppercase opacity-80">
                   {byCategory(key).length} styles
                 </p>
               </div>
@@ -106,75 +162,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured */}
-      <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6">
-        <SectionHeading eyebrow="Most loved" title="The pieces everyone asks about" link={{ href: "/shop", label: "Shop all" }} />
-        <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-5 lg:grid-cols-4">
-          {featured.map((p) => (
-            <ProductCard key={p.slug} product={p} />
-          ))}
-        </div>
-      </section>
-
-      {/* Promises */}
-      <section className="border-y bg-secondary/60">
-        <div className="mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:grid-cols-3 sm:px-6">
-          {[
-            { icon: TruckIcon, title: "Free shipping in India", body: `Dispatched in ${site.shipping.dispatchDays} days, delivered in ${site.shipping.deliveryDays}.` },
-            { icon: GemIcon, title: "Embellished by hand", body: "Every crystal and pearl is sewn on by our artisans." },
-            { icon: RefreshCwIcon, title: "Size exchange", body: `Wrong size? Exchange within ${site.exchangeDays} days of delivery.` },
-          ].map(({ icon: Icon, title, body }) => (
-            <div key={title} className="flex gap-4">
-              <Icon className="mt-1 size-5 shrink-0 text-gold" strokeWidth={1.4} />
-              <div>
-                <p className="font-heading text-xl">{title}</p>
-                <p className="text-sm text-muted-foreground">{body}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Evening edit */}
-      <section className="dark bg-background text-foreground">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_2fr] lg:items-center">
-          <div className="space-y-5">
-            <Eyebrow>The evening edit</Eyebrow>
-            <h2 className="text-4xl leading-tight sm:text-5xl">
-              After dark, <em className="text-gold">everything shines.</em>
-            </h2>
-            <p className="max-w-sm text-muted-foreground">
-              Rhinestone straps, velvet brooches and starry crystals, picked for sangeets, receptions and late dinners.
-            </p>
-            <Link href="/shop" className={cn(buttonVariants(), ctaClass)}>
-              Explore the edit
-            </Link>
-          </div>
-          <div className="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-4 sm:overflow-visible sm:px-0">
-            {evening.map((p) => (
-              <ProductCard key={p.slug} product={p} className="w-[62vw] shrink-0 snap-start sm:w-auto" />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Story */}
-      <section className="bg-blush/50">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 md:grid-cols-2 md:gap-16">
-          <div className="relative aspect-square overflow-hidden bg-muted">
+      <section className="dark bg-background text-foreground">
+        <div className="mx-auto grid max-w-7xl items-center gap-6 px-4 py-16 sm:px-6 md:grid-cols-2 md:gap-16 md:py-20">
+          <div className="relative mx-auto aspect-[1131/1391] w-full max-w-sm">
             <Image
-              src="/images/products/pearl-me-up-flap-bag-1.webp"
-              alt="Pearl Me Up bag with hand-strung pearl tassels"
+              src="/images/brand/heera-luxe-logo-full.webp"
+              alt={`${site.name} logo`}
               fill
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover"
+              sizes="(min-width: 768px) 384px, 90vw"
+              className="object-contain"
             />
           </div>
-          <div className="space-y-5">
-            <Eyebrow>Our story</Eyebrow>
-            <h2 className="text-4xl leading-tight sm:text-5xl">Sewn by hand, one crystal at a time.</h2>
+          <div className="space-y-6 text-center md:text-left">
+            <p className="text-[11px] tracking-[0.24em] text-gold uppercase">Our story</p>
+            <h2 className="text-4xl leading-tight font-light tracking-[0.08em] uppercase sm:text-5xl">
+              Sewn by hand, one crystal at a time
+            </h2>
+            <Ornament className="md:justify-start" />
             <p className="text-muted-foreground">
-              Every piece is designed by our founder, Heera, and made in India by skilled artisans who sew each
+              Every piece is designed by our founder, Heena, and made in India by skilled artisans who sew each
               embellishment by hand, so the sparkle lasts long after the party.
             </p>
             <p className="text-muted-foreground">
@@ -186,7 +193,7 @@ export default function Home() {
 
       {/* Community */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-        <SectionHeading eyebrow={site.instagram.handle} title={<>Babes of <em>Heera</em></>} />
+        <SectionHeading eyebrow={site.instagram.handle} title="Babes of Heera" />
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {[1, 2, 3, 4, 5, 6].map((n) => (
             <a
@@ -206,12 +213,12 @@ export default function Home() {
             </a>
           ))}
         </div>
-        <div className="mt-8 flex justify-center">
+        <div className="mt-10 flex justify-center">
           <a
             href={site.instagram.url}
             target="_blank"
             rel="noreferrer"
-            className={cn(buttonVariants({ variant: "outline" }), ctaClass, "gap-2 bg-transparent")}
+            className={cn(buttonVariants({ variant: "outline" }), outlineCta, "h-11 gap-2 rounded-none bg-transparent")}
           >
             <InstagramIcon className="size-4" /> Tag us to be featured
           </a>

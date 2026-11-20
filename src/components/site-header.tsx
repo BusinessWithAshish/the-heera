@@ -2,97 +2,139 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MenuIcon } from "lucide-react";
+import { MenuIcon, SearchIcon } from "lucide-react";
 
+import { InstagramIcon } from "@/components/instagram-icon";
 import { Wordmark } from "@/components/wordmark";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { helpNav, nav, site } from "@/config/site";
+import { home } from "@/config/home";
+import { helpNav, mainNav, nav, site } from "@/config/site";
 import { cn } from "@/lib/utils";
+
+const linkClass = "text-[13px] tracking-[0.16em] uppercase transition-colors hover:text-gold";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header className="sticky top-0 z-40">
-      <div className="bg-foreground px-4 py-2 text-center text-[11px] tracking-[0.18em] text-background uppercase">
-        Free shipping across India<span className="hidden sm:inline"> · Ships in {site.shipping.dispatchDays} days</span>
+    <header className="dark sticky top-0 z-40 bg-background text-foreground">
+      <div className="border-b px-4 py-2 text-center text-[9px] tracking-[0.14em] whitespace-pre-wrap text-gold uppercase sm:text-[11px] sm:tracking-[0.2em]">
+        {home.announcement}
       </div>
-      <div className="border-b bg-background/90 backdrop-blur supports-backdrop-filter:bg-background/75">
-        <div className="mx-auto grid h-16 max-w-7xl grid-cols-[1fr_auto_1fr] items-center px-4 sm:px-6">
+      <div className="border-b">
+        <div className="mx-auto grid h-16 max-w-[96rem] grid-cols-[1fr_auto_1fr] items-center px-4 sm:px-6 md:h-[76px] lg:px-10">
           <div className="flex items-center">
             <Sheet>
-              <SheetTrigger render={<Button variant="ghost" size="icon" className="-ml-2 md:hidden" aria-label="Open menu" />}>
+              <SheetTrigger
+                render={<Button variant="ghost" size="icon" className="-ml-2 md:hidden" aria-label="Open menu" />}
+              >
                 <MenuIcon />
               </SheetTrigger>
-              <SheetContent side="left" className="w-[85vw] max-w-sm">
+              <SheetContent side="left" className="dark w-[85vw] max-w-sm bg-background text-foreground">
                 <SheetHeader>
                   <SheetTitle>
-                    <Wordmark />
+                    <Wordmark className="h-9" />
                   </SheetTitle>
                 </SheetHeader>
                 <nav className="flex flex-col px-4">
-                  {[{ label: "Shop all", href: "/shop" }, ...nav].map((item) => (
-                    <SheetClose
-                      key={item.href}
-                      render={
-                        <Link
-                          href={item.href}
-                          className="border-b py-4 font-heading text-2xl"
-                        />
-                      }
-                    >
-                      {item.label}
-                    </SheetClose>
-                  ))}
-                  <Separator className="my-4 opacity-0" />
-                  {helpNav.map((item) => (
-                    <SheetClose
-                      key={item.href}
-                      render={<Link href={item.href} className="py-2 text-sm text-muted-foreground" />}
-                    >
-                      {item.label}
-                    </SheetClose>
-                  ))}
+                  {[{ label: "New in", href: "/#new-in" }, ...nav, { label: "Bestsellers", href: "/#bestsellers" }, { label: "Shop all", href: "/shop" }].map(
+                    (item) => (
+                      <SheetClose
+                        key={item.href}
+                        render={<Link href={item.href} className="border-b py-4 font-heading text-2xl tracking-[0.12em] uppercase" />}
+                      >
+                        {item.label}
+                      </SheetClose>
+                    ),
+                  )}
+                  <div className="mt-6 flex flex-col">
+                    {helpNav.map((item) => (
+                      <SheetClose
+                        key={item.href}
+                        render={<Link href={item.href} className="py-2 text-sm text-muted-foreground" />}
+                      >
+                        {item.label}
+                      </SheetClose>
+                    ))}
+                  </div>
                 </nav>
               </SheetContent>
             </Sheet>
-            <nav className="hidden items-center gap-7 md:flex">
-              {nav.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    "text-xs tracking-[0.16em] uppercase transition-colors hover:text-foreground",
-                    isActive(item.href) ? "text-foreground" : "text-muted-foreground",
-                  )}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
+            <Link href="/" aria-label={`${site.name} home`} className="hidden md:block">
+              <Wordmark className="h-11 lg:h-12" priority />
+            </Link>
           </div>
 
-          <Link href="/" aria-label={`${site.name} home`} className="text-base sm:text-lg">
-            <Wordmark />
+          <Link href="/" aria-label={`${site.name} home`} className="md:hidden">
+            <Wordmark className="h-10" priority />
           </Link>
 
-          <div className="flex items-center justify-end gap-6">
+          <NavigationMenu className="hidden md:flex" align="center">
+            <NavigationMenuList className="gap-6 lg:gap-12">
+              {mainNav.map((item) =>
+                "children" in item ? (
+                  <NavigationMenuItem key={item.label}>
+                    <NavigationMenuTrigger
+                      className={cn(
+                        linkClass,
+                        "h-auto rounded-none bg-transparent px-0 py-2 font-normal hover:bg-transparent focus:bg-transparent data-popup-open:bg-transparent data-popup-open:hover:bg-transparent data-open:bg-transparent",
+                      )}
+                    >
+                      {item.label}
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid w-48 gap-0.5 p-1">
+                        {item.children.map((child) => (
+                          <li key={child.href}>
+                            <NavigationMenuLink
+                              render={<Link href={child.href} />}
+                              className="rounded-none px-3 py-2.5 text-xs tracking-[0.16em] uppercase"
+                            >
+                              {child.label}
+                            </NavigationMenuLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                ) : (
+                  <NavigationMenuItem key={item.label}>
+                    <Link href={item.href} className={cn(linkClass, "py-2", isActive(item.href) && "text-gold")}>
+                      {item.label}
+                    </Link>
+                  </NavigationMenuItem>
+                ),
+              )}
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          <div className="flex items-center justify-end gap-1 sm:gap-3">
             <Link
-              href="/faq"
-              className="hidden text-xs tracking-[0.16em] text-muted-foreground uppercase hover:text-foreground md:inline"
+              href="/shop"
+              aria-label="Browse every style"
+              className="inline-flex size-10 items-center justify-center transition-colors hover:text-gold"
             >
-              Help
+              <SearchIcon className="size-5" strokeWidth={1.4} />
             </Link>
             <a
               href={site.instagram.dm}
               target="_blank"
               rel="noreferrer"
-              className="text-xs tracking-[0.16em] uppercase underline-offset-4 hover:underline"
+              aria-label="Order on Instagram DM"
+              className="inline-flex h-10 items-center gap-2 px-2 transition-colors hover:text-gold"
             >
-              Order on DM
+              <InstagramIcon className="size-5" />
+              <span className="hidden text-[11px] tracking-[0.16em] uppercase lg:inline">Order on DM</span>
             </a>
           </div>
         </div>

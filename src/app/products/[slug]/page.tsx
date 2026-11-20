@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MailIcon, TruckIcon } from "lucide-react";
 
-import { InstagramIcon } from "@/components/site-footer";
+import { InstagramIcon } from "@/components/instagram-icon";
 import { PriceTag } from "@/components/price-tag";
 import { ProductCard } from "@/components/product-card";
 import { ProductGallery } from "@/components/product-gallery";
