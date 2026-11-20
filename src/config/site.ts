@@ -1,10 +1,8 @@
 // One place for brand facts. Change these here, never hard-code them in pages.
 export const site = {
-  name: "The Heera",
-  // The name on the logo, used in the footer.
-  brandName: "Heera Luxe",
+  name: "Heera Luxe",
   shortName: "Heera",
-  title: "The Heera | Embellished Heels, Flats & Bags, Made in India",
+  title: "Heera Luxe | Embellished Heels, Flats & Bags, Made in India",
   description:
     "Hand-embellished heels, flats, platforms and bags, made in India. Free shipping across India.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.theheera.in",

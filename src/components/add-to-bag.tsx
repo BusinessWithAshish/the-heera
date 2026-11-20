@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -65,5 +66,35 @@ export function AddToBag({ product }: { product: Product }) {
         Add to bag
       </Button>
     </div>
+  );
+}
+
+// A small button for product lists. Bags go straight in the bag; shoes need a
+// size, so they open the product page instead.
+export function QuickAdd({ product, className }: { product: Product; className?: string }) {
+  const { add, setOpen } = useCart();
+  const base = cn("inline-flex h-9 items-center justify-center bg-foreground px-4 text-[10px] tracking-[0.2em] text-background uppercase", className);
+  if (!product.inStock) {
+    return <span className={cn(base, "bg-muted text-muted-foreground")}>Sold out</span>;
+  }
+  if (product.category !== "bags") {
+    return (
+      <Link href={`/products/${product.slug}`} className={base}>
+        Choose size
+      </Link>
+    );
+  }
+  return (
+    <button
+      type="button"
+      className={base}
+      onClick={() => {
+        add({ slug: product.slug, size: null, qty: 1 });
+        toast.add({ type: "success", title: `${product.name} added to your bag` });
+        setOpen(true);
+      }}
+    >
+      Add to bag
+    </button>
   );
 }

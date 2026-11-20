@@ -9,7 +9,8 @@ The person editing this is not a developer. They ask in plain words ("make the b
 - **Products:** `src/data/products.json`, one entry per product (slug, name, category, price, compareAtPrice, inStock, summary, details, images). Adding, editing, repricing or marking sold out happens only here.
   - `category` must be `heels`, `flats`, `platforms` or `bags`.
   - `compareAtPrice` is the old struck-through price, or `null`. Only set it when the owner gives one.
-- **Home page photos and words** (banner strips, promises, "Everyday glamour" panel, top announcement): `src/config/home.ts`, photos in `public/images/home/`. To swap a photo, replace the file with the same name.
+- **Home page photos and words** (posters, promises, "Everyday glamour" panel, edits, founder message, top announcement): `src/config/home.ts`, photos in `public/images/home/`. To swap a photo, replace the file with the same name.
+- **Phone layout:** below the `md` width the home page uses its own sections (`src/components/home-mobile.tsx`, words and photos under `home.mobile`, photos in `public/images/home/mobile/`) and the footer folds into tap-to-open rows. Change these when the owner asks about the phone version; leave the computer layout alone.
 - **Logo:** `public/images/brand/heera-luxe-logo.webp` (header/footer) and `heera-luxe-logo-full.webp`. Both are light on a see-through background, so use them on dark bands only.
 - **Product photos:** `public/images/products/<slug>-<n>.webp`. The first photo is the main one. A new photo the owner shares must be saved here and listed in that product's `images`.
 - **Category names, blurbs, home page picks, product order and the edits:** `src/lib/catalog.ts` (`categories`, `newInSlugs`, `bestsellerSlugs`, `popularity`, `edits`). Every product list follows `popularity`; never label it as "sorted by popularity" on the site.

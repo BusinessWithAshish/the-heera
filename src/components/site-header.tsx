@@ -29,7 +29,7 @@ export function SiteHeader() {
 
   return (
     <header className="dark sticky top-0 z-40 bg-background text-foreground">
-      <div className="border-b px-4 py-2 text-center text-[9px] tracking-[0.14em] whitespace-pre-wrap text-gold uppercase sm:text-[11px] sm:tracking-[0.2em]">
+      <div className="hidden border-b px-4 py-2 text-center text-[9px] md:block tracking-[0.14em] whitespace-pre-wrap text-gold uppercase sm:text-[11px] sm:tracking-[0.2em]">
         {home.announcement}
       </div>
       <div className="border-b">

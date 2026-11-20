@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GemIcon, ShoppingBagIcon, SparklesIcon, TruckIcon } from "lucide-react";
 
+import { MobileBestsellers, MobileChapter, MobileEdits, MobileFounder, MobileGlamour, MobileTiles, MobileTrust } from "@/components/home-mobile";
 import { InstagramIcon } from "@/components/instagram-icon";
 import { ProductCard } from "@/components/product-card";
 import { Ornament, SectionHeading } from "@/components/section-heading";
@@ -47,23 +48,25 @@ export default function Home() {
         </div>
       </div>
 
+      <MobileChapter />
+
       {/* Four promises */}
-      <section className="border-b bg-secondary">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-y-6 px-4 py-6 sm:px-6 lg:grid-cols-4 lg:py-5">
+      <section className="border-y md:border-t-0 md:bg-secondary">
+        <div className="mx-auto grid max-w-6xl grid-cols-4 gap-x-1 px-2 py-5 md:grid-cols-2 md:gap-y-6 md:px-6 md:py-6 lg:grid-cols-4 lg:py-5">
           {home.promises.map(({ icon, title, body }, i) => {
             const Icon = promiseIcons[icon];
             return (
               <div
                 key={title}
                 className={cn(
-                  "flex items-center gap-3 px-2 sm:gap-4 lg:justify-center lg:px-6",
+                  "flex flex-col items-center gap-2 text-center md:flex-row md:gap-4 md:px-2 md:text-left lg:justify-center lg:px-6",
                   i > 0 && "lg:border-l lg:border-foreground/15",
                 )}
               >
-                <Icon className="size-6 shrink-0 text-foreground/80" strokeWidth={1.1} />
+                <Icon className="size-5 shrink-0 text-foreground/80 md:size-6" strokeWidth={1.1} />
                 <div>
-                  <p className="text-[10px] tracking-[0.18em] uppercase sm:text-[11px]">{title}</p>
-                  <p className="text-[11px] text-muted-foreground sm:text-xs">{body}</p>
+                  <p className="text-[8.5px] leading-snug tracking-[0.14em] uppercase md:text-[11px] md:tracking-[0.18em]">{title}</p>
+                  <p className="mt-0.5 text-[9.5px] leading-snug text-muted-foreground md:mt-0 md:text-xs">{body}</p>
                 </div>
               </div>
             );
@@ -72,7 +75,7 @@ export default function Home() {
       </section>
 
       {/* New in, with the "everyday glamour" panel beside it */}
-      <section id="new-in" className="mx-auto grid max-w-7xl scroll-mt-28 gap-10 px-4 pt-14 pb-14 sm:px-6 lg:grid-cols-[1fr_minmax(0,0.55fr)] lg:pt-16">
+      <section id="new-in" className="mx-auto grid max-w-7xl scroll-mt-28 gap-10 px-4 pt-10 pb-12 sm:px-6 md:pt-14 md:pb-14 lg:grid-cols-[1fr_minmax(0,0.55fr)] lg:pt-16">
         <div>
           <SectionHeading title="New in" link={{ href: "/shop", label: "View all" }} />
           <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-4 sm:gap-x-5">
@@ -84,7 +87,7 @@ export default function Home() {
 
         <Link
           href={glamour.button.href}
-          className="dark group relative isolate flex min-h-[420px] overflow-hidden bg-espresso text-foreground lg:min-h-0"
+          className="dark group relative isolate hidden min-h-[420px] md:flex overflow-hidden bg-espresso text-foreground lg:min-h-0"
         >
           <div className="absolute inset-0 -z-10 sm:left-[38%]">
             <Image
@@ -107,11 +110,14 @@ export default function Home() {
         </Link>
       </section>
 
+      <MobileGlamour />
+
       {/* Bestsellers */}
-      <section id="bestsellers" className="mx-auto max-w-7xl scroll-mt-28 px-4 pb-20 sm:px-6">
-        <div className="border-t pt-12">
+      <section id="bestsellers" className="mx-auto max-w-7xl scroll-mt-28 px-4 pt-10 pb-10 sm:px-6 md:pt-0 md:pb-20">
+        <div className="md:border-t md:pt-12">
           <SectionHeading title="Bestsellers" link={{ href: "/shop", label: "View all" }} />
-          <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
+          <MobileBestsellers products={bestsellers} />
+          <div className="hidden gap-x-6 gap-y-10 md:grid md:grid-cols-2 lg:grid-cols-4">
             {bestsellers.map((p) => (
               <ProductCard key={p.slug} product={p} />
             ))}
@@ -120,7 +126,9 @@ export default function Home() {
       </section>
 
       {/* The two edits, side by side */}
-      <section id="edits" aria-label="The edits" className="dark grid scroll-mt-28 grid-cols-2 gap-px bg-background">
+      <div id="edits" className="scroll-mt-28">
+      <MobileEdits />
+      <section aria-label="The edits" className="dark hidden grid-cols-2 gap-px bg-background md:grid">
         {home.edits.map(({ key, image }) => {
           const edit = edits[key];
           return (
@@ -148,9 +156,12 @@ export default function Home() {
           );
         })}
       </section>
+      </div>
+
+      <MobileTiles />
 
       {/* Categories */}
-      <section className="mx-auto max-w-7xl px-4 pt-20 pb-20 sm:px-6">
+      <section className="mx-auto hidden max-w-7xl px-4 pt-20 pb-20 sm:px-6 md:block">
         <SectionHeading title="Shop by type" />
         <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
           {categoryKeys.map((key) => (
@@ -175,28 +186,28 @@ export default function Home() {
       </section>
 
       {/* Community */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-        <SectionHeading eyebrow={site.instagram.handle} title="Babes of Heera" />
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-20">
+        <SectionHeading eyebrow={site.instagram.handle} title="Babes of Heera Luxe" />
+        <div className="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-3 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 lg:grid-cols-6">
           {[1, 2, 3, 4, 5, 6].map((n) => (
             <a
               key={n}
               href={site.instagram.url}
               target="_blank"
               rel="noreferrer"
-              className="group relative aspect-[3/4] overflow-hidden bg-muted"
+              className="group relative aspect-[3/4] w-[40vw] shrink-0 snap-start overflow-hidden bg-muted md:w-auto"
             >
               <Image
                 src={`/images/brand/community-${n}.webp`}
-                alt="A customer wearing The Heera"
+                alt="A customer wearing Heera Luxe"
                 fill
-                sizes="(min-width: 1024px) 16vw, (min-width: 640px) 33vw, 50vw"
+                sizes="(min-width: 1024px) 16vw, (min-width: 768px) 33vw, 40vw"
                 className="object-cover transition duration-700 group-hover:scale-[1.04]"
               />
             </a>
           ))}
         </div>
-        <div className="mt-10 flex justify-center">
+        <div className="mt-8 flex justify-center md:mt-10">
           <a
             href={site.instagram.url}
             target="_blank"
@@ -208,8 +219,11 @@ export default function Home() {
         </div>
       </section>
 
+      <MobileTrust />
       {/* Message from the founder (last section) */}
-      <section className="dark bg-linear-to-b from-cocoa to-cocoa-deep text-foreground md:bg-linear-to-r md:from-cocoa md:from-46% md:to-cocoa-deep">
+      <div id="founder" className="scroll-mt-28">
+      <MobileFounder />
+      <section className="dark hidden bg-linear-to-b from-cocoa to-cocoa-deep text-foreground md:block md:bg-linear-to-r md:from-cocoa md:from-46% md:to-cocoa-deep">
         <div className="grid md:grid-cols-[minmax(0,0.85fr)_1fr] md:items-stretch">
           <div className="relative aspect-[760/821] w-full md:aspect-auto md:min-h-[600px]">
             <Image
@@ -236,6 +250,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </div>
     </>
   );
 }

@@ -7,7 +7,7 @@ import { site } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "FAQ",
-  description: "Answers about ordering, shipping, sizes and exchanges at The Heera.",
+  description: "Answers about ordering, shipping, sizes and exchanges at Heera Luxe.",
 };
 
 const faqs = [

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { site } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-// The Heera Luxe logo (rose-gold lettering on a see-through background).
+// Heera Luxe logo (rose-gold lettering on a see-through background).
 // It's light, so only use it on dark bands. Set the height with className, e.g. "h-10".
 export function Wordmark({ className, priority }: { className?: string; priority?: boolean }) {
   return (

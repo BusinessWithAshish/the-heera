@@ -8,7 +8,7 @@ import { site } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Questions about a piece, your size or an order? Get in touch with The Heera.",
+  description: "Questions about a piece, your size or an order? Get in touch with Heera Luxe.",
 };
 
 export default function ContactPage() {

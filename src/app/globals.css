@@ -15,6 +15,8 @@
   --color-cocoa: var(--cocoa);
   --color-cocoa-deep: var(--cocoa-deep);
   --color-cream: var(--cream);
+  --color-taupe: var(--taupe);
+  --color-taupe-deep: var(--taupe-deep);
   --color-gold: var(--gold);
   --color-blush: var(--blush);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -82,6 +84,9 @@
   --cocoa: #5a4533;
   --cocoa-deep: #1a120d;
   --cream: #f3e6d6;
+  /* Soft taupe of the founder card on phones. */
+  --taupe: #86705f;
+  --taupe-deep: #3e332b;
   --chart-1: oklch(0.56 0.09 58);
   --chart-2: oklch(0.46 0.018 55);
   --chart-3: oklch(0.36 0.02 50);
