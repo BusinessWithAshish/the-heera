@@ -12,6 +12,9 @@
   --font-heading: var(--font-display);
   --font-script: var(--font-script);
   --color-espresso: var(--espresso);
+  --color-cocoa: var(--cocoa);
+  --color-cocoa-deep: var(--cocoa-deep);
+  --color-cream: var(--cream);
   --color-gold: var(--gold);
   --color-blush: var(--blush);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -75,6 +78,10 @@
   --gold: oklch(0.56 0.09 58);
   --blush: oklch(0.92 0.03 50);
   --espresso: oklch(0.22 0.022 50);
+  /* Warm brown and cream of the founder section. */
+  --cocoa: #5a4533;
+  --cocoa-deep: #1a120d;
+  --cream: #f3e6d6;
   --chart-1: oklch(0.56 0.09 58);
   --chart-2: oklch(0.46 0.018 55);
   --chart-3: oklch(0.36 0.02 50);

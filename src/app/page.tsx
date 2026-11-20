@@ -27,43 +27,21 @@ const tileImage: Record<string, string> = {
 export default function Home() {
   const newIn = pick(newInSlugs);
   const bestsellers = pick(bestsellerSlugs);
-  const { hero, glamour } = home;
+  const { hero, glamour, founder } = home;
 
   return (
     <>
-      {/* Banner: six photo strips with the title over them */}
-      <section className="dark relative isolate overflow-hidden bg-background text-foreground">
-        <div className="grid h-[460px] grid-cols-3 sm:h-[500px] md:grid-cols-6 lg:h-[520px]">
-          {hero.images.map((img, i) => (
-            <div key={img.src} className={cn("relative", i > 2 && "hidden md:block")}>
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                priority={i < 3}
-                sizes="(min-width: 768px) 17vw, 34vw"
-                className="object-cover"
-              />
-            </div>
-          ))}
-        </div>
-        <div className="absolute inset-0 bg-black/55" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgb(0_0_0/0.55),transparent_70%)]" />
-
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-          <h1 className="text-[3.4rem] leading-none font-light tracking-[0.2em] text-gold uppercase sm:text-7xl lg:text-8xl">
-            {hero.title}
-          </h1>
-          <p className="-mt-2 font-script text-[5.5rem] leading-[0.9] text-gold sm:-mt-3 sm:text-[8rem] lg:text-[9.5rem]">
-            {hero.script}
-          </p>
-          <Ornament className="mt-4" />
-          <p className="mt-5 text-[11px] tracking-[0.32em] text-foreground/90 uppercase sm:text-sm">{hero.subtitle}</p>
-          <Link href={hero.button.href} className={cn(outlineCta, "mt-8 text-gold hover:border-gold hover:bg-gold")}>
-            {hero.button.label}
-          </Link>
-        </div>
-      </section>
+      {/* "Coming soon" poster. On phones it is cropped to the middle, where the words are. */}
+      <Link href={hero.href} className="dark relative block h-[260px] bg-background sm:h-auto sm:aspect-[1536/400]">
+        <Image
+          src={hero.image.src}
+          alt={hero.image.alt}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+      </Link>
 
       {/* Four promises */}
       <section className="border-b bg-secondary">
@@ -162,35 +140,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Story */}
-      <section className="dark bg-background text-foreground">
-        <div className="mx-auto grid max-w-7xl items-center gap-6 px-4 py-16 sm:px-6 md:grid-cols-2 md:gap-16 md:py-20">
-          <div className="relative mx-auto aspect-[1131/1391] w-full max-w-sm">
-            <Image
-              src="/images/brand/heera-luxe-logo-full.webp"
-              alt={`${site.name} logo`}
-              fill
-              sizes="(min-width: 768px) 384px, 90vw"
-              className="object-contain"
-            />
-          </div>
-          <div className="space-y-6 text-center md:text-left">
-            <p className="text-[11px] tracking-[0.24em] text-gold uppercase">Our story</p>
-            <h2 className="text-4xl leading-tight font-light tracking-[0.08em] uppercase sm:text-5xl">
-              Sewn by hand, one crystal at a time
-            </h2>
-            <Ornament className="md:justify-start" />
-            <p className="text-muted-foreground">
-              Every piece is designed by our founder, Heena, and made in India by skilled artisans who sew each
-              embellishment by hand, so the sparkle lasts long after the party.
-            </p>
-            <p className="text-muted-foreground">
-              Most of our pairs come with cushioned padding, because looking this good shouldn&apos;t have to hurt.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Community */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
         <SectionHeading eyebrow={site.instagram.handle} title="Babes of Heera" />
@@ -222,6 +171,35 @@ export default function Home() {
           >
             <InstagramIcon className="size-4" /> Tag us to be featured
           </a>
+        </div>
+      </section>
+
+      {/* Message from the founder (last section) */}
+      <section className="dark bg-linear-to-b from-cocoa to-cocoa-deep text-foreground md:bg-linear-to-r md:from-cocoa md:from-46% md:to-cocoa-deep">
+        <div className="grid md:grid-cols-[minmax(0,0.85fr)_1fr] md:items-stretch">
+          <div className="relative aspect-[760/821] w-full md:aspect-auto md:min-h-[600px]">
+            <Image
+              src={founder.image.src}
+              alt={founder.image.alt}
+              fill
+              sizes="(min-width: 768px) 45vw, 100vw"
+              className="object-cover object-top"
+            />
+            <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-cocoa to-transparent md:hidden" />
+            <div className="absolute inset-y-0 right-0 hidden w-1/4 bg-gradient-to-l from-cocoa via-cocoa/60 to-transparent md:block" />
+          </div>
+          <div className="max-w-2xl space-y-4 self-center px-6 pt-2 pb-14 sm:px-10 md:py-14 md:pr-10 md:pl-4 lg:pr-16">
+            <h2 className="text-[2.5rem] leading-[1.05] text-cream sm:text-5xl lg:text-6xl">{founder.title}</h2>
+            <div className="space-y-4 text-[15px] leading-relaxed font-light text-cream/90 lg:text-[17px]">
+              {founder.paragraphs.map((text) => (
+                <p key={text}>{text}</p>
+              ))}
+            </div>
+            <div className="pt-1">
+              <p className="font-script text-5xl leading-none text-gold sm:text-6xl">{founder.signature}</p>
+              <p className="mt-2 text-[15px] text-cream/90">{founder.role}</p>
+            </div>
+          </div>
         </div>
       </section>
     </>
