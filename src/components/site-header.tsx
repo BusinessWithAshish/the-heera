@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MenuIcon, SearchIcon } from "lucide-react";
 
+import { CartButton } from "@/components/cart-drawer";
 import { InstagramIcon } from "@/components/instagram-icon";
 import { Wordmark } from "@/components/wordmark";
 import { Button } from "@/components/ui/button";
@@ -47,7 +48,14 @@ export function SiteHeader() {
                   </SheetTitle>
                 </SheetHeader>
                 <nav className="flex flex-col px-4">
-                  {[{ label: "New in", href: "/#new-in" }, ...nav, { label: "Bestsellers", href: "/#bestsellers" }, { label: "Shop all", href: "/shop" }].map(
+                  {[
+                    { label: "New in", href: "/#new-in" },
+                    ...nav,
+                    { label: "Crystal Edit", href: "/edits/crystal" },
+                    { label: "Beaded Edit", href: "/edits/beaded" },
+                    { label: "Bestsellers", href: "/#bestsellers" },
+                    { label: "Shop all", href: "/shop" },
+                  ].map(
                     (item) => (
                       <SheetClose
                         key={item.href}
@@ -93,7 +101,7 @@ export function SiteHeader() {
                       {item.label}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <ul className="grid w-48 gap-0.5 p-1">
+                      <ul className="grid w-52 gap-0.5 p-1">
                         {item.children.map((child) => (
                           <li key={child.href}>
                             <NavigationMenuLink
@@ -130,12 +138,12 @@ export function SiteHeader() {
               href={site.instagram.dm}
               target="_blank"
               rel="noreferrer"
-              aria-label="Order on Instagram DM"
-              className="inline-flex h-10 items-center gap-2 px-2 transition-colors hover:text-gold"
+              aria-label="Message us on Instagram"
+              className="hidden size-10 items-center justify-center transition-colors hover:text-gold sm:inline-flex"
             >
               <InstagramIcon className="size-5" />
-              <span className="hidden text-[11px] tracking-[0.16em] uppercase lg:inline">Order on DM</span>
             </a>
+            <CartButton />
           </div>
         </div>
       </div>

@@ -12,14 +12,16 @@ The person editing this is not a developer. They ask in plain words ("make the b
 - **Home page photos and words** (banner strips, promises, "Everyday glamour" panel, top announcement): `src/config/home.ts`, photos in `public/images/home/`. To swap a photo, replace the file with the same name.
 - **Logo:** `public/images/brand/heera-luxe-logo.webp` (header/footer) and `heera-luxe-logo-full.webp`. Both are light on a see-through background, so use them on dark bands only.
 - **Product photos:** `public/images/products/<slug>-<n>.webp`. The first photo is the main one. A new photo the owner shares must be saved here and listed in that product's `images`.
-- **Category names, blurbs and the home page picks:** `src/lib/catalog.ts` (`categories`, `newInSlugs`, `bestsellerSlugs`).
+- **Category names, blurbs, home page picks, product order and the edits:** `src/lib/catalog.ts` (`categories`, `newInSlugs`, `bestsellerSlugs`, `popularity`, `edits`). Every product list follows `popularity`; never label it as "sorted by popularity" on the site.
 - **Brand facts, shipping days, exchange days, Instagram and email:** `src/config/site.ts`.
 - **Pages:** `src/app/` (home `page.tsx`, `shop/`, `products/[slug]/`, `faq/`, `shipping-returns/`, `contact/`).
 - **Look and feel:** colours in `src/app/globals.css` (ivory, near-black, rose-`gold`, `espresso`, `blush`; `class="dark"` gives a dark band). The fonts are Cormorant Garamond for headings, Jost for text and Allura (`font-script`) for the odd handwritten word, set in `src/app/layout.tsx`.
 - **Old site snapshot:** `reference/current-site/`. It's source material only.
 
 ## Ordering
-There's no cart yet. Buttons send shoppers to an Instagram DM or a pre-filled email. Don't add a cart or payments unless the owner asks for one, since that's a separate decision.
+- Shoppers add pieces to a bag (`src/lib/cart.tsx`, kept in their browser) from the product page, then check out at `/checkout` (`src/components/checkout-view.tsx`).
+- `/api/checkout` checks the order and works out the total from `products.json`. Online payment isn't connected yet: after "Place order" the shopper sends the order to us by email or Instagram. The payment gateway the owner picks plugs into that route.
+- Footwear sizes offered are `footwearSizes` in `src/config/site.ts`.
 
 ## Stack (do not swap any of these)
 - Next.js 16 App Router, TypeScript, `src/` layout. Read `node_modules/next/dist/docs/` before using a Next API you're unsure of.

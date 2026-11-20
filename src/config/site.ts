@@ -1,6 +1,8 @@
 // One place for brand facts. Change these here, never hard-code them in pages.
 export const site = {
   name: "The Heera",
+  // The name on the logo, used in the footer.
+  brandName: "Heera Luxe",
   shortName: "Heera",
   title: "The Heera | Embellished Heels, Flats & Bags, Made in India",
   description:
@@ -21,6 +23,8 @@ export const site = {
   // OWNER TO CONFIRM: the old site had three different return rules. This copies
   // the formal Store Policy page (no returns, size exchange within 4 days).
   exchangeDays: 4,
+  // OWNER TO CONFIRM: the Euro sizes shoppers can pick for heels, flats and platforms.
+  footwearSizes: [36, 37, 38, 39, 40, 41],
 } as const;
 
 export const nav = [
@@ -42,6 +46,14 @@ export const mainNav = [
       { label: "Flats", href: "/shop/flats" },
       { label: "Platforms", href: "/shop/platforms" },
       { label: "Shop all", href: "/shop" },
+    ],
+  },
+  {
+    label: "Edits",
+    href: "/#edits",
+    children: [
+      { label: "The Crystal Edit", href: "/edits/crystal" },
+      { label: "The Beaded Edit", href: "/edits/beaded" },
     ],
   },
   { label: "Bestsellers", href: "/#bestsellers" },

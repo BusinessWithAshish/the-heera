@@ -48,10 +48,44 @@ export function getProduct(slug: string) {
   return products.find((p) => p.slug === slug);
 }
 
-// In-stock items first, keeping the original catalogue order otherwise.
+// Most popular first. Every product list on the site follows this order (in-stock
+// pieces before sold-out ones). Move a slug up to show it earlier. Pieces not listed
+// here come after, in the order of products.json.
+// OWNER TO CONFIRM: a first guess, not real sales data.
+export const popularity = [
+  "trophy-wife",
+  "dazzel-pink-bag",
+  "pearl-me-up-flap-bag",
+  "black-starliner-platform",
+  "goldmine",
+  "cluster-of-pearls-flats",
+  "stardust-mini-bag",
+  "precious-pearls",
+  "crescent-moon-silver-bag",
+  "dew-drop",
+  "valentina-silver",
+  "sahara-double-strap-flats-nude",
+  "call-me-princess",
+  "dazzle-silver-bag",
+  "crystal-clear",
+  "into-the-night",
+  "denim-starliner-platforms",
+  "all-pearl-bag",
+  "studded-black-flats",
+  "big-bejewelled-double-strap-flats",
+];
+
+const rank = (slug: string) => {
+  const i = popularity.indexOf(slug);
+  return i === -1 ? popularity.length + products.findIndex((p) => p.slug === slug) : i;
+};
+
+export function sortByPopularity(list: Product[]) {
+  return [...list].sort((a, b) => Number(b.inStock) - Number(a.inStock) || rank(a.slug) - rank(b.slug));
+}
+
 export function byCategory(category?: Category) {
-  const list = category ? products.filter((p) => p.category === category) : products;
-  return [...list].sort((a, b) => Number(b.inStock) - Number(a.inStock));
+  return sortByPopularity(category ? products.filter((p) => p.category === category) : products);
 }
 
 export function related(product: Product, count = 4) {
@@ -64,18 +98,39 @@ export function related(product: Product, count = 4) {
 // OWNER TO CONFIRM: these lists are a first guess, not real sales or arrival data.
 export const newInSlugs = ["pearl-me-up-flap-bag", "stardust-mini-bag", "crescent-moon-silver-bag", "valentina-silver"];
 
-export const bestsellerSlugs = [
-  "trophy-wife",
-  "dazzel-pink-bag",
-  "black-starliner-platform",
-  "cluster-of-pearls-flats",
-  "goldmine",
-  "precious-pearls",
-];
+export const bestsellerSlugs = ["trophy-wife", "dazzel-pink-bag", "black-starliner-platform", "goldmine"];
 
-export function pick(slugs: string[]) {
-  return slugs.map(getProduct).filter((p): p is Product => Boolean(p));
+export function pick(slugs: readonly string[]) {
+  return sortByPopularity(slugs.map(getProduct).filter((p): p is Product => Boolean(p)));
 }
+
+// The two edits on the home page, each with its own page at /edits/<key>.
+// OWNER TO CONFIRM which pieces belong in each.
+export const edits = {
+  crystal: {
+    title: "The Crystal Edit",
+    blurb: "Rhinestones, crystal straps and pieces that catch every light.",
+    slugs: [
+      "trophy-wife", "dew-drop", "call-me-princess", "goldmine", "crystal-clear", "unicorn-sea", "into-the-night",
+      "dazzel-pink-bag", "dazzle-silver-bag", "stardust-mini-bag", "valentina-silver", "valentina-mini-bag-silver",
+      "studded-bucket-bag-silver", "studded-bucket-bag-black", "black-starliner-platform", "peach-pink-starliner-platform",
+      "denim-starliner-platforms", "big-bejewelled-double-strap-flats", "sahara-double-strap-flats-nude",
+      "crystal-ocean-flats", "bejewelled-tan-flats",
+    ],
+  },
+  beaded: {
+    title: "The Beaded Edit",
+    blurb: "Pearls and beads, strung and sewn by hand.",
+    slugs: [
+      "pearl-me-up-flap-bag", "all-pearl-bag", "crescent-moon-silver-bag", "cluster-of-pearls-flats", "precious-pearls",
+      "tropical-paradise-flats",
+    ],
+  },
+} as const;
+
+export type EditKey = keyof typeof edits;
+export const editKeys = Object.keys(edits) as EditKey[];
+export const isEdit = (value: string): value is EditKey => value in edits;
 
 const inr = new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 });
 export const formatPrice = (n: number) => inr.format(n);

@@ -14,7 +14,6 @@ export const home = {
       height: 400,
       alt: "The Heera: coming soon. This is just the beginning.",
     },
-    href: "/shop",
   },
 
   // The strip of four promises under the banner. Keep these true.
@@ -31,6 +30,13 @@ export const home = {
     body: "Pieces that move with you, shine with you.",
     button: { label: "Explore", href: "/shop/bags" },
   },
+
+  // The two collection panels after Bestsellers. Which products are in each edit
+  // lives in src/lib/catalog.ts (edits).
+  edits: [
+    { key: "crystal", image: { src: "/images/home/edit-crystal.webp", alt: "Crystal tassel bag held up close" } },
+    { key: "beaded", image: { src: "/images/home/edit-beaded.webp", alt: "All Pearl Bag" } },
+  ],
 
   // "Message from the founder", the last section of the home page.
   founder: {

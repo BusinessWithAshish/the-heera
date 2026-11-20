@@ -61,7 +61,7 @@ export async function SiteFooter() {
       </div>
       <div className="border-t">
         <div className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-5 text-[11px] tracking-[0.14em] text-muted-foreground uppercase sm:flex-row sm:justify-between sm:px-6">
-          <span>© {year} {site.name}. Made in India.</span>
+          <span>© {year} {site.brandName}. Made in India.</span>
           <span>Free shipping across India</span>
         </div>
       </div>

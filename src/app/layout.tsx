@@ -1,11 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { Allura, Cormorant_Garamond, Geist_Mono, Jost } from "next/font/google";
 
+import { CartDrawer } from "@/components/cart-drawer";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { Toaster } from "@/components/ui/toast";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { site } from "@/config/site";
+import { CartProvider } from "@/lib/cart";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -63,9 +65,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col">
         <Toaster>
           <TooltipProvider>
-            <SiteHeader />
-            <main className="flex-1">{children}</main>
-            <SiteFooter />
+            <CartProvider>
+              <SiteHeader />
+              <main className="flex-1">{children}</main>
+              <SiteFooter />
+              <CartDrawer />
+            </CartProvider>
           </TooltipProvider>
         </Toaster>
       </body>

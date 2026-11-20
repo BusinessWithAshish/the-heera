@@ -8,7 +8,7 @@ import { Ornament, SectionHeading } from "@/components/section-heading";
 import { buttonVariants } from "@/components/ui/button";
 import { home } from "@/config/home";
 import { site } from "@/config/site";
-import { bestsellerSlugs, byCategory, categories, categoryKeys, newInSlugs, pick } from "@/lib/catalog";
+import { bestsellerSlugs, byCategory, categories, categoryKeys, edits, newInSlugs, pick } from "@/lib/catalog";
 import { cn } from "@/lib/utils";
 
 const outlineCta =
@@ -31,8 +31,8 @@ export default function Home() {
 
   return (
     <>
-      {/* "Coming soon" poster. On phones it is cropped to the middle, where the words are. */}
-      <Link href={hero.href} className="dark relative block h-[260px] bg-background sm:h-auto sm:aspect-[1536/400]">
+      {/* "Coming soon" poster, nearly a full screen tall. The sides are trimmed to fit, keeping the words in the middle. */}
+      <div className="dark relative h-[380px] bg-background sm:h-[520px] md:h-[min(calc(100svh-110px),760px)] md:min-h-[520px]">
         <Image
           src={hero.image.src}
           alt={hero.image.alt}
@@ -41,7 +41,7 @@ export default function Home() {
           sizes="100vw"
           className="object-cover"
         />
-      </Link>
+      </div>
 
       {/* Four promises */}
       <section className="border-b bg-secondary">
@@ -71,7 +71,7 @@ export default function Home() {
       <section id="new-in" className="mx-auto grid max-w-7xl scroll-mt-28 gap-10 px-4 pt-14 pb-14 sm:px-6 lg:grid-cols-[1fr_minmax(0,0.55fr)] lg:pt-16">
         <div>
           <SectionHeading title="New in" link={{ href: "/shop", label: "View all" }} />
-          <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-4 sm:gap-x-4">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-4 sm:gap-x-5">
             {newIn.map((p) => (
               <ProductCard key={p.slug} product={p} />
             ))}
@@ -107,7 +107,7 @@ export default function Home() {
       <section id="bestsellers" className="mx-auto max-w-7xl scroll-mt-28 px-4 pb-20 sm:px-6">
         <div className="border-t pt-12">
           <SectionHeading title="Bestsellers" link={{ href: "/shop", label: "View all" }} />
-          <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-3 sm:gap-x-4 lg:grid-cols-6">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
             {bestsellers.map((p) => (
               <ProductCard key={p.slug} product={p} />
             ))}
@@ -115,8 +115,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* The two edits, side by side */}
+      <section id="edits" aria-label="The edits" className="dark grid scroll-mt-28 grid-cols-2 gap-px bg-background">
+        {home.edits.map(({ key, image }) => {
+          const edit = edits[key];
+          return (
+            <Link key={key} href={`/edits/${key}`} className="group relative isolate aspect-[3/5] overflow-hidden sm:aspect-[4/5] lg:aspect-[6/7]">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                sizes="50vw"
+                className="-z-10 object-cover transition duration-1000 group-hover:scale-[1.04]"
+              />
+              <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/80 via-black/25 to-black/10" />
+              <div className="flex h-full flex-col items-center justify-end gap-3 px-3 pb-8 text-center text-foreground sm:gap-4 sm:pb-14">
+                <p className="text-[9px] tracking-[0.3em] text-gold uppercase sm:text-[11px]">The collection</p>
+                <h2 className="text-2xl leading-tight font-light tracking-[0.14em] uppercase sm:text-4xl lg:text-5xl">
+                  {edit.title}
+                </h2>
+                <Ornament className="hidden sm:flex" />
+                <p className="hidden max-w-xs text-sm text-foreground/85 sm:block">{edit.blurb}</p>
+                <span className={cn(outlineCta, "mt-1 h-9 px-4 text-[9px] sm:mt-2 sm:h-11 sm:px-7 sm:text-[11px]", "group-hover:bg-foreground group-hover:text-background")}>
+                  Explore
+                </span>
+              </div>
+            </Link>
+          );
+        })}
+      </section>
+
       {/* Categories */}
-      <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6">
+      <section className="mx-auto max-w-7xl px-4 pt-20 pb-20 sm:px-6">
         <SectionHeading title="Shop by type" />
         <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
           {categoryKeys.map((key) => (

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { MailIcon, TruckIcon } from "lucide-react";
+import { TruckIcon } from "lucide-react";
 
-import { InstagramIcon } from "@/components/instagram-icon";
+import { AddToBag } from "@/components/add-to-bag";
 import { PriceTag } from "@/components/price-tag";
 import { ProductCard } from "@/components/product-card";
 import { ProductGallery } from "@/components/product-gallery";
@@ -46,8 +46,8 @@ export default async function ProductPage(props: PageProps<"/products/[slug]">) 
   const category = categories[product.category];
   const more = related(product);
   const isBag = product.category === "bags";
-  const mailto = `mailto:${site.email}?subject=${encodeURIComponent(`Order: ${product.name}`)}&body=${encodeURIComponent(
-    `Hi Heera team,\n\nI'd like to order ${product.name}${isBag ? "" : " in size (Euro): ___"}.\nDelivery city: ___\n\nThank you!`,
+  const mailto = `mailto:${site.email}?subject=${encodeURIComponent(product.name)}&body=${encodeURIComponent(
+    `Hi Heera team,\n\nI have a question about ${product.name}.\n\nThank you!`,
   )}`;
 
   const jsonLd = {
@@ -104,26 +104,14 @@ export default async function ProductPage(props: PageProps<"/products/[slug]">) 
           <div className="space-y-3">
             {product.inStock ? (
               <>
-                <a
-                  href={site.instagram.dm}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={cn(buttonVariants(), "h-12 w-full gap-2 rounded-none text-xs tracking-[0.18em] uppercase")}
-                >
-                  <InstagramIcon className="size-4" /> Order on Instagram
-                </a>
-                <a
-                  href={mailto}
-                  className={cn(
-                    buttonVariants({ variant: "outline" }),
-                    "h-12 w-full gap-2 rounded-none bg-transparent text-xs tracking-[0.18em] uppercase",
-                  )}
-                >
-                  <MailIcon className="size-4" /> Order by email
-                </a>
+                <AddToBag product={product} />
                 <p className="text-xs text-muted-foreground">
-                  Send us the name of this piece{isBag ? "" : " and your Euro size"}. We&apos;ll confirm stock and
-                  payment, and dispatch in {site.shipping.dispatchDays} days.
+                  Dispatched in {site.shipping.dispatchDays} days.{" "}
+                  {isBag ? "Questions?" : "Not sure of your size?"}{" "}
+                  <a href={site.instagram.dm} target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:text-foreground">
+                    Message us on Instagram
+                  </a>{" "}
+                  or <a href={mailto} className="underline underline-offset-4 hover:text-foreground">email us</a>.
                 </p>
               </>
             ) : (
