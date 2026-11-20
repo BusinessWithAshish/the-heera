@@ -5,15 +5,12 @@
 export const home = {
   announcement: "The Heera enters a new chapter.  Coming soon.",
 
-  // The "Coming soon" poster at the top. The words are part of the picture, so to
-  // change them, send a new poster. A wide picture (about 4 times wider than tall) fits best.
+  // The "Coming soon" poster at the top. The words are part of the pictures, so to
+  // change them, send new posters. Phones show the tall one; bigger screens the wide one.
   hero: {
-    image: {
-      src: "/images/home/coming-soon.webp",
-      width: 1536,
-      height: 400,
-      alt: "The Heera: coming soon. This is just the beginning.",
-    },
+    alt: "The Heera enters a new chapter. Coming soon.",
+    desktop: "/images/home/coming-soon.webp",
+    mobile: { src: "/images/home/coming-soon-mobile.webp", width: 1024, height: 1536 },
   },
 
   // The strip of four promises under the banner. Keep these true.

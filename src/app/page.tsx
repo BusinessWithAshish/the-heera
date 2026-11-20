@@ -31,16 +31,20 @@ export default function Home() {
 
   return (
     <>
-      {/* "Coming soon" poster, nearly a full screen tall. The sides are trimmed to fit, keeping the words in the middle. */}
-      <div className="dark relative h-[380px] bg-background sm:h-[520px] md:h-[min(calc(100svh-110px),760px)] md:min-h-[520px]">
+      {/* "Coming soon" poster: the tall version on phones, the wide one (filling most of the screen) on bigger screens. */}
+      <div className="dark bg-background">
         <Image
-          src={hero.image.src}
-          alt={hero.image.alt}
-          fill
+          src={hero.mobile.src}
+          alt={hero.alt}
+          width={hero.mobile.width}
+          height={hero.mobile.height}
           priority
           sizes="100vw"
-          className="object-cover"
+          className="h-auto w-full md:hidden"
         />
+        <div className="relative hidden h-[min(calc(100svh-110px),640px)] min-h-[480px] md:block">
+          <Image src={hero.desktop} alt={hero.alt} fill priority sizes="100vw" className="object-cover" />
+        </div>
       </div>
 
       {/* Four promises */}
