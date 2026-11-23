@@ -66,17 +66,32 @@ export const home = {
     button: { label: "Explore", href: "/shop/bags" },
   },
 
-  // "Shop by type": the two wide panels after New In.
+  // "Shop the house": four tall photos, one per kind of piece (after the promises).
+  categoryTiles: [
+    { title: "Heels", href: "/shop/heels", image: "/images/home/type-heels.webp", alt: "Black heels with a crystal brooch" },
+    { title: "Flats", href: "/shop/flats", image: "/images/products/cluster-of-pearls-flats-1.webp", alt: "Cluster of Pearls flats on silk" },
+    { title: "Platforms", href: "/shop/platforms", image: "/images/products/black-starliner-platform-1.webp", alt: "Black Starliner platforms with crystal straps" },
+    { title: "Bags", href: "/shop/bags", image: "/images/home/type-bags.webp", alt: "Crystal bucket bag" },
+  ],
+
+  // The Crystal Edit row: words on the left, its pieces sliding on the right.
+  // The pieces come from `edits.crystal` in src/lib/catalog.ts.
+  editRow: {
+    eyebrow: "The edit",
+    title: "Made to catch the light",
+    body: "Rhinestones, crystal straps and glass heels. The pieces you wear when you want to be noticed.",
+    button: { label: "See the Crystal Edit", href: "/edits/crystal" },
+  },
+
+  // The big photo beside Bestsellers on bigger screens.
+  bestsellerFeature: { image: "/images/brand/bestseller.webp", alt: "Crystal wrap heels being fastened", title: "Bestsellers" },
+
   // "On the rail": pieces on gold hangers you can turn through in 3D. Pieces are railSlugs in src/lib/catalog.ts.
   rail: {
     eyebrow: "Turn it round",
     title: "On the rail",
     body: "Drag along the rail. The piece in the middle turns to face you.",
   },
-  shopByType: [
-    { title: "Footwear", body: "Heels, flats & platforms", href: "/shop/footwear", image: "/images/home/type-heels.webp", alt: "Into the Night heels with a crystal brooch" },
-    { title: "Bags", body: "Carry the luxe", href: "/shop/bags", image: "/images/home/type-bags.webp", alt: "Crystal bucket bag" },
-  ],
 
   // "Style. Love. Shop.": Instagram reels. Put each video file (.mp4) in
   // public/videos/ and set `video` to its path; it then plays on its own, muted,
@@ -114,14 +129,8 @@ export const home = {
     role: "Founder, Heera Luxe",
   },
 
-  // PHONE-ONLY extras (everything else on phones is shared with bigger screens).
+  // PHONE-ONLY: the line under the logo in the phone footer.
   mobile: {
-    // The strip of three promises above the footer. Keep these true.
-    trust: [
-      { icon: "truck", title: "Free shipping", body: "Across India" },
-      { icon: "refresh", title: "Size exchange", body: `Within ${site.exchangeDays} days` },
-      { icon: "hand", title: "Handmade", body: "In India" },
-    ],
     tagline: "Everyday glamour, reimagined. Made to stand out. Made for you.",
   },
 } as const;

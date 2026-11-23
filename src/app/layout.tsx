@@ -4,6 +4,7 @@ import { Allura, Cormorant_Garamond, Geist_Mono, Jost } from "next/font/google";
 import { CartDrawer } from "@/components/cart-drawer";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { SplashScreen, splashGateScript } from "@/components/splash-screen";
 import { Toaster } from "@/components/ui/toast";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { site } from "@/config/site";
@@ -61,8 +62,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${display.variable} ${sans.variable} ${script.variable} ${mono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
+      <head>
+        {/* Decides before the first paint whether the opening screen shows (see splash-screen.tsx). */}
+        <script dangerouslySetInnerHTML={{ __html: splashGateScript }} />
+      </head>
       <body className="flex min-h-full flex-col">
+        <SplashScreen />
         <Toaster>
           <TooltipProvider>
             <CartProvider>

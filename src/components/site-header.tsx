@@ -21,7 +21,7 @@ import { home } from "@/config/home";
 import { helpNav, mainNav, nav, site } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-const linkClass = "text-[13px] tracking-[0.16em] uppercase transition-colors hover:text-gold";
+const linkClass = "text-[12px] tracking-[0.22em] uppercase transition-colors hover:text-gold";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -33,7 +33,7 @@ export function SiteHeader() {
         {home.announcement}
       </div>
       <div className="border-b">
-        <div className="mx-auto grid h-16 max-w-[96rem] grid-cols-[1fr_auto_1fr] items-center px-4 sm:px-6 md:h-[76px] lg:px-10">
+        <div className="mx-auto grid h-16 max-w-[96rem] grid-cols-[1fr_auto_1fr] items-center px-4 sm:px-6 md:h-[84px] lg:px-10">
           <div className="flex items-center">
             <Sheet>
               <SheetTrigger
@@ -78,17 +78,40 @@ export function SiteHeader() {
                 </nav>
               </SheetContent>
             </Sheet>
-            <Link href="/" aria-label={`${site.name} home`} className="hidden md:block">
-              <Wordmark className="h-11 lg:h-12" priority />
-            </Link>
+            <div className="hidden items-center gap-2 md:flex">
+              <Link href="/shop" aria-label="Browse every style" className="inline-flex size-10 items-center justify-center transition-colors hover:text-gold">
+                <SearchIcon className="size-5" strokeWidth={1.4} />
+              </Link>
+              <a href={site.instagram.dm} target="_blank" rel="noreferrer" aria-label="Message us on Instagram" className="inline-flex size-10 items-center justify-center transition-colors hover:text-gold">
+                <InstagramIcon className="size-5" />
+              </a>
+            </div>
           </div>
 
-          <Link href="/" aria-label={`${site.name} home`} className="md:hidden">
-            <Wordmark className="h-10" priority />
+          {/* The logo in the middle, larger on bigger screens. */}
+          <Link href="/" aria-label={`${site.name} home`}>
+            <Wordmark className="h-10 md:h-14 lg:h-16" priority />
           </Link>
 
-          <NavigationMenu className="hidden md:flex" align="center">
-            <NavigationMenuList className="gap-6 lg:gap-12">
+          <div className="flex items-center justify-end gap-1 sm:gap-3">
+            <Link
+              href="/shop"
+              aria-label="Browse every style"
+              className="inline-flex size-10 items-center justify-center transition-colors hover:text-gold md:hidden"
+            >
+              <SearchIcon className="size-5" strokeWidth={1.4} />
+            </Link>
+            <CartButton />
+          </div>
+        </div>
+      </div>
+
+      {/* Bigger screens: the menu in its own quiet row under the logo. */}
+      <div className="hidden border-b border-gold/15 md:block">
+        <div className="mx-auto flex h-12 max-w-[96rem] items-center justify-center px-6">
+
+          <NavigationMenu align="center">
+            <NavigationMenuList className="gap-8 lg:gap-14">
               {mainNav.map((item) =>
                 "children" in item ? (
                   <NavigationMenuItem key={item.label}>
@@ -125,26 +148,6 @@ export function SiteHeader() {
               )}
             </NavigationMenuList>
           </NavigationMenu>
-
-          <div className="flex items-center justify-end gap-1 sm:gap-3">
-            <Link
-              href="/shop"
-              aria-label="Browse every style"
-              className="inline-flex size-10 items-center justify-center transition-colors hover:text-gold"
-            >
-              <SearchIcon className="size-5" strokeWidth={1.4} />
-            </Link>
-            <a
-              href={site.instagram.dm}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Message us on Instagram"
-              className="hidden size-10 items-center justify-center transition-colors hover:text-gold sm:inline-flex"
-            >
-              <InstagramIcon className="size-5" />
-            </a>
-            <CartButton />
-          </div>
         </div>
       </div>
     </header>

@@ -4,17 +4,16 @@ import { GemIcon, ShoppingBagIcon, SparklesIcon, TruckIcon } from "lucide-react"
 
 import { HeeraRail } from "@/components/heera-rail";
 import { HeroSlider } from "@/components/hero-slider";
-import { MobileTrust } from "@/components/home-mobile";
-import { FounderPicture, LovedByYou, Reels, ShopByType } from "@/components/home-sections";
+import { Bestsellers, CategoryTiles, EditRow, FounderPicture, LovedByYou, Reels } from "@/components/home-sections";
 import { ProductCard } from "@/components/product-card";
 import { Ornament, SectionHeading } from "@/components/section-heading";
 import { home } from "@/config/home";
-import { bestsellerSlugs, newInSlugs, pick, pickInOrder, railSlugs } from "@/lib/catalog";
+import { bestsellerSlugs, edits, newInSlugs, pick, pickInOrder, railSlugs } from "@/lib/catalog";
 import { cn } from "@/lib/utils";
 
-// Page order: sliding banner, promises, New In (+ Everyday glamour on bigger screens),
-// On the rail (3D), Shop by type, Bestsellers, Style. Love. Shop. (reels), Loved by you, the phone-only
-// trust strip, and the founder's message.
+// Page order: opening screen (layout), sliding banner, promises, Shop the house (four tiles),
+// New In (+ Everyday glamour on bigger screens), On the rail (3D), the Crystal Edit row,
+// Bestsellers, Style. Love. Shop. (reels), Loved by you, and the founder's message.
 
 const outlineCta =
   "inline-flex h-11 items-center justify-center border border-current px-7 text-[11px] tracking-[0.22em] uppercase transition-colors hover:bg-foreground hover:text-background";
@@ -24,6 +23,7 @@ const promiseIcons = { gem: GemIcon, sparkles: SparklesIcon, bag: ShoppingBagIco
 export default function Home() {
   const newIn = pick(newInSlugs);
   const bestsellers = pick(bestsellerSlugs);
+  const crystal = pick(edits.crystal.slugs).filter((p) => p.inStock).slice(0, 8);
   const { glamour } = home;
 
   return (
@@ -54,10 +54,12 @@ export default function Home() {
         </div>
       </section>
 
+      <CategoryTiles className="pt-10 md:pt-14" />
+
       {/* New in, with the "everyday glamour" panel beside it */}
       <section
         id="new-in"
-        className="mx-auto grid max-w-7xl scroll-mt-28 gap-10 px-4 pt-10 pb-12 sm:px-6 md:pt-14 md:pb-16 lg:grid-cols-[1fr_minmax(0,0.55fr)]"
+        className="mx-auto grid max-w-7xl scroll-mt-28 gap-10 px-4 pt-2 pb-12 sm:px-6 md:pt-14 md:pb-16 lg:grid-cols-[1fr_minmax(0,0.55fr)]"
       >
         <div>
           <SectionHeading title="New in" link={{ href: "/shop", label: "View all" }} />
@@ -100,25 +102,15 @@ export default function Home() {
         <HeeraRail products={pickInOrder(railSlugs)} />
       </section>
 
-      <ShopByType />
+      <EditRow products={crystal} className="mb-12 md:mb-16" />
 
       {/* Phones show the reels before Bestsellers; bigger screens show Bestsellers first. */}
       <div className="flex flex-col">
-        <section id="bestsellers" className="order-2 mx-auto w-full max-w-7xl scroll-mt-28 px-4 pb-12 sm:px-6 md:order-1 md:pb-16">
-          <SectionHeading title="Bestsellers" link={{ href: "/shop", label: "View all" }} />
-          <div className="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 md:gap-x-5 lg:grid-cols-6">
-            {bestsellers.map((p) => (
-              <ProductCard key={p.slug} product={p} />
-            ))}
-          </div>
-        </section>
-
+        <Bestsellers products={bestsellers} className="order-2 md:order-1" />
         <Reels className="order-1 w-full md:order-2" />
       </div>
 
       <LovedByYou />
-
-      <MobileTrust />
 
       {/* Message from the founder (last section) */}
       <div id="founder" className="scroll-mt-28">

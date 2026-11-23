@@ -40,9 +40,9 @@ export function ProductCard({ product, priority, className }: { product: Product
           </Badge>
         )}
       </div>
-      <div className="space-y-1.5 pt-4">
+      <div className="space-y-1.5 pt-4 text-center">
         <h3 className="font-sans text-xs leading-snug tracking-[0.14em] uppercase sm:text-[13px]">{product.name}</h3>
-        <PriceTag product={product} className="text-[13px]" />
+        <PriceTag product={product} className="justify-center text-[13px]" />
       </div>
     </Link>
   );
