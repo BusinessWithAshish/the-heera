@@ -3,13 +3,15 @@ import Link from "next/link";
 import { ProductCard } from "@/components/product-card";
 import { Eyebrow } from "@/components/section-heading";
 import { byCategory, categories, categoryKeys, type Category, type Product } from "@/lib/catalog";
+
+type Group = { title: string; blurb: string; keys: Category[] };
 import { cn } from "@/lib/utils";
 
-export function ShopView({ category }: { category?: Category }) {
-  const list = byCategory(category);
-  const info = category ? categories[category] : null;
-  const tabs = [{ key: "all", label: "All", href: "/shop" }, ...categoryKeys.map((k) => ({ key: k, label: categories[k].label, href: `/shop/${k}` }))];
-  const current = category ?? "all";
+export function ShopView({ category, group }: { category?: Category; group?: Group }) {
+  const list = group ? group.keys.flatMap((k) => byCategory(k)) : byCategory(category);
+  const info = category ? categories[category] : group ?? null;
+  const tabs = [{ key: "all", label: "All", href: "/shop" }, { key: "footwear", label: "Footwear", href: "/shop/footwear" }, ...categoryKeys.map((k) => ({ key: k, label: categories[k].label, href: `/shop/${k}` }))];
+  const current = category ?? (group ? "footwear" : "all");
 
   return (
     <div className="mx-auto max-w-7xl px-4 pt-10 pb-20 sm:px-6 sm:pt-14">
@@ -42,7 +44,7 @@ export function ShopView({ category }: { category?: Category }) {
       ) : (
         // "Shop all" keeps each type together so the page reads calmly.
         <div className="space-y-16">
-          {categoryKeys.map((key) => (
+          {(group?.keys ?? categoryKeys).map((key) => (
             <section key={key} aria-labelledby={`shop-${key}`}>
               <div className="mb-6 flex items-baseline justify-between border-b pb-3">
                 <h2 id={`shop-${key}`} className="text-2xl tracking-[0.14em] uppercase sm:text-3xl">
@@ -52,7 +54,7 @@ export function ShopView({ category }: { category?: Category }) {
                   View {categories[key].label.toLowerCase()}
                 </Link>
               </div>
-              <Grid products={byCategory(key)} priority={key === categoryKeys[0]} />
+              <Grid products={byCategory(key)} priority={key === (group?.keys ?? categoryKeys)[0]} />
             </section>
           ))}
         </div>

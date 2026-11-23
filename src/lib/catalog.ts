@@ -26,6 +26,13 @@ export const categories = {
 export type Category = keyof typeof categories;
 export const categoryKeys = Object.keys(categories) as Category[];
 
+// Everything worn on the feet, shown together at /shop/footwear.
+export const footwear = {
+  title: "Footwear",
+  blurb: "Heels, flats and platforms, embellished by hand. Pick your height, keep the sparkle.",
+  keys: ["heels", "flats", "platforms"] as Category[],
+};
+
 export type Product = {
   slug: string;
   name: string;

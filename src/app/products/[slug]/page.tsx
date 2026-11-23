@@ -47,7 +47,7 @@ export default async function ProductPage(props: PageProps<"/products/[slug]">) 
   const more = related(product);
   const isBag = product.category === "bags";
   const mailto = `mailto:${site.email}?subject=${encodeURIComponent(product.name)}&body=${encodeURIComponent(
-    `Hi Heera team,\n\nI have a question about ${product.name}.\n\nThank you!`,
+    `Hi Heera Luxe team,\n\nI have a question about ${product.name}.\n\nThank you!`,
   )}`;
 
   const jsonLd = {

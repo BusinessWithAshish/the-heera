@@ -38,12 +38,12 @@ export const mainNav = [
   { label: "Bags", href: "/shop/bags" },
   {
     label: "Footwear",
-    href: "/shop",
+    href: "/shop/footwear",
     children: [
+      { label: "All footwear", href: "/shop/footwear" },
       { label: "Heels", href: "/shop/heels" },
       { label: "Flats", href: "/shop/flats" },
       { label: "Platforms", href: "/shop/platforms" },
-      { label: "Shop all", href: "/shop" },
     ],
   },
   {

@@ -68,7 +68,7 @@ export const home = {
 
   // "Shop by type": the two wide panels after New In.
   shopByType: [
-    { title: "Heels", body: "Step into elegance", href: "/shop/heels", image: "/images/home/type-heels.webp", alt: "Into the Night heels with a crystal brooch" },
+    { title: "Footwear", body: "Heels, flats & platforms", href: "/shop/footwear", image: "/images/home/type-heels.webp", alt: "Into the Night heels with a crystal brooch" },
     { title: "Bags", body: "Carry the luxe", href: "/shop/bags", image: "/images/home/type-bags.webp", alt: "Crystal bucket bag" },
   ],
 
