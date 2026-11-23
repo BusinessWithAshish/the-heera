@@ -114,6 +114,24 @@ export const bestsellerSlugs = [
   "precious-pearls",
 ];
 
+// The pieces hanging on the 3D rail on the home page, in rail order (not re-sorted).
+export const railSlugs = [
+  "dazzel-pink-bag",
+  "trophy-wife",
+  "pearl-me-up-flap-bag",
+  "goldmine",
+  "crescent-moon-silver-bag",
+  "crystal-clear",
+  "stardust-mini-bag",
+  "precious-pearls",
+  "valentina-silver",
+  "call-me-princess",
+];
+
+export function pickInOrder(slugs: readonly string[]) {
+  return slugs.map(getProduct).filter((p): p is Product => Boolean(p));
+}
+
 export function pick(slugs: readonly string[]) {
   return sortByPopularity(slugs.map(getProduct).filter((p): p is Product => Boolean(p)));
 }
