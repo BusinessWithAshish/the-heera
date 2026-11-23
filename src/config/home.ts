@@ -92,6 +92,8 @@ export const home = {
   founder: {
     // Bigger screens show the owner's own picture exactly as sent (words included).
     picture: { src: "/images/home/founder-message.webp", width: 1915, height: 821 },
+    // Phones show the tall version of the owner's picture, also exactly as sent.
+    phonePicture: { src: "/images/home/founder-message-mobile.webp", width: 997, height: 1577 },
     image: { alt: "Heena, founder of Heera Luxe" },
     title: "Message from the founder",
     paragraphs: [
@@ -106,34 +108,14 @@ export const home = {
     role: "Founder, Heera Luxe",
   },
 
-  // PHONE-ONLY sections and photos (bigger screens keep the layout above).
-  // The photos are in public/images/home/mobile/. Replace a file with the same
-  // name to change it; dark, close-up shots on a brown background fit best.
+  // PHONE-ONLY extras (everything else on phones is shared with bigger screens).
   mobile: {
-    // The short block right under the poster.
-    chapter: {
-      title: "A new chapter is coming.",
-      body: "New collections. Timeless details. Everyday glamour, reimagined.",
-      button: { label: "Stay tuned", href: site.instagram.url },
-    },
-    glamourImage: "/images/home/mobile/glamour.webp",
-    edits: {
-      crystal: { image: "/images/home/mobile/edit-crystal.webp", body: "Rhinestones and crystal straps that catch every light." },
-      beaded: { image: "/images/home/mobile/edit-beaded.webp", body: "For the moments worth dressing up for." },
-    },
-    tiles: [
-      { title: "Bags", body: "Statement makers for every mood.", href: "/shop/bags", image: "/images/home/mobile/tile-bags.webp" },
-      { title: "Footwear", body: "Step into something extraordinary.", href: "/shop", image: "/images/home/mobile/tile-footwear.webp" },
-      { title: "Edits", body: "Curated collections, crafted to shine.", href: "/#edits", image: "/images/home/mobile/tile-edits.webp" },
-      { title: "Bestsellers", body: "The pieces everyone asks about.", href: "/#bestsellers", image: "/images/home/mobile/tile-bestsellers.webp" },
-    ],
     // The strip of three promises above the footer. Keep these true.
     trust: [
       { icon: "truck", title: "Free shipping", body: "Across India" },
       { icon: "refresh", title: "Size exchange", body: `Within ${site.exchangeDays} days` },
       { icon: "hand", title: "Handmade", body: "In India" },
     ],
-    founderImage: "/images/home/mobile/founder.webp",
     tagline: "Everyday glamour, reimagined. Made to stand out. Made for you.",
   },
 } as const;

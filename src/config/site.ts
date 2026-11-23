@@ -48,7 +48,7 @@ export const mainNav = [
   },
   {
     label: "Edits",
-    href: "/#edits",
+    href: "/edits/crystal",
     children: [
       { label: "The Crystal Edit", href: "/edits/crystal" },
       { label: "The Beaded Edit", href: "/edits/beaded" },

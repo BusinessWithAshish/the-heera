@@ -3,7 +3,7 @@ import Link from "next/link";
 import { GemIcon, ShoppingBagIcon, SparklesIcon, TruckIcon } from "lucide-react";
 
 import { HeroSlider } from "@/components/hero-slider";
-import { MobileBestsellers, MobileChapter, MobileEdits, MobileFounder, MobileGlamour, MobileTiles, MobileTrust } from "@/components/home-mobile";
+import { MobileTrust } from "@/components/home-mobile";
 import { FounderPicture, LovedByYou, Reels, ShopByType } from "@/components/home-sections";
 import { ProductCard } from "@/components/product-card";
 import { Ornament, SectionHeading } from "@/components/section-heading";
@@ -11,9 +11,9 @@ import { home } from "@/config/home";
 import { bestsellerSlugs, newInSlugs, pick } from "@/lib/catalog";
 import { cn } from "@/lib/utils";
 
-// Page order (bigger screens): sliding banner, promises, New In + Everyday glamour,
-// Shop by type, Bestsellers, Style. Love. Shop. (reels), Loved by you, founder's message.
-// Phones add their own sections from home-mobile.tsx in between.
+// Page order: sliding banner, promises, New In (+ Everyday glamour on bigger screens),
+// Shop by type, Bestsellers, Style. Love. Shop. (reels), Loved by you, the phone-only
+// trust strip, and the founder's message.
 
 const outlineCta =
   "inline-flex h-11 items-center justify-center border border-current px-7 text-[11px] tracking-[0.22em] uppercase transition-colors hover:bg-foreground hover:text-background";
@@ -28,8 +28,6 @@ export default function Home() {
   return (
     <>
       <HeroSlider />
-
-      <MobileChapter />
 
       {/* Four promises */}
       <section className="border-y md:border-t-0 md:bg-secondary">
@@ -94,28 +92,19 @@ export default function Home() {
         </Link>
       </section>
 
-      <MobileGlamour />
-
-      <ShopByType className="hidden md:block" />
+      <ShopByType />
 
       {/* Bestsellers */}
-      <section id="bestsellers" className="mx-auto max-w-7xl scroll-mt-28 px-4 pt-10 pb-10 sm:px-6 md:pt-0 md:pb-16">
+      <section id="bestsellers" className="mx-auto max-w-7xl scroll-mt-28 px-4 pb-12 sm:px-6 md:pb-16">
         <SectionHeading title="Bestsellers" link={{ href: "/shop", label: "View all" }} />
-        <MobileBestsellers products={bestsellers.slice(0, 4)} />
-        <div className="hidden gap-x-5 gap-y-10 md:grid md:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 md:gap-x-5 lg:grid-cols-6">
           {bestsellers.map((p) => (
             <ProductCard key={p.slug} product={p} />
           ))}
         </div>
       </section>
 
-      {/* Phones keep the two edits and the shop tiles */}
-      <div id="edits" className="scroll-mt-28 md:hidden">
-        <MobileEdits />
-      </div>
-      <MobileTiles />
-
-      <Reels className="pt-12 md:pt-0" />
+      <Reels />
 
       <LovedByYou />
 
@@ -123,8 +112,7 @@ export default function Home() {
 
       {/* Message from the founder (last section) */}
       <div id="founder" className="scroll-mt-28">
-        <MobileFounder />
-        <FounderPicture className="hidden md:block" />
+        <FounderPicture />
       </div>
     </>
   );

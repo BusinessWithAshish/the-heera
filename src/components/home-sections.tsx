@@ -15,26 +15,39 @@ const outline =
 // Two wide dark panels: Heels and Bags.
 export function ShopByType({ className }: { className?: string }) {
   return (
-    <section className={cn("mx-auto max-w-7xl px-4 pb-16 sm:px-6", className)}>
+    <section className={cn("mx-auto max-w-7xl px-4 pb-12 sm:px-6 md:pb-16", className)}>
       <SectionHeading title="Shop by type" />
       <div className="grid gap-4 md:grid-cols-2 md:gap-5">
-        {home.shopByType.map((t) => (
-          <Link
-            key={t.title}
-            href={t.href}
-            className="dark group relative isolate flex h-60 overflow-hidden bg-espresso text-foreground lg:h-72"
-          >
-            <div className="absolute inset-y-0 right-0 -z-10 w-3/5">
-              <Image src={t.image} alt={t.alt} fill sizes="(min-width: 768px) 30vw, 60vw" className="object-cover transition duration-700 group-hover:scale-[1.04]" />
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-espresso to-transparent" />
-            </div>
-            <div className="flex flex-col justify-center gap-3 pl-8 lg:pl-12">
-              <h3 className="text-4xl font-light tracking-[0.14em] uppercase lg:text-5xl">{t.title}</h3>
-              <p className="text-sm text-foreground/85">{t.body}</p>
-              <span className={cn(outline, "mt-2 self-start text-gold")}>Explore</span>
-            </div>
-          </Link>
-        ))}
+        {home.shopByType.map((t, i) => {
+          // Phones stack the panels: the first has its words on the left, the
+          // second on the right. Bigger screens show both with words on the left.
+          const flip = i % 2 === 1;
+          return (
+            <Link
+              key={t.title}
+              href={t.href}
+              className={cn(
+                "dark group relative isolate flex h-56 overflow-hidden bg-espresso text-foreground md:h-60 md:justify-start md:text-left lg:h-72",
+                flip && "justify-end text-right",
+              )}
+            >
+              <div className={cn("absolute inset-y-0 -z-10 w-3/5 md:right-0 md:left-auto", flip ? "left-0" : "right-0")}>
+                <Image src={t.image} alt={t.alt} fill sizes="(min-width: 768px) 30vw, 60vw" className="object-cover transition duration-700 group-hover:scale-[1.04]" />
+                <div
+                  className={cn(
+                    "absolute inset-y-0 w-1/2 from-espresso to-transparent md:right-auto md:left-0 md:bg-gradient-to-r",
+                    flip ? "right-0 bg-gradient-to-l" : "left-0 bg-gradient-to-r",
+                  )}
+                />
+              </div>
+              <div className={cn("flex flex-col justify-center gap-3 lg:pl-12", flip ? "pr-7 md:pr-0 md:pl-8" : "pl-7 md:pl-8")}>
+                <h3 className="text-4xl font-light tracking-[0.14em] uppercase lg:text-5xl">{t.title}</h3>
+                <p className="text-sm text-foreground/85">{t.body}</p>
+                <span className={cn(outline, "mt-2 text-gold md:self-start", flip ? "self-end" : "self-start")}>Explore</span>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </section>
   );
@@ -104,9 +117,10 @@ export function LovedByYou({ className }: { className?: string }) {
   );
 }
 
-// Bigger screens: the founder's message exactly as the owner's picture.
+// The founder's message exactly as the owner's pictures: the tall one on phones,
+// the wide one on bigger screens.
 export function FounderPicture({ className }: { className?: string }) {
-  const { picture, image, title, paragraphs, signature, role } = home.founder;
+  const { picture, phonePicture, image, title, paragraphs, signature, role } = home.founder;
   return (
     <section className={cn("bg-cocoa-deep", className)}>
       {/* The words in the picture, for screen readers and search engines. */}
@@ -117,7 +131,8 @@ export function FounderPicture({ className }: { className?: string }) {
         ))}
         <p>{signature}, {role}</p>
       </div>
-      <Image src={picture.src} alt={`Message from the founder. ${image.alt}`} width={picture.width} height={picture.height} sizes="100vw" className="mx-auto h-auto w-full max-w-[1920px]" />
+      <Image src={phonePicture.src} alt={`Message from the founder. ${image.alt}`} width={phonePicture.width} height={phonePicture.height} sizes="100vw" className="h-auto w-full md:hidden" />
+      <Image src={picture.src} alt={`Message from the founder. ${image.alt}`} width={picture.width} height={picture.height} sizes="100vw" className="mx-auto hidden h-auto w-full max-w-[1920px] md:block" />
     </section>
   );
 }
