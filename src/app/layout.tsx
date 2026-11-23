@@ -4,11 +4,13 @@ import { Allura, Cormorant_Garamond, Geist_Mono, Jost } from "next/font/google";
 import { CartDrawer } from "@/components/cart-drawer";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { SmoothScroll } from "@/components/smooth-scroll";
 import { SplashScreen, splashGateScript } from "@/components/splash-screen";
 import { Toaster } from "@/components/ui/toast";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { site } from "@/config/site";
 import { CartProvider } from "@/lib/cart";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -70,6 +72,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="flex min-h-full flex-col">
         <SplashScreen />
+        <SmoothScroll />
         <Toaster>
           <TooltipProvider>
             <CartProvider>

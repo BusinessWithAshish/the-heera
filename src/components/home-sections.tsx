@@ -18,7 +18,7 @@ const outline =
 export function Reels({ className }: { className?: string }) {
   return (
     <section className={cn("mx-auto max-w-7xl px-4 pb-14 sm:px-6", className)}>
-      <SectionHeading title="Style. Love. Shop." eyebrow={site.instagram.handle} />
+      <SectionHeading title="Style. Love. Shop." eyebrow={site.instagram.handle} className="reveal" />
       <div className="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-3 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:px-0 lg:grid-cols-6">
         {home.reels.map((r) => (
           <a
@@ -50,7 +50,7 @@ export function LovedByYou({ className }: { className?: string }) {
   return (
     <section className={cn("pb-14 md:pb-20", className)}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <SectionHeading title="Loved by you" />
+        <SectionHeading title="Loved by you" className="reveal" />
       </div>
       <div className="group overflow-hidden">
         <div className="flex w-max animate-marquee gap-3 group-hover:[animation-play-state:paused] motion-reduce:animate-none md:gap-4">
@@ -83,7 +83,7 @@ export function LovedByYou({ className }: { className?: string }) {
 export function FounderPicture({ className }: { className?: string }) {
   const { picture, phonePicture, image, title, paragraphs, signature, role } = home.founder;
   return (
-    <section className={cn("bg-cocoa-deep", className)}>
+    <section className={cn("reveal-clip bg-cocoa-deep", className)}>
       {/* The words in the picture, for screen readers and search engines. */}
       <div className="sr-only">
         <h2>{title}</h2>
@@ -103,8 +103,8 @@ export function FounderPicture({ className }: { className?: string }) {
 export function CategoryTiles({ className }: { className?: string }) {
   return (
     <section className={cn("mx-auto max-w-7xl px-4 pb-12 sm:px-6 md:pb-16", className)}>
-      <SectionHeading title="Shop the house" />
-      <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4">
+      <SectionHeading title="Shop the house" className="reveal" />
+      <div className="reveal-stagger grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4">
         {home.categoryTiles.map((t) => (
           <Link key={t.href} href={t.href} className="dark group relative isolate block aspect-[3/4] overflow-hidden bg-espresso text-foreground">
             <Image
@@ -112,7 +112,7 @@ export function CategoryTiles({ className }: { className?: string }) {
               alt={t.alt}
               fill
               sizes="(min-width: 768px) 25vw, 50vw"
-              className="-z-10 object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.06]"
+              className="parallax-img -z-10 object-cover"
             />
             <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-2 pb-5 md:pb-7">
@@ -130,9 +130,9 @@ export function CategoryTiles({ className }: { className?: string }) {
 export function EditRow({ products, className }: { products: Product[]; className?: string }) {
   const { eyebrow, title, body, button } = home.editRow;
   return (
-    <section className={cn("border-y bg-card py-12 md:py-16", className)}>
+    <section className={cn("reveal-band border-y bg-card py-12 md:py-16", className)}>
       <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[minmax(0,0.32fr)_1fr] lg:items-center lg:gap-12">
-        <div className="space-y-4 text-center lg:text-left">
+        <div className="reveal space-y-4 text-center lg:text-left">
           <Eyebrow>{eyebrow}</Eyebrow>
           <h2 className="text-3xl leading-tight font-light tracking-[0.08em] sm:text-4xl">{title}</h2>
           <Ornament className="lg:justify-start" />
@@ -159,9 +159,9 @@ export function Bestsellers({ products, className }: { products: Product[]; clas
   const f = home.bestsellerFeature;
   return (
     <section id="bestsellers" className={cn("mx-auto w-full max-w-7xl scroll-mt-28 px-4 pb-12 sm:px-6 md:pb-16", className)}>
-      <SectionHeading title="Bestsellers" link={{ href: "/shop", label: "View all" }} />
+      <SectionHeading title="Bestsellers" link={{ href: "/shop", label: "View all" }} className="reveal" />
       <div className="grid gap-5 lg:grid-cols-[minmax(0,0.42fr)_1fr]">
-        <Link href="/shop" className="dark group relative isolate hidden overflow-hidden bg-espresso text-foreground lg:block">
+        <Link href="/shop" className="reveal-clip dark group relative isolate hidden overflow-hidden bg-espresso text-foreground lg:block">
           <Image src={f.image} alt={f.alt} fill sizes="35vw" className="-z-10 object-cover transition duration-[1200ms] group-hover:scale-[1.04]" />
           <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           <div className="absolute bottom-8 left-8 space-y-3">
@@ -169,7 +169,7 @@ export function Bestsellers({ products, className }: { products: Product[]; clas
             <span className="inline-block border-b border-gold pb-1 text-[10px] tracking-[0.24em] text-gold uppercase">Shop the favourites</span>
           </div>
         </Link>
-        <div className="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 md:gap-x-5">
+        <div className="reveal-stagger grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 md:gap-x-5">
           {products.map((p) => (
             <ProductCard key={p.slug} product={p} />
           ))}

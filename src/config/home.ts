@@ -7,7 +7,33 @@ import { site } from "@/config/site";
 export const home = {
   announcement: "Heera Luxe enters a new chapter.  Coming soon.",
 
-  // The sliding banner at the top. Slides move right to left every few seconds and
+  // The moving banner at the very top: three arched "shop windows" playing reels,
+  // with the words below. The middle window is the big one. Videos live in
+  // public/videos/ and the still picture (shown before a video plays, and to anyone
+  // who turns motion off) in public/images/home/reels/.
+  hero: {
+    eyebrow: "A new chapter",
+    title: "Made to be",
+    script: "noticed",
+    body: "Heels, flats and bags embellished by hand in India, crystal by crystal.",
+    buttons: [
+      { label: "Shop bags", href: "/shop/bags" },
+      { label: "Shop footwear", href: "/shop/footwear" },
+    ],
+    // The silver crystal bag clip (from the "Bling Bags" reel, words cropped out),
+    // smoothed to 60 frames a second: a sharp 1080p file for bigger screens and a
+    // lighter 720p one for phones.
+    video: { large: "/videos/hero-bag-1080.mp4", small: "/videos/hero-bag-720.mp4" },
+    poster: "/images/home/hero-bag.webp",
+    videoAlt: "A silver crystal bag with beaded tassels, held up close",
+    // PREVIEW ONLY: shows a small switcher at the bottom of the page to compare the
+    // three banner designs (1 one window, 2 full width, 3 three windows). Set to
+    // false, and set `design`, once the owner has picked one.
+    compare: true,
+    design: "arch" as "arch" | "full" | "trio",
+  },
+
+  // The old sliding banner (not on the home page at the moment; HeroSlider still reads these). Slides move right to left every few seconds and
   // each one is a link. The first is the "Coming soon" poster (words are part of the
   // picture: phones show the tall poster, bigger screens the wide one). The others
   // are a photo with words beside it. Add, remove or reorder slides here; 3 to 4 is best.

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { GemIcon, ShoppingBagIcon, SparklesIcon, TruckIcon } from "lucide-react";
 
 import { HeeraRail } from "@/components/heera-rail";
-import { HeroSlider } from "@/components/hero-slider";
+import { VitrineHero } from "@/components/vitrine-hero";
 import { Bestsellers, CategoryTiles, EditRow, FounderPicture, LovedByYou, Reels } from "@/components/home-sections";
 import { ProductCard } from "@/components/product-card";
 import { Ornament, SectionHeading } from "@/components/section-heading";
@@ -11,7 +11,7 @@ import { home } from "@/config/home";
 import { bestsellerSlugs, edits, newInSlugs, pick, pickInOrder, railSlugs } from "@/lib/catalog";
 import { cn } from "@/lib/utils";
 
-// Page order: opening screen (layout), sliding banner, promises, Shop the house (four tiles),
+// Page order: opening screen (layout), the shop-window banner (VitrineHero), promises, Shop the house (four tiles),
 // New In (+ Everyday glamour on bigger screens), On the rail (3D), the Crystal Edit row,
 // Bestsellers, Style. Love. Shop. (reels), Loved by you, and the founder's message.
 
@@ -28,7 +28,7 @@ export default function Home() {
 
   return (
     <>
-      <HeroSlider />
+      <VitrineHero />
 
       {/* Four promises */}
       <section className="border-y md:border-t-0 md:bg-secondary">
@@ -62,8 +62,8 @@ export default function Home() {
         className="mx-auto grid max-w-7xl scroll-mt-28 gap-10 px-4 pt-2 pb-12 sm:px-6 md:pt-14 md:pb-16 lg:grid-cols-[1fr_minmax(0,0.55fr)]"
       >
         <div>
-          <SectionHeading title="New in" link={{ href: "/shop", label: "View all" }} />
-          <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-4 sm:gap-x-5">
+          <SectionHeading title="New in" link={{ href: "/shop", label: "View all" }} className="reveal" />
+          <div className="reveal-stagger grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-4 sm:gap-x-5">
             {newIn.map((p) => (
               <ProductCard key={p.slug} product={p} />
             ))}
@@ -72,7 +72,7 @@ export default function Home() {
 
         <Link
           href={glamour.button.href}
-          className="dark group relative isolate hidden min-h-[420px] overflow-hidden bg-espresso text-foreground md:flex lg:min-h-0"
+          className="reveal-clip dark group relative isolate hidden min-h-[420px] overflow-hidden bg-espresso text-foreground md:flex lg:min-h-0"
         >
           <div className="absolute inset-0 -z-10 sm:left-[38%]">
             <Image
@@ -96,8 +96,8 @@ export default function Home() {
       </section>
 
       {/* On the rail: pieces on gold hangers in 3D, on a dark band */}
-      <section id="on-the-rail" className="dark scroll-mt-28 overflow-hidden bg-espresso bg-[radial-gradient(ellipse_at_50%_30%,oklch(0.36_0.04_60),transparent_65%)] pt-12 pb-12 text-foreground md:pt-16 md:pb-16">
-        <SectionHeading eyebrow={home.rail.eyebrow} title={home.rail.title} className="mb-2 px-4 sm:mb-2" />
+      <section id="on-the-rail" className="reveal-band dark scroll-mt-28 overflow-hidden bg-espresso bg-[radial-gradient(ellipse_at_50%_30%,oklch(0.36_0.04_60),transparent_65%)] pt-12 pb-12 text-foreground md:pt-16 md:pb-16">
+        <SectionHeading eyebrow={home.rail.eyebrow} title={home.rail.title} className="reveal mb-2 px-4 sm:mb-2" />
         <p className="px-4 text-center text-sm text-foreground/70">{home.rail.body}</p>
         <HeeraRail products={pickInOrder(railSlugs)} />
       </section>
