@@ -7,13 +7,49 @@ import { site } from "@/config/site";
 export const home = {
   announcement: "Heera Luxe enters a new chapter.  Coming soon.",
 
-  // The "Coming soon" poster at the top. The words are part of the pictures, so to
-  // change them, send new posters. Phones show the tall one; bigger screens the wide one.
-  hero: {
-    alt: "Heera Luxe enters a new chapter. Coming soon.",
-    desktop: "/images/home/coming-soon.webp",
-    mobile: { src: "/images/home/coming-soon-mobile.webp", width: 1024, height: 1536 },
-  },
+  // The sliding banner at the top. Slides move right to left every few seconds and
+  // each one is a link. The first is the "Coming soon" poster (words are part of the
+  // picture: phones show the tall poster, bigger screens the wide one). The others
+  // are a photo with words beside it. Add, remove or reorder slides here; 3 to 4 is best.
+  slides: [
+    {
+      kind: "poster",
+      alt: "Heera Luxe enters a new chapter. Coming soon.",
+      desktop: "/images/home/coming-soon.webp",
+      mobile: "/images/home/coming-soon-mobile.webp",
+      href: "/#new-in",
+    },
+    {
+      kind: "feature",
+      image: "/images/home/slides/slide-2.webp",
+      alt: "Dazzle Silver Bag held up close",
+      eyebrow: "The collection",
+      title: "The Crystal Edit",
+      body: "Rhinestones and crystal straps that catch every light.",
+      button: "Explore the edit",
+      href: "/edits/crystal",
+    },
+    {
+      kind: "feature",
+      image: "/images/home/slides/slide-3.webp",
+      alt: "Pearl Me Up Bag with beaded tassels",
+      eyebrow: "The collection",
+      title: "The Beaded Edit",
+      body: "Pearls and beads, strung and sewn by hand.",
+      button: "Explore the edit",
+      href: "/edits/beaded",
+    },
+    {
+      kind: "feature",
+      image: "/images/home/slides/slide-4.webp",
+      alt: "Crescent Moon Silver Bag carried with a pink outfit",
+      eyebrow: "Bling bags",
+      title: "Carry the luxe",
+      body: "Pearl, crystal and beaded bags, made by hand to finish the look.",
+      button: "Shop bags",
+      href: "/shop/bags",
+    },
+  ],
 
   // The strip of four promises under the banner. Keep these true.
   promises: [
@@ -30,16 +66,31 @@ export const home = {
     button: { label: "Explore", href: "/shop/bags" },
   },
 
-  // The two collection panels after Bestsellers. Which products are in each edit
-  // lives in src/lib/catalog.ts (edits).
-  edits: [
-    { key: "crystal", image: { src: "/images/home/edit-crystal.webp", alt: "Crystal tassel bag held up close" } },
-    { key: "beaded", image: { src: "/images/home/edit-beaded.webp", alt: "All Pearl Bag" } },
+  // "Shop by type": the two wide panels after New In.
+  shopByType: [
+    { title: "Heels", body: "Step into elegance", href: "/shop/heels", image: "/images/home/type-heels.webp", alt: "Into the Night heels with a crystal brooch" },
+    { title: "Bags", body: "Carry the luxe", href: "/shop/bags", image: "/images/home/type-bags.webp", alt: "Crystal bucket bag" },
   ],
+
+  // "Style. Love. Shop.": Instagram reels. Put each video file (.mp4) in
+  // public/videos/ and set `video` to its path; it then plays on its own, muted,
+  // on a loop. Until a video is added, the photo shows instead. `href` is where a
+  // tap goes: the reel's own Instagram link, or the Instagram page.
+  reels: [
+    { video: null, poster: "/images/home/reels/reel-1.webp", href: site.instagram.url, alt: "Dazzle Silver Bag" },
+    { video: null, poster: "/images/home/reels/reel-2.webp", href: site.instagram.url, alt: "Dazzel Pink Bag" },
+    { video: null, poster: "/images/home/reels/reel-3.webp", href: site.instagram.url, alt: "Valentina gold heart bag" },
+    { video: null, poster: "/images/home/reels/reel-4.webp", href: site.instagram.url, alt: "Stardust Mini Bag" },
+  ] as { video: string | null; poster: string; href: string; alt: string }[],
+
+  // "Loved by you": customers wearing Heera Luxe. They drift slowly across the screen.
+  lovedByYou: [1, 2, 3, 4, 5, 6].map((n) => `/images/brand/community-${n}.webp`),
 
   // "Message from the founder", the last section of the home page.
   founder: {
-    image: { src: "/images/home/founder.webp", alt: "Heena, founder of Heera Luxe" },
+    // Bigger screens show the owner's own picture exactly as sent (words included).
+    picture: { src: "/images/home/founder-message.webp", width: 1915, height: 821 },
+    image: { alt: "Heena, founder of Heera Luxe" },
     title: "Message from the founder",
     paragraphs: [
       "Hi, I’m Heena, the founder and the face behind Heera Luxe.",

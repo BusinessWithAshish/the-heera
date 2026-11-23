@@ -98,7 +98,14 @@ export function related(product: Product, count = 4) {
 // OWNER TO CONFIRM: these lists are a first guess, not real sales or arrival data.
 export const newInSlugs = ["pearl-me-up-flap-bag", "stardust-mini-bag", "crescent-moon-silver-bag", "valentina-silver"];
 
-export const bestsellerSlugs = ["trophy-wife", "dazzel-pink-bag", "black-starliner-platform", "goldmine"];
+export const bestsellerSlugs = [
+  "trophy-wife",
+  "dazzel-pink-bag",
+  "black-starliner-platform",
+  "goldmine",
+  "cluster-of-pearls-flats",
+  "precious-pearls",
+];
 
 export function pick(slugs: readonly string[]) {
   return sortByPopularity(slugs.map(getProduct).filter((p): p is Product => Boolean(p)));
