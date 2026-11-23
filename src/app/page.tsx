@@ -94,17 +94,19 @@ export default function Home() {
 
       <ShopByType />
 
-      {/* Bestsellers */}
-      <section id="bestsellers" className="mx-auto max-w-7xl scroll-mt-28 px-4 pb-12 sm:px-6 md:pb-16">
-        <SectionHeading title="Bestsellers" link={{ href: "/shop", label: "View all" }} />
-        <div className="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 md:gap-x-5 lg:grid-cols-6">
-          {bestsellers.map((p) => (
-            <ProductCard key={p.slug} product={p} />
-          ))}
-        </div>
-      </section>
+      {/* Phones show the reels before Bestsellers; bigger screens show Bestsellers first. */}
+      <div className="flex flex-col">
+        <section id="bestsellers" className="order-2 mx-auto w-full max-w-7xl scroll-mt-28 px-4 pb-12 sm:px-6 md:order-1 md:pb-16">
+          <SectionHeading title="Bestsellers" link={{ href: "/shop", label: "View all" }} />
+          <div className="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 md:gap-x-5 lg:grid-cols-6">
+            {bestsellers.map((p) => (
+              <ProductCard key={p.slug} product={p} />
+            ))}
+          </div>
+        </section>
 
-      <Reels />
+        <Reels className="order-1 w-full md:order-2" />
+      </div>
 
       <LovedByYou />
 

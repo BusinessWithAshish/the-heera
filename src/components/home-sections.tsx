@@ -17,7 +17,7 @@ export function ShopByType({ className }: { className?: string }) {
   return (
     <section className={cn("mx-auto max-w-7xl px-4 pb-12 sm:px-6 md:pb-16", className)}>
       <SectionHeading title="Shop by type" />
-      <div className="grid md:grid-cols-2 md:gap-5">
+      <div className="-mx-4 grid sm:-mx-6 md:mx-0 md:grid-cols-2 md:gap-5">
         {home.shopByType.map((t, i) => {
           // Phones stack the panels: the first has its words on the left, the
           // second on the right. Bigger screens show both with words on the left.
