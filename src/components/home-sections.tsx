@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { InstagramIcon } from "@/components/instagram-icon";
+import { ReelVideo } from "@/components/reel-video";
 import { SectionHeading } from "@/components/section-heading";
 import { home } from "@/config/home";
 import { site } from "@/config/site";
@@ -44,7 +45,7 @@ export function Reels({ className }: { className?: string }) {
   return (
     <section className={cn("mx-auto max-w-7xl px-4 pb-14 sm:px-6", className)}>
       <SectionHeading title="Style. Love. Shop." eyebrow={site.instagram.handle} />
-      <div className="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-3 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-4 md:gap-4 md:overflow-visible md:px-0">
+      <div className="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-3 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:px-0 lg:grid-cols-6">
         {home.reels.map((r) => (
           <a
             key={r.poster}
@@ -52,21 +53,12 @@ export function Reels({ className }: { className?: string }) {
             target="_blank"
             rel="noreferrer"
             aria-label={`Watch on Instagram: ${r.alt}`}
-            className="group relative aspect-[9/16] w-[58vw] shrink-0 snap-start overflow-hidden bg-muted md:aspect-[4/5] md:w-auto"
+            className="group relative aspect-[9/16] w-[58vw] shrink-0 snap-start overflow-hidden bg-muted md:w-auto"
           >
             {r.video ? (
-              <video
-                src={r.video}
-                poster={r.poster}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                className="absolute inset-0 size-full object-cover"
-              />
+              <ReelVideo src={r.video} poster={r.poster} />
             ) : (
-              <Image src={r.poster} alt={r.alt} fill sizes="(min-width: 768px) 25vw, 58vw" className="object-cover transition duration-700 group-hover:scale-[1.04]" />
+              <Image src={r.poster} alt={r.alt} fill sizes="(min-width: 1024px) 16vw, (min-width: 768px) 33vw, 58vw" className="object-cover transition duration-700 group-hover:scale-[1.04]" />
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             <InstagramIcon className="absolute top-3 right-3 size-5 text-white drop-shadow" />

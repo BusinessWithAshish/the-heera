@@ -77,10 +77,12 @@ export const home = {
   // on a loop. Until a video is added, the photo shows instead. `href` is where a
   // tap goes: the reel's own Instagram link, or the Instagram page.
   reels: [
-    { video: null, poster: "/images/home/reels/reel-1.webp", href: site.instagram.url, alt: "Dazzle Silver Bag" },
-    { video: null, poster: "/images/home/reels/reel-2.webp", href: site.instagram.url, alt: "Dazzel Pink Bag" },
-    { video: null, poster: "/images/home/reels/reel-3.webp", href: site.instagram.url, alt: "Valentina gold heart bag" },
-    { video: null, poster: "/images/home/reels/reel-4.webp", href: site.instagram.url, alt: "Stardust Mini Bag" },
+    { video: "/videos/reel-1.mp4", poster: "/images/home/reels/reel-1.webp", href: site.instagram.url, alt: "Crystal and pearl bags up close" },
+    { video: "/videos/reel-2.mp4", poster: "/images/home/reels/reel-2.webp", href: site.instagram.url, alt: "Unboxing a pair of Heera Luxe platforms" },
+    { video: "/videos/reel-3.mp4", poster: "/images/home/reels/reel-3.webp", href: site.instagram.url, alt: "A black sequin look in a hotel corridor" },
+    { video: "/videos/reel-4.mp4", poster: "/images/home/reels/reel-4.webp", href: site.instagram.url, alt: "A look at Lakmé Fashion Week" },
+    { video: "/videos/reel-5.mp4", poster: "/images/home/reels/reel-5.webp", href: site.instagram.url, alt: "Picking a festive look" },
+    { video: "/videos/reel-6.mp4", poster: "/images/home/reels/reel-6.webp", href: site.instagram.url, alt: "What I wore for my brother's wedding" },
   ] as { video: string | null; poster: string; href: string; alt: string }[],
 
   // "Loved by you": customers wearing Heera Luxe. They drift slowly across the screen.
