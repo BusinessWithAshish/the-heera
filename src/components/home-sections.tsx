@@ -16,7 +16,7 @@ const outline =
 export function ShopByType({ className }: { className?: string }) {
   return (
     <section className={cn("mx-auto max-w-7xl px-4 pb-12 sm:px-6 md:pb-16", className)}>
-      <SectionHeading title="Shop by type" />
+      <SectionHeading title="Shop by type" className="reveal" />
       <div className="-mx-4 grid sm:-mx-6 md:mx-0 md:grid-cols-2 md:gap-5">
         {home.shopByType.map((t, i) => {
           // Phones stack the panels: the first has its words on the left, the
@@ -27,12 +27,12 @@ export function ShopByType({ className }: { className?: string }) {
               key={t.title}
               href={t.href}
               className={cn(
-                "dark group relative isolate flex h-56 overflow-hidden bg-espresso text-foreground md:h-60 md:justify-start md:text-left lg:h-72",
+                "reveal-clip dark group relative isolate flex h-56 overflow-hidden bg-espresso text-foreground md:h-60 md:justify-start md:text-left lg:h-72",
                 flip && "justify-end text-right",
               )}
             >
-              <div className={cn("absolute inset-y-0 -z-10 w-3/5 md:right-0 md:left-auto", flip ? "left-0" : "right-0")}>
-                <Image src={t.image} alt={t.alt} fill sizes="(min-width: 768px) 30vw, 60vw" className="object-cover transition duration-700 group-hover:scale-[1.04]" />
+              <div className={cn("absolute inset-y-0 -z-10 w-3/5 overflow-hidden md:right-0 md:left-auto", flip ? "left-0" : "right-0")}>
+                <Image src={t.image} alt={t.alt} fill sizes="(min-width: 768px) 30vw, 60vw" className="parallax-img object-cover transition duration-700 group-hover:scale-[1.04]" />
                 <div
                   className={cn(
                     "absolute inset-y-0 w-1/2 from-espresso to-transparent md:right-auto md:left-0 md:bg-gradient-to-r",
@@ -57,8 +57,8 @@ export function ShopByType({ className }: { className?: string }) {
 export function Reels({ className }: { className?: string }) {
   return (
     <section className={cn("mx-auto max-w-7xl px-4 pb-14 sm:px-6", className)}>
-      <SectionHeading title="Style. Love. Shop." eyebrow={site.instagram.handle} />
-      <div className="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-3 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:px-0 lg:grid-cols-6">
+      <SectionHeading title="Style. Love. Shop." eyebrow={site.instagram.handle} className="reveal" />
+      <div className="reveal -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-3 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:px-0 lg:grid-cols-6">
         {home.reels.map((r) => (
           <a
             key={r.poster}
@@ -89,7 +89,7 @@ export function LovedByYou({ className }: { className?: string }) {
   return (
     <section className={cn("pb-14 md:pb-20", className)}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <SectionHeading title="Loved by you" />
+        <SectionHeading title="Loved by you" className="reveal" />
       </div>
       <div className="group overflow-hidden">
         <div className="flex w-max animate-marquee gap-3 group-hover:[animation-play-state:paused] motion-reduce:animate-none md:gap-4">
@@ -122,7 +122,7 @@ export function LovedByYou({ className }: { className?: string }) {
 export function FounderPicture({ className }: { className?: string }) {
   const { picture, phonePicture, image, title, paragraphs, signature, role } = home.founder;
   return (
-    <section className={cn("bg-cocoa-deep", className)}>
+    <section className={cn("reveal-clip bg-cocoa-deep", className)}>
       {/* The words in the picture, for screen readers and search engines. */}
       <div className="sr-only">
         <h2>{title}</h2>

@@ -31,7 +31,7 @@ export default function Home() {
       <HeroSlider />
 
       {/* Four promises */}
-      <section className="border-y md:border-t-0 md:bg-secondary">
+      <section className="border-y border-secondary bg-secondary/70 md:border-t-0 md:bg-secondary">
         <div className="mx-auto grid max-w-6xl grid-cols-4 gap-x-1 px-2 py-5 md:grid-cols-2 md:gap-y-6 md:px-6 md:py-6 lg:grid-cols-4 lg:py-5">
           {home.promises.map(({ icon, title, body }, i) => {
             const Icon = promiseIcons[icon];
@@ -60,8 +60,8 @@ export default function Home() {
         className="mx-auto grid max-w-7xl scroll-mt-28 gap-10 px-4 pt-10 pb-12 sm:px-6 md:pt-14 md:pb-16 lg:grid-cols-[1fr_minmax(0,0.55fr)]"
       >
         <div>
-          <SectionHeading title="New in" link={{ href: "/shop", label: "View all" }} />
-          <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-4 sm:gap-x-5">
+          <SectionHeading title="New in" link={{ href: "/shop", label: "View all" }} className="reveal" />
+          <div className="reveal-stagger grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-4 sm:gap-x-5">
             {newIn.map((p) => (
               <ProductCard key={p.slug} product={p} />
             ))}
@@ -70,7 +70,7 @@ export default function Home() {
 
         <Link
           href={glamour.button.href}
-          className="dark group relative isolate hidden min-h-[420px] overflow-hidden bg-espresso text-foreground md:flex lg:min-h-0"
+          className="reveal-clip dark group relative isolate hidden min-h-[420px] overflow-hidden bg-espresso text-foreground md:flex lg:min-h-0"
         >
           <div className="absolute inset-0 -z-10 sm:left-[38%]">
             <Image
@@ -98,21 +98,24 @@ export default function Home() {
       {/* Bigger screens: Bestsellers, the 3D rail, then the reels.
           Phones: the reels, Bestsellers, then the 3D rail. */}
       <div className="flex flex-col">
-        <section id="bestsellers" className="order-2 mx-auto w-full max-w-7xl scroll-mt-28 px-4 pb-12 sm:px-6 md:order-1 md:pb-16">
-          <SectionHeading title="Bestsellers" link={{ href: "/shop", label: "View all" }} />
-          <div className="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 md:gap-x-5 lg:grid-cols-6">
-            {bestsellers.map((p) => (
-              <ProductCard key={p.slug} product={p} />
-            ))}
+        {/* Bestsellers sit on a soft blue band. */}
+        <section id="bestsellers" className="order-2 mb-12 w-full scroll-mt-28 bg-secondary py-12 md:order-1 md:mb-16 md:py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <SectionHeading title="Bestsellers" link={{ href: "/shop", label: "View all" }} className="reveal" />
+            <div className="reveal-stagger grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 md:gap-x-5 lg:grid-cols-6">
+              {bestsellers.map((p) => (
+                <ProductCard key={p.slug} product={p} />
+              ))}
+            </div>
           </div>
         </section>
 
         {/* On the rail: pieces on gold hangers in 3D, on a dark band */}
         <section
           id="on-the-rail"
-          className="dark order-3 mb-12 scroll-mt-28 overflow-hidden bg-espresso bg-[radial-gradient(ellipse_at_50%_30%,oklch(0.42_0.04_60),transparent_65%)] pt-12 pb-12 text-foreground md:order-2 md:mb-16 md:pt-16 md:pb-16"
+          className="reveal-band dark order-3 mb-12 scroll-mt-28 overflow-hidden bg-espresso bg-[radial-gradient(ellipse_at_50%_30%,oklch(0.42_0.04_60),transparent_65%)] pt-12 pb-12 text-foreground md:order-2 md:mb-16 md:pt-16 md:pb-16"
         >
-          <SectionHeading eyebrow={home.rail.eyebrow} title={home.rail.title} className="mb-2 px-4 sm:mb-2" />
+          <SectionHeading eyebrow={home.rail.eyebrow} title={home.rail.title} className="reveal mb-2 px-4 sm:mb-2" />
           <p className="px-4 text-center text-sm text-foreground/70">{home.rail.body}</p>
           <HeeraRail products={pickInOrder(railSlugs)} />
         </section>

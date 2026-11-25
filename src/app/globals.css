@@ -65,29 +65,29 @@
 }
 
 :root {
-  /* Heera palette: warm oatmeal beige, chocolate brown ink, deep navy bands,
-     dusty blue tints and a caramel accent. */
-  --background: #f2e9dc;
-  --foreground: #3a2a20;
-  --card: #f7f1e7;
-  --card-foreground: #3a2a20;
-  --popover: #f7f1e7;
-  --popover-foreground: #3a2a20;
-  --primary: #1f2b45;
-  --primary-foreground: #f5ede1;
-  --secondary: #dfe5ea;
-  --secondary-foreground: #24324d;
-  --muted: #e8dccb;
-  --muted-foreground: #7a6556;
-  --accent: #e3d4c1;
-  --accent-foreground: #3a2a20;
+  /* Heera palette (Pinterest blue & brown): creamy beige paper, rich chocolate
+     ink and bands, soft powder blue as the second colour, dusty blue accents. */
+  --background: #f6efe5;
+  --foreground: #42271c;
+  --card: #fbf6ef;
+  --card-foreground: #42271c;
+  --popover: #fbf6ef;
+  --popover-foreground: #42271c;
+  --primary: #4a2c20;
+  --primary-foreground: #f6efe5;
+  --secondary: #d3e1ee;
+  --secondary-foreground: #2f4a63;
+  --muted: #ece2d4;
+  --muted-foreground: #806554;
+  --accent: #e4ecf3;
+  --accent-foreground: #42271c;
   --destructive: oklch(0.55 0.2 27);
-  --border: #dacbb6;
-  --input: #d3c2ab;
-  --ring: #a87a52;
-  --gold: #a5754c;
-  --blush: #ead9c5;
-  --espresso: #4a3427;
+  --border: #e0d2c0;
+  --input: #d8c8b4;
+  --ring: #6f92b4;
+  --gold: #5f84a8;
+  --blush: #eadccb;
+  --espresso: #5b3a2b;
   /* Warm brown and cream of the founder section. */
   --cocoa: #5a4533;
   --cocoa-deep: #1a120d;
@@ -95,58 +95,58 @@
   /* Soft taupe of the founder card on phones. */
   --taupe: #86705f;
   --taupe-deep: #3e332b;
-  --chart-1: #a5754c;
-  --chart-2: #7d93a8;
-  --chart-3: #4a3427;
-  --chart-4: #1f2b45;
-  --chart-5: #3a2a20;
+  --chart-1: #5f84a8;
+  --chart-2: #b98a66;
+  --chart-3: #5b3a2b;
+  --chart-4: #d3e1ee;
+  --chart-5: #42271c;
   --radius: 0.125rem;
-  --sidebar: #f2e9dc;
-  --sidebar-foreground: #3a2a20;
-  --sidebar-primary: #1f2b45;
-  --sidebar-primary-foreground: #f5ede1;
-  --sidebar-accent: #dfe5ea;
-  --sidebar-accent-foreground: #24324d;
-  --sidebar-border: #dacbb6;
-  --sidebar-ring: #a87a52;
+  --sidebar: #f6efe5;
+  --sidebar-foreground: #42271c;
+  --sidebar-primary: #4a2c20;
+  --sidebar-primary-foreground: #f6efe5;
+  --sidebar-accent: #e4ecf3;
+  --sidebar-accent-foreground: #42271c;
+  --sidebar-border: #e0d2c0;
+  --sidebar-ring: #6f92b4;
 }
 
-/* Dark bands (header, banner, footer, rail): deep navy with caramel and cream. */
+/* Dark bands (header, banner, footer, rail): chocolate brown with powder blue and cream. */
 .dark {
-  --background: #1a2336;
-  --foreground: #f3ebdf;
-  --card: #222d44;
-  --card-foreground: #f3ebdf;
-  --popover: #1f2940;
-  --popover-foreground: #f3ebdf;
-  --primary: #d6b08a;
-  --primary-foreground: #1a2336;
-  --secondary: #26324b;
-  --secondary-foreground: #f3ebdf;
-  --muted: #26324b;
-  --muted-foreground: #b4bfcd;
-  --accent: #2a3651;
-  --accent-foreground: #f3ebdf;
+  --background: #34201a;
+  --foreground: #f6eee4;
+  --card: #402820;
+  --card-foreground: #f6eee4;
+  --popover: #3a241c;
+  --popover-foreground: #f6eee4;
+  --primary: #c9dbec;
+  --primary-foreground: #34201a;
+  --secondary: #472d23;
+  --secondary-foreground: #f6eee4;
+  --muted: #472d23;
+  --muted-foreground: #d8c7b7;
+  --accent: #4c3127;
+  --accent-foreground: #f6eee4;
   --destructive: oklch(0.7 0.19 22);
-  --border: rgb(255 255 255 / 12%);
-  --input: rgb(255 255 255 / 16%);
-  --ring: #d6b08a;
-  --gold: #d6b08a;
-  --blush: #3a3340;
-  --espresso: #4a3427;
-  --chart-1: #d6b08a;
-  --chart-2: #b4bfcd;
-  --chart-3: #8a7a6a;
-  --chart-4: #5b6b84;
-  --chart-5: #f3ebdf;
-  --sidebar: #1f2940;
-  --sidebar-foreground: #f3ebdf;
-  --sidebar-primary: #d6b08a;
-  --sidebar-primary-foreground: #1a2336;
-  --sidebar-accent: #2a3651;
-  --sidebar-accent-foreground: #f3ebdf;
-  --sidebar-border: rgb(255 255 255 / 12%);
-  --sidebar-ring: #d6b08a;
+  --border: rgb(255 255 255 / 13%);
+  --input: rgb(255 255 255 / 17%);
+  --ring: #c9dbec;
+  --gold: #bcd3ea;
+  --blush: #4c3127;
+  --espresso: #5b3a2b;
+  --chart-1: #bcd3ea;
+  --chart-2: #d8c7b7;
+  --chart-3: #9a7a66;
+  --chart-4: #6f92b4;
+  --chart-5: #f6eee4;
+  --sidebar: #3a241c;
+  --sidebar-foreground: #f6eee4;
+  --sidebar-primary: #c9dbec;
+  --sidebar-primary-foreground: #34201a;
+  --sidebar-accent: #4c3127;
+  --sidebar-accent-foreground: #f6eee4;
+  --sidebar-border: rgb(255 255 255 / 13%);
+  --sidebar-ring: #c9dbec;
 }
 
 @layer base {
@@ -269,3 +269,62 @@
   to { opacity: 1; }
 }
 
+
+/* ---------- Scroll effects between sections ----------
+   Uses the browser's own scroll-linked animations, so there is no extra code to load.
+   Browsers without them simply show everything still. Off for shoppers who turn motion off. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* Rises and fades in as it scrolls into view. */
+    .reveal {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+    /* For grids: each item rises a touch later than the one before. */
+    .reveal-stagger > * {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 75%;
+    }
+    .reveal-stagger > *:nth-child(2) { animation-range: entry 8% entry 85%; }
+    .reveal-stagger > *:nth-child(3) { animation-range: entry 16% entry 95%; }
+    .reveal-stagger > *:nth-child(4) { animation-range: entry 24% cover 30%; }
+    .reveal-stagger > *:nth-child(5) { animation-range: entry 32% cover 34%; }
+    .reveal-stagger > *:nth-child(6) { animation-range: entry 40% cover 38%; }
+    /* Photos open like a curtain from the bottom. */
+    .reveal-clip {
+      animation: reveal-clip linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+    /* A photo inside a frame drifts slower than the page. */
+    .parallax-img {
+      animation: parallax-drift linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+    /* A dark band whose corners round off as it arrives. */
+    .reveal-band {
+      animation: reveal-band linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+  }
+}
+@keyframes reveal-up {
+  from { opacity: 0; translate: 0 56px; }
+  to { opacity: 1; translate: 0 0; }
+}
+@keyframes reveal-clip {
+  from { clip-path: inset(22% 0 0 0); opacity: 0.4; }
+  to { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+@keyframes parallax-drift {
+  from { translate: 0 -7%; scale: 1.16; }
+  to { translate: 0 7%; scale: 1.16; }
+}
+@keyframes reveal-band {
+  from { clip-path: inset(0 4% 0 4% round 28px); }
+  to { clip-path: inset(0 0 0 0 round 0); }
+}
