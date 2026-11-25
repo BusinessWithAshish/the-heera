@@ -72,6 +72,14 @@ export const home = {
     { title: "Bags", body: "Carry the luxe", href: "/shop/bags", image: "/images/home/type-bags.webp", alt: "Crystal bucket bag" },
   ],
 
+  // "On the rail" (after Bestsellers): pieces on gold hangers you turn through in 3D.
+  // Which pieces hang there is railSlugs in src/lib/catalog.ts.
+  rail: {
+    eyebrow: "Turn it round",
+    title: "On the rail",
+    body: "Drag along the rail. The piece in the middle turns to face you.",
+  },
+
   // "Style. Love. Shop.": Instagram reels. Put each video file (.mp4) in
   // public/videos/ and set `video` to its path; it then plays on its own, muted,
   // on a loop. Until a video is added, the photo shows instead. `href` is where a

@@ -2,13 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { GemIcon, ShoppingBagIcon, SparklesIcon, TruckIcon } from "lucide-react";
 
+import { HeeraRail } from "@/components/heera-rail";
 import { HeroSlider } from "@/components/hero-slider";
 import { MobileTrust } from "@/components/home-mobile";
 import { FounderPicture, LovedByYou, Reels, ShopByType } from "@/components/home-sections";
 import { ProductCard } from "@/components/product-card";
 import { Ornament, SectionHeading } from "@/components/section-heading";
 import { home } from "@/config/home";
-import { bestsellerSlugs, newInSlugs, pick } from "@/lib/catalog";
+import { bestsellerSlugs, newInSlugs, pick, pickInOrder, railSlugs } from "@/lib/catalog";
 import { cn } from "@/lib/utils";
 
 // Page order: sliding banner, promises, New In (+ Everyday glamour on bigger screens),
@@ -94,7 +95,8 @@ export default function Home() {
 
       <ShopByType />
 
-      {/* Phones show the reels before Bestsellers; bigger screens show Bestsellers first. */}
+      {/* Bigger screens: Bestsellers, the 3D rail, then the reels.
+          Phones: the reels, Bestsellers, then the 3D rail. */}
       <div className="flex flex-col">
         <section id="bestsellers" className="order-2 mx-auto w-full max-w-7xl scroll-mt-28 px-4 pb-12 sm:px-6 md:order-1 md:pb-16">
           <SectionHeading title="Bestsellers" link={{ href: "/shop", label: "View all" }} />
@@ -105,7 +107,17 @@ export default function Home() {
           </div>
         </section>
 
-        <Reels className="order-1 w-full md:order-2" />
+        {/* On the rail: pieces on gold hangers in 3D, on a dark band */}
+        <section
+          id="on-the-rail"
+          className="dark order-3 mb-12 scroll-mt-28 overflow-hidden bg-espresso bg-[radial-gradient(ellipse_at_50%_30%,oklch(0.42_0.04_60),transparent_65%)] pt-12 pb-12 text-foreground md:order-2 md:mb-16 md:pt-16 md:pb-16"
+        >
+          <SectionHeading eyebrow={home.rail.eyebrow} title={home.rail.title} className="mb-2 px-4 sm:mb-2" />
+          <p className="px-4 text-center text-sm text-foreground/70">{home.rail.body}</p>
+          <HeeraRail products={pickInOrder(railSlugs)} />
+        </section>
+
+        <Reels className="order-1 w-full md:order-3" />
       </div>
 
       <LovedByYou />
