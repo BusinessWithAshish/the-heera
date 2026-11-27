@@ -106,7 +106,7 @@ export function SiteHeader() {
                           <li key={child.href}>
                             <NavigationMenuLink
                               render={<Link href={child.href} />}
-                              className="rounded-none px-3 py-2.5 text-xs tracking-[0.16em] uppercase"
+                              className="rounded-lg px-3 py-2.5 text-xs tracking-[0.16em] uppercase"
                             >
                               {child.label}
                             </NavigationMenuLink>

@@ -42,7 +42,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
               onClick={() => setActive(i)}
               aria-label={`Show photo ${i + 1}`}
               className={cn(
-                "relative aspect-square overflow-hidden bg-muted ring-offset-2 ring-offset-background transition",
+                "relative aspect-square overflow-hidden rounded-xl bg-muted ring-offset-2 ring-offset-background transition",
                 i === active ? "ring-1 ring-foreground" : "opacity-70 hover:opacity-100",
               )}
             >
@@ -50,7 +50,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
             </button>
           ))}
         </div>
-        <div className="relative aspect-[4/5] overflow-hidden bg-muted">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted">
           <Image
             key={images[active]}
             src={images[active]}

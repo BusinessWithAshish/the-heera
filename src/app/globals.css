@@ -105,7 +105,7 @@
   --chart-3: #101a30;
   --chart-4: #e1c9a4;
   --chart-5: #111b31;
-  --radius: 0.125rem;
+  --radius: 0.75rem;
   --sidebar: #efe2cc;
   --sidebar-foreground: #111b31;
   --sidebar-primary: #111b31;
@@ -169,6 +169,7 @@
   position: absolute;
   inset: 12px;
   border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent);
+  border-radius: 1.1rem;
   pointer-events: none;
   z-index: 1;
 }
@@ -404,6 +405,6 @@ body::after {
   to { translate: 0 7%; scale: 1.16; }
 }
 @keyframes reveal-band {
-  from { clip-path: inset(0 4% 0 4% round 28px); }
-  to { clip-path: inset(0 0 0 0 round 0); }
+  from { clip-path: inset(0 4% 0 4% round 3rem); }
+  to { clip-path: inset(0 0 0 0 round 2rem); }
 }

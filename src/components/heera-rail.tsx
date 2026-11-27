@@ -437,7 +437,7 @@ export function HeeraRail({ products }: { products: Product[] }) {
         <Button
           variant="outline"
           size="icon"
-          className="rounded-none border-foreground/30 bg-transparent"
+          className="rounded-full border-foreground/30 bg-transparent"
           aria-label="Previous piece"
           disabled={active === 0}
           onClick={() => goRef.current(active - 1)}
@@ -454,7 +454,7 @@ export function HeeraRail({ products }: { products: Product[] }) {
           <Link
             href={`/products/${piece.slug}`}
             className={cn(
-              "mt-4 inline-flex h-10 items-center justify-center border border-current px-6 text-[11px] tracking-[0.22em] uppercase transition-colors hover:bg-foreground hover:text-background",
+              "mt-4 inline-flex h-10 items-center justify-center rounded-full border border-current px-6 text-[11px] tracking-[0.22em] uppercase transition-colors hover:bg-foreground hover:text-background",
             )}
           >
             View piece
@@ -464,7 +464,7 @@ export function HeeraRail({ products }: { products: Product[] }) {
         <Button
           variant="outline"
           size="icon"
-          className="rounded-none border-foreground/30 bg-transparent"
+          className="rounded-full border-foreground/30 bg-transparent"
           aria-label="Next piece"
           disabled={active === products.length - 1}
           onClick={() => goRef.current(active + 1)}

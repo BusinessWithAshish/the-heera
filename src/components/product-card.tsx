@@ -10,7 +10,7 @@ export function ProductCard({ product, priority, className }: { product: Product
   const [first, second] = product.images;
   return (
     <Link href={`/products/${product.slug}`} className={cn("group block", className)}>
-      <div className="relative aspect-[4/5] overflow-hidden bg-muted">
+      <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted">
         {first && (
           <Image
             src={first}
@@ -35,7 +35,7 @@ export function ProductCard({ product, priority, className }: { product: Product
           />
         )}
         {!product.inStock && (
-          <Badge variant="secondary" className="absolute top-2 left-2 h-5 rounded-none px-2 text-[9px] tracking-[0.16em] uppercase">
+          <Badge variant="secondary" className="absolute top-2 left-2 h-5 rounded-full px-2.5 text-[9px] tracking-[0.16em] uppercase">
             Sold out
           </Badge>
         )}

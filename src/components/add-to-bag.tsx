@@ -51,7 +51,7 @@ export function AddToBag({ product }: { product: Product }) {
                 value={String(s)}
                 variant="outline"
                 className={cn(
-                  "h-11 w-12 rounded-none border-foreground/25 bg-transparent text-sm aria-pressed:border-foreground aria-pressed:bg-foreground aria-pressed:text-background aria-pressed:hover:bg-foreground aria-pressed:hover:text-background",
+                  "size-11 rounded-full border-foreground/25 bg-transparent text-sm aria-pressed:border-foreground aria-pressed:bg-foreground aria-pressed:text-background aria-pressed:hover:bg-foreground aria-pressed:hover:text-background",
                   missingSize && "border-destructive/60",
                 )}
               >
@@ -61,7 +61,7 @@ export function AddToBag({ product }: { product: Product }) {
           </ToggleGroup>
         </div>
       )}
-      <Button onClick={onAdd} className="h-12 w-full rounded-none text-[11px] tracking-[0.22em] uppercase">
+      <Button onClick={onAdd} className="h-12 w-full rounded-full text-[11px] tracking-[0.22em] uppercase">
         Add to bag
       </Button>
     </div>

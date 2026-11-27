@@ -34,7 +34,7 @@ export function CartButton() {
 export function QtyStepper({ line, className }: { line: CartLine; className?: string }) {
   const { setQty } = useCart();
   return (
-    <div className={cn("inline-flex h-8 items-center border border-foreground/20", className)}>
+    <div className={cn("inline-flex h-8 items-center overflow-hidden rounded-full border border-foreground/20", className)}>
       <button
         type="button"
         aria-label={`One less ${line.product.name}`}
@@ -64,7 +64,7 @@ export function CartLineRow({ line, onNavigate }: { line: CartLine; onNavigate?:
       <Link
         href={`/products/${line.slug}`}
         onClick={onNavigate}
-        className="relative aspect-[4/5] w-20 shrink-0 overflow-hidden bg-muted"
+        className="relative aspect-[4/5] w-20 shrink-0 overflow-hidden rounded-lg bg-muted"
       >
         <Image src={line.product.images[0]} alt={line.product.name} fill sizes="80px" className="object-cover" />
       </Link>
@@ -114,7 +114,7 @@ export function CartDrawer() {
             <Link
               href="/shop"
               onClick={close}
-              className={cn(buttonVariants(), "h-11 rounded-none px-8 text-[11px] tracking-[0.2em] uppercase")}
+              className={cn(buttonVariants(), "h-11 rounded-full px-8 text-[11px] tracking-[0.2em] uppercase")}
             >
               Start shopping
             </Link>
@@ -137,11 +137,11 @@ export function CartDrawer() {
               <Link
                 href="/checkout"
                 onClick={close}
-                className={cn(buttonVariants(), "h-12 w-full rounded-none text-[11px] tracking-[0.22em] uppercase")}
+                className={cn(buttonVariants(), "h-12 w-full rounded-full text-[11px] tracking-[0.22em] uppercase")}
               >
                 Checkout
               </Link>
-              <Button variant="ghost" onClick={close} className="h-9 rounded-none text-[11px] tracking-[0.2em] uppercase">
+              <Button variant="ghost" onClick={close} className="h-9 rounded-full text-[11px] tracking-[0.2em] uppercase">
                 Continue shopping
               </Button>
             </SheetFooter>

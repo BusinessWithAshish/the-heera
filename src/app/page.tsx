@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 // trust strip, and the founder's message.
 
 const outlineCta =
-  "inline-flex h-11 items-center justify-center border border-current px-7 text-[11px] tracking-[0.22em] uppercase transition-colors hover:bg-foreground hover:text-background";
+  "inline-flex h-11 items-center justify-center rounded-full border border-current px-7 text-[11px] tracking-[0.22em] uppercase transition-colors hover:bg-foreground hover:text-background";
 
 const promiseIcons = { gem: GemIcon, sparkles: SparklesIcon, bag: ShoppingBagIcon, truck: TruckIcon } as const;
 
@@ -70,7 +70,7 @@ export default function Home() {
 
         <Link
           href={glamour.button.href}
-          className="reveal-clip gold-frame dark group relative isolate hidden min-h-[420px] overflow-hidden bg-navy text-foreground md:flex lg:min-h-0"
+          className="reveal-clip gold-frame dark group relative isolate hidden min-h-[420px] overflow-hidden rounded-[1.75rem] bg-navy text-foreground md:flex lg:min-h-0"
         >
           <div className="absolute inset-0 -z-10 sm:left-[38%]">
             <Image
@@ -99,7 +99,7 @@ export default function Home() {
           Phones: the reels, Bestsellers, then the 3D rail. */}
       <div className="flex flex-col">
         {/* Bestsellers sit on a soft blue band. */}
-        <section id="bestsellers" className="order-2 mb-12 w-full scroll-mt-28 bg-secondary py-12 md:order-1 md:mb-16 md:py-16">
+        <section id="bestsellers" className="order-2 mx-3 mb-12 scroll-mt-28 rounded-[2rem] bg-secondary py-12 md:order-1 md:mx-6 md:mb-16 md:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <SectionHeading title="Bestsellers" link={{ href: "/shop", label: "View all" }} className="reveal" />
             <div className="reveal-stagger grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 md:gap-x-5 lg:grid-cols-6">
@@ -113,7 +113,7 @@ export default function Home() {
         {/* On the rail: pieces on gold hangers in 3D, on a deep navy band */}
         <section
           id="on-the-rail"
-          className="reveal-band dark order-3 mb-12 scroll-mt-28 overflow-hidden bg-navy bg-[radial-gradient(ellipse_at_50%_30%,var(--navy-glow),transparent_65%)] pt-12 pb-12 text-foreground md:order-2 md:mb-16 md:pt-16 md:pb-16"
+          className="reveal-band dark order-3 mx-3 mb-12 scroll-mt-28 overflow-hidden rounded-[2rem] bg-navy bg-[radial-gradient(ellipse_at_50%_30%,var(--navy-glow),transparent_65%)] pt-12 pb-12 text-foreground md:order-2 md:mx-6 md:mb-16 md:pt-16 md:pb-16"
         >
           <SectionHeading eyebrow={home.rail.eyebrow} title={home.rail.title} className="reveal mb-2 px-4 sm:mb-2" />
           <p className="px-4 text-center text-sm text-foreground/70">{home.rail.body}</p>

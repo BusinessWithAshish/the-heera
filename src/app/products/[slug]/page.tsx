@@ -92,7 +92,7 @@ export default async function ProductPage(props: PageProps<"/products/[slug]">) 
         <div className="space-y-7 md:sticky md:top-32 md:self-start">
           <div className="space-y-3">
             {!product.inStock && (
-              <Badge variant="secondary" className="rounded-none tracking-wider uppercase">Sold out</Badge>
+              <Badge variant="secondary" className="rounded-full tracking-wider uppercase">Sold out</Badge>
             )}
             <h1 className="text-4xl leading-tight sm:text-5xl">{product.name}</h1>
             <PriceTag product={product} showSaving className="text-lg" />
@@ -119,7 +119,7 @@ export default async function ProductPage(props: PageProps<"/products/[slug]">) 
                 href={site.instagram.dm}
                 target="_blank"
                 rel="noreferrer"
-                className={cn(buttonVariants({ variant: "outline" }), "h-12 w-full rounded-none text-xs tracking-[0.18em] uppercase")}
+                className={cn(buttonVariants({ variant: "outline" }), "h-12 w-full rounded-full text-xs tracking-[0.18em] uppercase")}
               >
                 Ask us about a restock
               </a>

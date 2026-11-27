@@ -39,7 +39,7 @@ const fields = [
   { name: "pincode", label: "Pincode", type: "text", autoComplete: "postal-code", wide: false },
 ] as const;
 
-const button = "h-12 rounded-none text-[11px] tracking-[0.22em] uppercase";
+const button = "h-12 rounded-full text-[11px] tracking-[0.22em] uppercase";
 
 function orderText(order: OrderResult, d: CheckoutDetails) {
   return [
@@ -92,7 +92,7 @@ export function CheckoutView() {
           <span className="text-foreground">{formatPrice(placed.order.total)}</span>, send it to us below and
           we&apos;ll reply with payment details. We dispatch in {site.shipping.dispatchDays} days.
         </p>
-        <pre className="border bg-card p-5 text-left font-sans text-xs leading-relaxed whitespace-pre-wrap">{text}</pre>
+        <pre className="rounded-2xl border bg-card p-5 text-left font-sans text-xs leading-relaxed whitespace-pre-wrap">{text}</pre>
         <div className="grid gap-3 sm:grid-cols-2">
           <a href={mailto} className={cn(buttonVariants(), button, "gap-2")}>
             <MailIcon className="size-4" /> Send by email
@@ -162,7 +162,7 @@ export function CheckoutView() {
                         rows={3}
                         autoComplete={f.autoComplete}
                         aria-invalid={fieldState.invalid}
-                        className="rounded-none bg-card"
+                        className="rounded-xl bg-card"
                       />
                     ) : (
                       <Input
@@ -172,7 +172,7 @@ export function CheckoutView() {
                         inputMode={f.name === "phone" || f.name === "pincode" ? "numeric" : undefined}
                         autoComplete={f.autoComplete}
                         aria-invalid={fieldState.invalid}
-                        className="h-11 rounded-none bg-card"
+                        className="h-11 rounded-xl bg-card"
                       />
                     )}
                     {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -194,7 +194,7 @@ export function CheckoutView() {
           </p>
         </form>
 
-        <aside className="order-1 self-start border bg-card px-5 py-2 lg:order-2 lg:sticky lg:top-32">
+        <aside className="order-1 self-start rounded-2xl border bg-card px-5 py-2 lg:order-2 lg:sticky lg:top-32">
           <h2 className="pt-4 font-sans text-[11px] tracking-[0.22em] uppercase">Your order</h2>
           <ul className="divide-y">
             {lines.map((line) => (
