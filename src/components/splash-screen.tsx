@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { site } from "@/config/site";
 
-// The opening screen: a gold ribbon draws itself, stars glint, the Heera Luxe logo
+// The opening screen, on deep navy: a fine gold ribbon draws itself, a spark runs along it, stars glint, the Heera Luxe logo
 // rises out of a soft blur and a beam of light runs across it, then the screen parts
 // like curtains onto the site. Shown once per visit (until the tab is closed). Tap to
 // skip. Shoppers who turn motion off never see it. The little script in layout.tsx
@@ -15,11 +15,30 @@ export const SPLASH_KEY = "heera-splash-seen";
 const HOLD_MS = 2500; // how long the logo shows before the curtains open
 const OPEN_MS = 1100; // how long the curtains take
 
+// Bigger stars that glint once.
 const stars = [
-  { x: "18%", y: "24%", s: 22, d: 0.55 },
-  { x: "79%", y: "33%", s: 30, d: 0.95 },
-  { x: "70%", y: "72%", s: 18, d: 1.35 },
-  { x: "27%", y: "68%", s: 14, d: 1.6 },
+  { x: "22%", y: "28%", s: 16, d: 0.55 },
+  { x: "75%", y: "34%", s: 20, d: 0.95 },
+  { x: "66%", y: "70%", s: 13, d: 1.35 },
+  { x: "31%", y: "66%", s: 11, d: 1.6 },
+];
+
+// Tiny sparkles near the ribbon that keep twinkling.
+const sparkles = [
+  { x: "57%", y: "21%", s: 6, d: 0.3 },
+  { x: "62%", y: "31%", s: 4, d: 1.1 },
+  { x: "69%", y: "40%", s: 7, d: 0.7 },
+  { x: "64%", y: "52%", s: 5, d: 1.9 },
+  { x: "54%", y: "58%", s: 6, d: 0.9 },
+  { x: "44%", y: "57%", s: 4, d: 1.5 },
+  { x: "40%", y: "49%", s: 6, d: 0.4 },
+  { x: "47%", y: "43%", s: 4, d: 2.1 },
+  { x: "58%", y: "66%", s: 5, d: 1.2 },
+  { x: "63%", y: "76%", s: 6, d: 0.6 },
+  { x: "36%", y: "36%", s: 3, d: 1.7 },
+  { x: "73%", y: "58%", s: 3, d: 2.4 },
+  { x: "51%", y: "27%", s: 3, d: 1.9 },
+  { x: "28%", y: "48%", s: 3, d: 0.8 },
 ];
 
 function Star({ size }: { size: number }) {
@@ -81,30 +100,30 @@ export function SplashScreen() {
               <stop offset="1" stopColor="#6e452a" />
             </linearGradient>
           </defs>
-          <path
-            className="splash-ribbon"
-            pathLength={1}
-            d="M640 -40 C 520 120, 560 230, 690 330 C 820 430, 760 560, 600 600 C 420 645, 300 560, 360 470 C 420 380, 560 420, 600 520 C 650 650, 760 760, 820 1040"
-            fill="none"
-            stroke="url(#splash-gold)"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-          />
-          <path
-            className="splash-ribbon splash-ribbon-thin"
-            pathLength={1}
-            d="M600 -40 C 470 140, 520 250, 660 350 C 790 450, 740 585, 585 620 C 430 655, 330 590, 380 500"
-            fill="none"
-            stroke="url(#splash-gold)"
-            strokeWidth="1"
-            strokeLinecap="round"
-          />
+          {/* Drawn smaller than the screen, around the middle, with hairline strokes. */}
+          <g transform="translate(500 500) scale(0.62) translate(-500 -500)">
+            <path className="splash-ribbon" pathLength={1} d="M640 -40 C 520 120, 560 230, 690 330 C 820 430, 760 560, 600 600 C 420 645, 300 560, 360 470 C 420 380, 560 420, 600 520 C 650 650, 760 760, 820 1040" fill="none" stroke="url(#splash-gold)" strokeWidth="1.1" vectorEffect="non-scaling-stroke" strokeLinecap="round" />
+            <path className="splash-ribbon splash-ribbon-thin" pathLength={1} d="M600 -40 C 470 140, 520 250, 660 350 C 790 450, 740 585, 585 620 C 430 655, 330 590, 380 500" fill="none" stroke="url(#splash-gold)" strokeWidth="0.6" vectorEffect="non-scaling-stroke" strokeLinecap="round" />
+            {/* A spark of light that keeps running along the ribbon. */}
+            <path className="splash-glint" pathLength={1} d="M640 -40 C 520 120, 560 230, 690 330 C 820 430, 760 560, 600 600 C 420 645, 300 560, 360 470 C 420 380, 560 420, 600 520 C 650 650, 760 760, 820 1040" fill="none" stroke="#fff6e8" strokeWidth="2" vectorEffect="non-scaling-stroke" strokeLinecap="round" />
+            <path className="splash-glint splash-glint-2" pathLength={1} d="M600 -40 C 470 140, 520 250, 660 350 C 790 450, 740 585, 585 620 C 430 655, 330 590, 380 500" fill="none" stroke="#fff6e8" strokeWidth="1.4" vectorEffect="non-scaling-stroke" strokeLinecap="round" />
+          </g>
         </svg>
 
         {stars.map((s) => (
           <span
             key={s.x}
             className="splash-star absolute"
+            style={{ left: s.x, top: s.y, animationDelay: `${s.d}s` }}
+          >
+            <Star size={s.s} />
+          </span>
+        ))}
+
+        {sparkles.map((s) => (
+          <span
+            key={`${s.x}-${s.y}`}
+            className="splash-twinkle absolute"
             style={{ left: s.x, top: s.y, animationDelay: `${s.d}s` }}
           >
             <Star size={s.s} />

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Allura, Cormorant_Garamond, Geist_Mono, Jost } from "next/font/google";
+import { Allura, DM_Serif_Display, Geist_Mono, Jost } from "next/font/google";
 
 import { CartDrawer } from "@/components/cart-drawer";
 import { SiteFooter } from "@/components/site-footer";
@@ -13,10 +13,14 @@ import { CartProvider } from "@/lib/cart";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 
-const display = Cormorant_Garamond({
+// Headings. The owner asked for Safira March, a paid font (its free download is for
+// personal use only). DM Serif Display, a close free match, stands in until the
+// licensed files are bought: then put them in src/app/fonts/ and load them here with
+// next/font/local under the same "--font-display" name.
+const display = DM_Serif_Display({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: "400",
   style: ["normal", "italic"],
 });
 

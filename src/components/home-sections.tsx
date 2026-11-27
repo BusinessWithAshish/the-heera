@@ -22,12 +22,15 @@ export function ShopByType({ className }: { className?: string }) {
           // Phones stack the panels: the first has its words on the left, the
           // second on the right. Bigger screens show both with words on the left.
           const flip = i % 2 === 1;
+          // Alternate the two colours: brown, then navy.
+          const navy = i % 2 === 1;
           return (
             <Link
               key={t.title}
               href={t.href}
               className={cn(
-                "reveal-clip dark group relative isolate flex h-56 overflow-hidden bg-espresso text-foreground md:h-60 md:justify-start md:text-left lg:h-72",
+                "reveal-clip dark group relative isolate flex h-56 overflow-hidden text-foreground md:h-60 md:justify-start md:text-left lg:h-72",
+                navy ? "tone-navy bg-navy" : "bg-espresso",
                 flip && "justify-end text-right",
               )}
             >
@@ -35,7 +38,8 @@ export function ShopByType({ className }: { className?: string }) {
                 <Image src={t.image} alt={t.alt} fill sizes="(min-width: 768px) 30vw, 60vw" className="parallax-img object-cover transition duration-700 group-hover:scale-[1.04]" />
                 <div
                   className={cn(
-                    "absolute inset-y-0 w-1/2 from-espresso to-transparent md:right-auto md:left-0 md:bg-gradient-to-r",
+                    "absolute inset-y-0 w-1/2 to-transparent md:right-auto md:left-0 md:bg-gradient-to-r",
+                    navy ? "from-navy" : "from-espresso",
                     flip ? "right-0 bg-gradient-to-l" : "left-0 bg-gradient-to-r",
                   )}
                 />
@@ -87,7 +91,7 @@ export function Reels({ className }: { className?: string }) {
 export function LovedByYou({ className }: { className?: string }) {
   const photos = home.lovedByYou;
   return (
-    <section className={cn("pb-14 md:pb-20", className)}>
+    <section className={cn("bg-latte py-14 md:py-20", className)}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading title="Loved by you" className="reveal" />
       </div>
