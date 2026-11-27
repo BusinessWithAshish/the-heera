@@ -36,7 +36,7 @@ export function SectionHeading({
       <span />
       <div className="space-y-2 text-center">
         {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-        <h2 className="text-[1.65rem] leading-tight tracking-[0.14em] uppercase sm:text-4xl">{title}</h2>
+        <h2 className="text-[1.4rem] leading-tight tracking-[0.12em] uppercase sm:text-4xl sm:tracking-[0.14em]">{title}</h2>
         <Ornament />
       </div>
       {link ? (

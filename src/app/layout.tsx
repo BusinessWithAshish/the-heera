@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Allura, DM_Serif_Display, Geist_Mono, Jost } from "next/font/google";
+import { Allura, Geist_Mono, Jost, Montserrat } from "next/font/google";
 
 import { CartDrawer } from "@/components/cart-drawer";
 import { SiteFooter } from "@/components/site-footer";
@@ -13,15 +13,13 @@ import { CartProvider } from "@/lib/cart";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 
-// Headings. The owner asked for Safira March, a paid font (its free download is for
-// personal use only). DM Serif Display, a close free match, stands in until the
-// licensed files are bought: then put them in src/app/fonts/ and load them here with
-// next/font/local under the same "--font-display" name.
-const display = DM_Serif_Display({
+// Headings: Montserrat Regular, as the owner chose. (Safira March, the paid font the
+// owner first liked, could replace it later: put the licensed files in src/app/fonts/
+// and load them here with next/font/local under the same "--font-display" name.)
+const display = Montserrat({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
+  weight: ["300", "400", "500"],
 });
 
 const sans = Jost({

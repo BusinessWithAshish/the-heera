@@ -45,7 +45,7 @@ export function ShopByType({ className }: { className?: string }) {
                 />
               </div>
               <div className={cn("flex flex-col justify-center gap-3 lg:pl-12", flip ? "pr-7 md:pr-0 md:pl-8" : "pl-7 md:pl-8")}>
-                <h3 className="text-4xl font-light tracking-[0.14em] uppercase lg:text-5xl">{t.title}</h3>
+                <h3 className="text-[1.75rem] font-light tracking-[0.1em] uppercase md:text-3xl lg:text-4xl">{t.title}</h3>
                 <p className="text-sm text-foreground/85">{t.body}</p>
                 <span className={cn(outline, "mt-2 text-gold md:self-start", flip ? "self-end" : "self-start")}>Explore</span>
               </div>

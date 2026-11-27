@@ -433,7 +433,7 @@ export function HeeraRail({ products }: { products: Product[] }) {
         {mode === "loading" && <div className="size-full animate-pulse bg-foreground/[0.03]" />}
       </div>
 
-      <div className="mx-auto -mt-2 flex max-w-xl items-center justify-between gap-4 px-4 sm:px-6">
+      <div className="relative z-10 mx-auto -mt-[84px] flex max-w-xl items-center justify-between gap-4 px-4 sm:-mt-20 sm:px-6 lg:-mt-24">
         <Button
           variant="outline"
           size="icon"
