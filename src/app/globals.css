@@ -11,9 +11,9 @@
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-display);
   --font-script: var(--font-script);
-  --color-espresso: var(--espresso);
-  --color-powder: var(--powder);
-  --color-powder-deep: var(--powder-deep);
+  --color-navy: var(--navy);
+  --color-navy-glow: var(--navy-glow);
+  --color-sand: var(--sand);
   --color-cocoa: var(--cocoa);
   --color-cocoa-deep: var(--cocoa-deep);
   --color-cream: var(--cream);
@@ -67,102 +67,100 @@
 }
 
 :root {
-  /* Heera palette: powder blue and chocolate brown on soft cream.
-     Brown is the dark colour (header, footer, buttons, dark panels), powder blue the
-     light one (bands and light panels), mocha the accent on cream. */
-  --background: #f8f2ea;
-  --foreground: #3d2419;
-  --card: #fcf8f2;
-  --card-foreground: #3d2419;
-  --popover: #fcf8f2;
-  --popover-foreground: #3d2419;
-  --primary: #4a2b1e;
-  --primary-foreground: #f8f2ea;
-  --secondary: #cfe0ef;
-  --secondary-foreground: #3d2419;
-  --muted: #efe5d8;
-  --muted-foreground: #7c5e4d;
-  --accent: #e3edf6;
-  --accent-foreground: #3d2419;
+  /* Heera palette: deep navy and warm beige, with champagne gold accents.
+     Navy is the dark colour (header, footer, buttons, dark panels and bands);
+     warm beige is the paper, with a deeper sand for bands and light panels. */
+  --background: #f3eadd;
+  --foreground: #17223b;
+  --card: #f8f2e9;
+  --card-foreground: #17223b;
+  --popover: #f8f2e9;
+  --popover-foreground: #17223b;
+  --primary: #17223b;
+  --primary-foreground: #f6eee2;
+  --secondary: #e7d9c5;
+  --secondary-foreground: #17223b;
+  --muted: #ebdfcf;
+  --muted-foreground: #5f6476;
+  --accent: #efe4d4;
+  --accent-foreground: #17223b;
   --destructive: oklch(0.55 0.2 27);
-  --border: #e6d8c7;
-  --input: #dccbb7;
-  --ring: #8d6650;
-  --gold: #8d6650;
-  --blush: #efe1d0;
-  --espresso: #4a2b1e;
-  /* Powder blue for light panels and bands, and a deeper powder blue for lines on it. */
-  --powder: #c4d9ec;
-  --powder-deep: #9dbcd8;
-  /* Warm brown and cream of the founder section. */
+  --border: #e0d1bc;
+  --input: #d6c5ad;
+  --ring: #a8834f;
+  --gold: #a8834f;
+  --blush: #ecdfcd;
+  /* Deep navy for dark panels and bands, and warm sand for light panels. */
+  --navy: #182640;
+  --navy-glow: #2b3d61;
+  --sand: #e3d2ba;
+  /* Brown and cream of the founder section (the owner's own picture). */
   --cocoa: #5a4533;
   --cocoa-deep: #1a120d;
   --cream: #f3e6d6;
-  /* Soft taupe of the founder card on phones. */
   --taupe: #86705f;
   --taupe-deep: #3e332b;
-  --chart-1: #8d6650;
-  --chart-2: #9dbcd8;
-  --chart-3: #4a2b1e;
-  --chart-4: #cfe0ef;
-  --chart-5: #3d2419;
+  --chart-1: #a8834f;
+  --chart-2: #5f6476;
+  --chart-3: #182640;
+  --chart-4: #e3d2ba;
+  --chart-5: #17223b;
   --radius: 0.125rem;
-  --sidebar: #f8f2ea;
-  --sidebar-foreground: #3d2419;
-  --sidebar-primary: #4a2b1e;
-  --sidebar-primary-foreground: #f8f2ea;
-  --sidebar-accent: #e3edf6;
-  --sidebar-accent-foreground: #3d2419;
-  --sidebar-border: #e6d8c7;
-  --sidebar-ring: #8d6650;
+  --sidebar: #f3eadd;
+  --sidebar-foreground: #17223b;
+  --sidebar-primary: #17223b;
+  --sidebar-primary-foreground: #f6eee2;
+  --sidebar-accent: #efe4d4;
+  --sidebar-accent-foreground: #17223b;
+  --sidebar-border: #e0d1bc;
+  --sidebar-ring: #a8834f;
 }
 
-/* Powder blue panels: put "tone-powder bg-powder" on a light blue panel. Words stay
-   chocolate brown; the small titles and lines turn mocha. */
-.tone-powder {
-  --background: #c4d9ec;
-  --foreground: #3d2419;
-  --gold: #6e4c3a;
-  --border: rgb(61 36 25 / 18%);
+/* Warm sand panels: put "tone-sand bg-sand" on a light panel. Words stay navy;
+   the small titles and lines are antique gold. */
+.tone-sand {
+  --background: #e3d2ba;
+  --foreground: #17223b;
+  --gold: #8f6b3d;
+  --border: rgb(23 34 59 / 18%);
 }
 
-/* Dark bands (header, banner, footer, Footwear panel, rail): chocolate brown with
-   powder blue accents and cream words. */
+/* Dark bands (header, banner, footer, Footwear panel, rail): deep navy with
+   champagne gold accents and warm cream words. */
 .dark {
-  --background: #3a2219;
-  --foreground: #f8f0e6;
-  --card: #452a20;
-  --card-foreground: #f8f0e6;
-  --popover: #402619;
-  --popover-foreground: #f8f0e6;
-  --primary: #cfe0ef;
-  --primary-foreground: #3a2219;
-  --secondary: #4c2f24;
-  --secondary-foreground: #f8f0e6;
-  --muted: #4c2f24;
-  --muted-foreground: #dccbbb;
-  --accent: #52342a;
-  --accent-foreground: #f8f0e6;
+  --background: #141f36;
+  --foreground: #f6eee2;
+  --card: #1c2a46;
+  --card-foreground: #f6eee2;
+  --popover: #1a2741;
+  --popover-foreground: #f6eee2;
+  --primary: #d8bb8c;
+  --primary-foreground: #141f36;
+  --secondary: #213150;
+  --secondary-foreground: #f6eee2;
+  --muted: #213150;
+  --muted-foreground: #c4c6cf;
+  --accent: #24355a;
+  --accent-foreground: #f6eee2;
   --destructive: oklch(0.7 0.19 22);
-  --border: rgb(255 255 255 / 13%);
-  --input: rgb(255 255 255 / 17%);
-  --ring: #cfe0ef;
-  --gold: #bfd6eb;
-  --blush: #52342a;
-  --espresso: #4a2b1e;
-  --chart-1: #bfd6eb;
-  --chart-2: #dccbbb;
-  --chart-3: #9a7a66;
-  --chart-4: #9dbcd8;
-  --chart-5: #f8f0e6;
-  --sidebar: #402619;
-  --sidebar-foreground: #f8f0e6;
-  --sidebar-primary: #cfe0ef;
-  --sidebar-primary-foreground: #3a2219;
-  --sidebar-accent: #52342a;
-  --sidebar-accent-foreground: #f8f0e6;
-  --sidebar-border: rgb(255 255 255 / 13%);
-  --sidebar-ring: #cfe0ef;
+  --border: rgb(255 255 255 / 12%);
+  --input: rgb(255 255 255 / 16%);
+  --ring: #d8bb8c;
+  --gold: #d8bb8c;
+  --blush: #24355a;
+  --chart-1: #d8bb8c;
+  --chart-2: #c4c6cf;
+  --chart-3: #8a8fa3;
+  --chart-4: #2b3d61;
+  --chart-5: #f6eee2;
+  --sidebar: #1a2741;
+  --sidebar-foreground: #f6eee2;
+  --sidebar-primary: #d8bb8c;
+  --sidebar-primary-foreground: #141f36;
+  --sidebar-accent: #24355a;
+  --sidebar-accent-foreground: #f6eee2;
+  --sidebar-border: rgb(255 255 255 / 12%);
+  --sidebar-ring: #d8bb8c;
 }
 
 @layer base {

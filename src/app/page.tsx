@@ -70,7 +70,7 @@ export default function Home() {
 
         <Link
           href={glamour.button.href}
-          className="reveal-clip tone-powder group relative isolate hidden min-h-[420px] overflow-hidden bg-powder text-foreground md:flex lg:min-h-0"
+          className="reveal-clip dark group relative isolate hidden min-h-[420px] overflow-hidden bg-navy text-foreground md:flex lg:min-h-0"
         >
           <div className="absolute inset-0 -z-10 sm:left-[38%]">
             <Image
@@ -81,7 +81,7 @@ export default function Home() {
               className="object-cover object-top transition duration-700 group-hover:scale-[1.03]"
             />
           </div>
-          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-powder from-35% via-powder/70 via-50% to-transparent" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy from-35% via-navy/70 via-50% to-transparent" />
           <div className="my-auto max-w-[15rem] space-y-5 p-9">
             <h2 className="text-4xl leading-[1.1] font-light tracking-[0.12em] uppercase">{glamour.title}</h2>
             <Ornament className="justify-start" />
@@ -110,10 +110,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* On the rail: pieces on gold hangers in 3D, on a chocolate brown band */}
+        {/* On the rail: pieces on gold hangers in 3D, on a deep navy band */}
         <section
           id="on-the-rail"
-          className="reveal-band dark order-3 mb-12 scroll-mt-28 overflow-hidden bg-espresso bg-[radial-gradient(ellipse_at_50%_30%,#6a4433,transparent_65%)] pt-12 pb-12 text-foreground md:order-2 md:mb-16 md:pt-16 md:pb-16"
+          className="reveal-band dark order-3 mb-12 scroll-mt-28 overflow-hidden bg-navy bg-[radial-gradient(ellipse_at_50%_30%,var(--navy-glow),transparent_65%)] pt-12 pb-12 text-foreground md:order-2 md:mb-16 md:pt-16 md:pb-16"
         >
           <SectionHeading eyebrow={home.rail.eyebrow} title={home.rail.title} className="reveal mb-2 px-4 sm:mb-2" />
           <p className="px-4 text-center text-sm text-foreground/70">{home.rail.body}</p>

@@ -22,15 +22,15 @@ export function ShopByType({ className }: { className?: string }) {
           // Phones stack the panels: the first has its words on the left, the
           // second on the right. Bigger screens show both with words on the left.
           const flip = i % 2 === 1;
-          // Alternate the two colours: chocolate brown, then powder blue.
-          const powder = i % 2 === 1;
+          // Alternate the two colours: deep navy, then warm sand.
+          const sand = i % 2 === 1;
           return (
             <Link
               key={t.title}
               href={t.href}
               className={cn(
                 "reveal-clip group relative isolate flex h-56 overflow-hidden text-foreground md:h-60 md:justify-start md:text-left lg:h-72",
-                powder ? "tone-powder bg-powder" : "dark bg-espresso",
+                sand ? "tone-sand bg-sand" : "dark bg-navy",
                 flip && "justify-end text-right",
               )}
             >
@@ -39,7 +39,7 @@ export function ShopByType({ className }: { className?: string }) {
                 <div
                   className={cn(
                     "absolute inset-y-0 w-1/2 to-transparent md:right-auto md:left-0 md:bg-gradient-to-r",
-                    powder ? "from-powder" : "from-espresso",
+                    sand ? "from-sand" : "from-navy",
                     flip ? "right-0 bg-gradient-to-l" : "left-0 bg-gradient-to-r",
                   )}
                 />
