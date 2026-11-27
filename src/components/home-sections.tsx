@@ -29,7 +29,7 @@ export function ShopByType({ className }: { className?: string }) {
               key={t.title}
               href={t.href}
               className={cn(
-                "reveal-clip group relative isolate flex h-56 overflow-hidden text-foreground md:h-60 md:justify-start md:text-left lg:h-72",
+                "reveal-clip gold-frame group relative isolate flex h-56 overflow-hidden text-foreground md:h-60 md:justify-start md:text-left lg:h-72",
                 sand ? "tone-sand bg-sand" : "dark bg-navy",
                 flip && "justify-end text-right",
               )}

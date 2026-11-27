@@ -11,11 +11,11 @@ export function Eyebrow({ children, className }: { children: React.ReactNode; cl
 export function Ornament({ className }: { className?: string }) {
   return (
     <span aria-hidden className={cn("flex items-center justify-center gap-2 text-gold", className)}>
-      <span className="h-px w-10 bg-current opacity-60" />
-      <svg viewBox="0 0 10 10" className="size-2.5 fill-current">
+      <span className="h-px w-12 bg-gradient-to-r from-transparent to-current opacity-80" />
+      <svg viewBox="0 0 10 10" className="size-3 fill-current">
         <path d="M5 0 6 4 10 5 6 6 5 10 4 6 0 5 4 4z" />
       </svg>
-      <span className="h-px w-10 bg-current opacity-60" />
+      <span className="h-px w-12 bg-gradient-to-l from-transparent to-current opacity-80" />
     </span>
   );
 }

@@ -31,7 +31,7 @@ export default function Home() {
       <HeroSlider />
 
       {/* Four promises */}
-      <section className="border-y border-secondary bg-secondary">
+      <section className="dark border-y bg-navy text-foreground">
         <div className="mx-auto grid max-w-6xl grid-cols-4 gap-x-1 px-2 py-5 md:grid-cols-2 md:gap-y-6 md:px-6 md:py-6 lg:grid-cols-4 lg:py-5">
           {home.promises.map(({ icon, title, body }, i) => {
             const Icon = promiseIcons[icon];
@@ -40,10 +40,10 @@ export default function Home() {
                 key={title}
                 className={cn(
                   "flex flex-col items-center gap-2 text-center md:flex-row md:gap-4 md:px-2 md:text-left lg:justify-center lg:px-6",
-                  i > 0 && "lg:border-l lg:border-foreground/15",
+                  i > 0 && "lg:border-l lg:border-gold/25",
                 )}
               >
-                <Icon className="size-5 shrink-0 text-foreground/80 md:size-6" strokeWidth={1.1} />
+                <Icon className="size-5 shrink-0 text-gold md:size-6" strokeWidth={1.1} />
                 <div>
                   <p className="text-[8.5px] leading-snug tracking-[0.14em] uppercase md:text-[11px] md:tracking-[0.18em]">{title}</p>
                   <p className="mt-0.5 text-[9.5px] leading-snug text-muted-foreground md:mt-0 md:text-xs">{body}</p>
@@ -70,7 +70,7 @@ export default function Home() {
 
         <Link
           href={glamour.button.href}
-          className="reveal-clip dark group relative isolate hidden min-h-[420px] overflow-hidden bg-navy text-foreground md:flex lg:min-h-0"
+          className="reveal-clip gold-frame dark group relative isolate hidden min-h-[420px] overflow-hidden bg-navy text-foreground md:flex lg:min-h-0"
         >
           <div className="absolute inset-0 -z-10 sm:left-[38%]">
             <Image
