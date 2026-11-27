@@ -12,8 +12,8 @@
   --font-heading: var(--font-display);
   --font-script: var(--font-script);
   --color-espresso: var(--espresso);
-  --color-navy: var(--navy);
-  --color-latte: var(--latte);
+  --color-powder: var(--powder);
+  --color-powder-deep: var(--powder-deep);
   --color-cocoa: var(--cocoa);
   --color-cocoa-deep: var(--cocoa-deep);
   --color-cream: var(--cream);
@@ -67,32 +67,33 @@
 }
 
 :root {
-  /* Heera palette (Pinterest blue & brown): creamy beige paper, rich chocolate
-     ink and bands, soft powder blue as the second colour, dusty blue accents. */
-  --background: #f6efe5;
-  --foreground: #42271c;
-  --card: #fbf6ef;
-  --card-foreground: #42271c;
-  --popover: #fbf6ef;
-  --popover-foreground: #42271c;
-  --primary: #4a2c20;
-  --primary-foreground: #f6efe5;
-  --secondary: #d3e1ee;
-  --secondary-foreground: #2f4a63;
-  --muted: #ece2d4;
-  --muted-foreground: #806554;
-  --accent: #e4ecf3;
-  --accent-foreground: #42271c;
+  /* Heera palette: powder blue and chocolate brown on soft cream.
+     Brown is the dark colour (header, footer, buttons, dark panels), powder blue the
+     light one (bands and light panels), mocha the accent on cream. */
+  --background: #f8f2ea;
+  --foreground: #3d2419;
+  --card: #fcf8f2;
+  --card-foreground: #3d2419;
+  --popover: #fcf8f2;
+  --popover-foreground: #3d2419;
+  --primary: #4a2b1e;
+  --primary-foreground: #f8f2ea;
+  --secondary: #cfe0ef;
+  --secondary-foreground: #3d2419;
+  --muted: #efe5d8;
+  --muted-foreground: #7c5e4d;
+  --accent: #e3edf6;
+  --accent-foreground: #3d2419;
   --destructive: oklch(0.55 0.2 27);
-  --border: #e0d2c0;
-  --input: #d8c8b4;
-  --ring: #6f92b4;
-  --gold: #5f84a8;
-  --blush: #eadccb;
-  --espresso: #5b3a2b;
-  /* Deep navy (second dark colour, next to the brown) and a soft latte band. */
-  --navy: #1d2b46;
-  --latte: #eadbc9;
+  --border: #e6d8c7;
+  --input: #dccbb7;
+  --ring: #8d6650;
+  --gold: #8d6650;
+  --blush: #efe1d0;
+  --espresso: #4a2b1e;
+  /* Powder blue for light panels and bands, and a deeper powder blue for lines on it. */
+  --powder: #c4d9ec;
+  --powder-deep: #9dbcd8;
   /* Warm brown and cream of the founder section. */
   --cocoa: #5a4533;
   --cocoa-deep: #1a120d;
@@ -100,65 +101,68 @@
   /* Soft taupe of the founder card on phones. */
   --taupe: #86705f;
   --taupe-deep: #3e332b;
-  --chart-1: #5f84a8;
-  --chart-2: #b98a66;
-  --chart-3: #5b3a2b;
-  --chart-4: #d3e1ee;
-  --chart-5: #42271c;
+  --chart-1: #8d6650;
+  --chart-2: #9dbcd8;
+  --chart-3: #4a2b1e;
+  --chart-4: #cfe0ef;
+  --chart-5: #3d2419;
   --radius: 0.125rem;
-  --sidebar: #f6efe5;
-  --sidebar-foreground: #42271c;
-  --sidebar-primary: #4a2c20;
-  --sidebar-primary-foreground: #f6efe5;
-  --sidebar-accent: #e4ecf3;
-  --sidebar-accent-foreground: #42271c;
-  --sidebar-border: #e0d2c0;
-  --sidebar-ring: #6f92b4;
+  --sidebar: #f8f2ea;
+  --sidebar-foreground: #3d2419;
+  --sidebar-primary: #4a2b1e;
+  --sidebar-primary-foreground: #f8f2ea;
+  --sidebar-accent: #e3edf6;
+  --sidebar-accent-foreground: #3d2419;
+  --sidebar-border: #e6d8c7;
+  --sidebar-ring: #8d6650;
 }
 
-/* Navy panels: put "dark tone-navy" on a navy panel; its small titles and lines turn caramel. */
-.tone-navy {
-  --gold: #dcb990;
-  --primary: #dcb990;
-  --ring: #dcb990;
+/* Powder blue panels: put "tone-powder bg-powder" on a light blue panel. Words stay
+   chocolate brown; the small titles and lines turn mocha. */
+.tone-powder {
+  --background: #c4d9ec;
+  --foreground: #3d2419;
+  --gold: #6e4c3a;
+  --border: rgb(61 36 25 / 18%);
 }
 
-/* Dark bands (header, banner, footer, Footwear panel): chocolate brown with powder blue and cream. */
+/* Dark bands (header, banner, footer, Footwear panel, rail): chocolate brown with
+   powder blue accents and cream words. */
 .dark {
-  --background: #34201a;
-  --foreground: #f6eee4;
-  --card: #402820;
-  --card-foreground: #f6eee4;
-  --popover: #3a241c;
-  --popover-foreground: #f6eee4;
-  --primary: #c9dbec;
-  --primary-foreground: #34201a;
-  --secondary: #472d23;
-  --secondary-foreground: #f6eee4;
-  --muted: #472d23;
-  --muted-foreground: #d8c7b7;
-  --accent: #4c3127;
-  --accent-foreground: #f6eee4;
+  --background: #3a2219;
+  --foreground: #f8f0e6;
+  --card: #452a20;
+  --card-foreground: #f8f0e6;
+  --popover: #402619;
+  --popover-foreground: #f8f0e6;
+  --primary: #cfe0ef;
+  --primary-foreground: #3a2219;
+  --secondary: #4c2f24;
+  --secondary-foreground: #f8f0e6;
+  --muted: #4c2f24;
+  --muted-foreground: #dccbbb;
+  --accent: #52342a;
+  --accent-foreground: #f8f0e6;
   --destructive: oklch(0.7 0.19 22);
   --border: rgb(255 255 255 / 13%);
   --input: rgb(255 255 255 / 17%);
-  --ring: #c9dbec;
-  --gold: #bcd3ea;
-  --blush: #4c3127;
-  --espresso: #5b3a2b;
-  --chart-1: #bcd3ea;
-  --chart-2: #d8c7b7;
+  --ring: #cfe0ef;
+  --gold: #bfd6eb;
+  --blush: #52342a;
+  --espresso: #4a2b1e;
+  --chart-1: #bfd6eb;
+  --chart-2: #dccbbb;
   --chart-3: #9a7a66;
-  --chart-4: #6f92b4;
-  --chart-5: #f6eee4;
-  --sidebar: #3a241c;
-  --sidebar-foreground: #f6eee4;
-  --sidebar-primary: #c9dbec;
-  --sidebar-primary-foreground: #34201a;
-  --sidebar-accent: #4c3127;
-  --sidebar-accent-foreground: #f6eee4;
+  --chart-4: #9dbcd8;
+  --chart-5: #f8f0e6;
+  --sidebar: #402619;
+  --sidebar-foreground: #f8f0e6;
+  --sidebar-primary: #cfe0ef;
+  --sidebar-primary-foreground: #3a2219;
+  --sidebar-accent: #52342a;
+  --sidebar-accent-foreground: #f8f0e6;
   --sidebar-border: rgb(255 255 255 / 13%);
-  --sidebar-ring: #c9dbec;
+  --sidebar-ring: #cfe0ef;
 }
 
 @layer base {
@@ -215,19 +219,38 @@
   filter: blur(6px);
 }
 .splash-ribbon {
+  opacity: 0.45;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
   filter: drop-shadow(0 0 3px rgba(246, 220, 184, 0.7));
   animation: splash-draw 2s cubic-bezier(0.65, 0, 0.35, 1) 0.1s forwards;
 }
 .splash-ribbon-thin {
-  opacity: 0.6;
+  opacity: 0.3;
   animation-delay: 0.35s;
 }
 @keyframes splash-draw {
   to {
     stroke-dashoffset: 0;
   }
+}
+/* Glitter specks along the waves: each one pops in as the wave reaches it, then keeps twinkling. */
+.splash-glitter {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  filter: drop-shadow(0 0 2px rgba(255, 240, 214, 0.9));
+  animation:
+    splash-glitter-in 0.45s ease-out var(--appear) forwards,
+    splash-glitter-twinkle 1.3s ease-in-out calc(var(--appear) + var(--twinkle)) infinite;
+}
+@keyframes splash-glitter-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes splash-glitter-twinkle {
+  0%, 100% { transform: scale(0.55); filter: brightness(0.75) drop-shadow(0 0 1px rgba(255, 240, 214, 0.6)); }
+  50% { transform: scale(1.15); filter: brightness(1.35) drop-shadow(0 0 4px rgba(255, 244, 222, 1)); }
 }
 /* A short bright dash that keeps travelling along the ribbon. */
 .splash-glint {
@@ -297,13 +320,9 @@
 @keyframes splash-line {
   to { transform: scaleX(1); }
 }
-.splash-tagline,
-.splash-skip {
+.splash-tagline {
   opacity: 0;
   animation: splash-fade 0.9s ease 1.45s forwards;
-}
-.splash-skip {
-  animation-delay: 1.9s;
 }
 @keyframes splash-fade {
   to { opacity: 1; }
